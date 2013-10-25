@@ -267,7 +267,10 @@ class Admin::VirtualServersController < Admin::Base
     template_name = params[:template_name]
     locale_section = 'admin.virtual_servers.form.create_template.error'
 
-    form_errors << ['template_name', t("#{locale_section}.invalid_name")] if !template_name.match(/^[a-z0-9]+$/i)
+    if template_name !~ /\A[a-z0-9_][a-z0-9_.-]*\Z/i || template_name['..'] || template_name =~ /\.\Z/
+      # TODO: write tests
+      form_errors << ['template_name', t("#{locale_section}.invalid_name")]
+    end
     form_errors << ['template_name', t("#{locale_section}.template_exists")] if @virtual_server.hardware_server.os_templates.find_by_name(template_name)
 
     if !form_errors.empty?

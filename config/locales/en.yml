@@ -379,8 +379,9 @@ en:
           button_create: "Create"
           field:
             name: "Name"
+            original_name: "Original name"
           error:
-            invalid_name: "Only digits and English letters are allowed."
+            invalid_name: "Invalid name"
             template_exists: "OS template with same name already exists."
         limits:
           title: "Limits"

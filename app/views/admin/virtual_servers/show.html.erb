@@ -735,18 +735,14 @@ Ext.onReady(function() {
       defaults: { width: 235 },
       defaultType: 'textfield',
       items: [{
-        xtype: 'compositefield',
+        xtype: 'displayfield',
+        fieldLabel: '<%= tjs('admin.virtual_servers.form.create_template.field.original_name') %>',
+        value: '<%= escape_javascript(@virtual_server.orig_os_template) %>'
+      }, {
+        xtype: 'textfield',
         fieldLabel: '<%= tjs('admin.virtual_servers.form.create_template.field.name') %>',
         name: 'template_name',
-        items: [{
-          xtype: 'displayfield',
-          value: '<%= escape_javascript(@virtual_server.orig_os_template) %>-'
-        }, {
-          xtype: 'textfield',
-          name: 'template_name',
-          allowBlank: false,
-          flex: 1
-        }]
+        allowBlank: false
       }]
     });
 
