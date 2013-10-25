@@ -55,4 +55,8 @@ class Admin::Base < ApplicationController
       end
     end
 
+    def spawn &block
+      Spawnling.new(&block)
+    end
+
 end

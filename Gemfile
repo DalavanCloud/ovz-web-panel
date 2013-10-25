@@ -10,7 +10,4 @@ gem 'net-ssh',      '~> 2.7.0'
 gem 'net-sftp',     '~> 2.1.2'
 gem 'ruby-net-ldap','~> 0.0.4'
 
-# now superseded by https://github.com/tra/spawnling
-#gem 'spawn-block',  '~> 2.0'
-
-gem 'looksee'
+gem 'spawnling',    '~> 2.1.1'
