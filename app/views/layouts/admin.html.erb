@@ -168,7 +168,7 @@
               }
             }
           }]
-        }, {
+        } /*, {
           expanded: true,
           expandable: false,
           cls: 'menu-title',
@@ -186,7 +186,7 @@
             icon: '<%= image_path 'bug.png' %>',
             leaf: true
           }]
-        }]
+        } */ ]
       });
       
       <%= render :partial => 'layouts/search' if @current_user.superadmin? %>
