@@ -201,7 +201,7 @@ var showVirtualServerEditForm = function(mode, grid, statsGrid) {
         listeners: {
           render: function() {
             if ('add' == mode) {
-              Ext.getCmp('checkboxStartAfterCreation').setValue(true);
+              // Ext.getCmp('checkboxStartAfterCreation').setValue(true);
             }
           }
         },
@@ -274,7 +274,7 @@ var showVirtualServerEditForm = function(mode, grid, statsGrid) {
           }, {
             fieldLabel: '<%= tjs('admin.virtual_servers.form.create_server.field.start_after_creation') %>',
             xtype: ('add' == mode) ? 'checkbox' : 'hidden',
-            checked: true,
+            checked: false,
             name: 'start_after_creation',
             id: 'checkboxStartAfterCreation'
           }, {
