@@ -6,7 +6,11 @@ class Admin::VirtualServersController < Admin::Base
 
   def list
     @up_level = '/admin/dashboard'
-    @virtual_servers_list = get_virtual_servers_map(@current_user.virtual_servers)
+    virtual_servers = @current_user.virtual_servers
+    @virtual_servers_list = get_virtual_servers_map(virtual_servers)
+
+    # ZZZ: HACK! will not work properly with multiple hardware servers
+    @hardware_server = virtual_servers.first.try(:hardware_server) || HardwareServer.first
   end
 
   def owner_list_data

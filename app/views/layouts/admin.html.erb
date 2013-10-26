@@ -100,12 +100,20 @@
             href: '<%= url_for :controller => 'admin/dashboard' %>',
             icon: '<%= image_path 'application_view_tile.png' %>',
             leaf: true
+          }, {
+            cls: 'menu-item',
+            text: '<%= tjs('admin.menu.general.virtual_servers') %>',
+            href: '<%= url_for :controller => 'admin/virtual-servers/list' %>',
+            icon: '<%= image_path 'server.png' %>',
+            expandable: true,
+            expanded: false,
+            children: <%= @servers_list.to_json %>
           }, <% if @current_user.superadmin? %> {
             cls: 'menu-item',
             text: '<%= tjs('admin.menu.general.hardware_servers') %>',
             href: '<%= url_for :controller => 'admin/hardware-servers/list' %>',
             icon: '<%= image_path 'server.png' %>',
-            expandable: false,
+            expandable: true,
             expanded: true,
             children: <%= @servers_list.to_json %>
           }, {
@@ -114,14 +122,6 @@
             href: '<%= url_for :controller => 'admin/ip-addresses/list' %>',
             icon: '<%= image_path 'network_adapter.png' %>',
             leaf: true
-          }, <% else %> {
-            cls: 'menu-item',
-            text: '<%= tjs('admin.menu.general.virtual_servers') %>',
-            href: '<%= url_for :controller => 'admin/virtual-servers/list' %>',
-            icon: '<%= image_path 'server.png' %>',
-            expandable: false,
-            expanded: true,
-            children: <%= @servers_list.to_json %>
           }, <% end -%> {
             cls: 'menu-item',
             text: '<%= tjs('admin.menu.general.my_profile') %>',

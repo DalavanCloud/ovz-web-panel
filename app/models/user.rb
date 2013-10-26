@@ -50,6 +50,11 @@ class User < ActiveRecord::Base
     can_manage_hardware_servers?
   end
 
+  def virtual_servers_with_superadmin
+    superadmin? ? VirtualServer.all : virtual_servers_without_superadmin
+  end
+  alias_method_chain :virtual_servers, :superadmin
+
   def password_required?
     external_auth = AppConfig.ldap.enabled
     !external_auth && (crypted_password.blank? || !password.blank?)
