@@ -22,12 +22,12 @@ es_AR:
           attributes:
             password:
               confirmation: "La clave y la confirmación no son iguales."
-              too_short: "La clave es muy corta (mínimo de caracteres: {{count}})."
+              too_short: "La clave es muy corta (mínimo de caracteres: %{count})."
             password_confirmation:
               blank: "Se requiere confirmación de la clave."
             login:
               taken: "Ya existe un usuario con ese nombre."
-              too_short: "Nombre de usuario muy corto (mínimo de caracteres: {{count}})."
+              too_short: "Nombre de usuario muy corto (mínimo de caracteres: %{count})."
         hardware_server:
           attributes:
             host:
@@ -40,8 +40,8 @@ es_AR:
               bad_auth: "Imposible autorizar. Probablemente llave errónea"
             daemon_port:
               not_a_number: "Número de puerto inválido."
-              greater_than: "El número de puerto debe ser mayor a {{count}}."
-              less_than: "El número de puerto debe ser menor a {{count}}."
+              greater_than: "El número de puerto debe ser mayor a %{count}."
+              less_than: "El número de puerto debe ser menor a %{count}."
             root_password:
               ssh_bad_auth: "Falló la autorización SSH."
               empty: "Campo requerido."
@@ -94,7 +94,7 @@ es_AR:
     web_site: "Sitio web"
   login:
     page_title: "Ingreso"
-    window_title: "Ingresar a {{product}}"
+    window_title: "Ingresar a %{product}"
     username: "Usuario"
     password: "Clave"
     remember_me: "Recordarme"
@@ -115,7 +115,7 @@ es_AR:
     mail:
       restore_link:
         subject: "Recuperacion de Clave"
-        body: "Para recuperar la clave, ingrese al siguiente vinculo: {{link}}"
+        body: "Para recuperar la clave, ingrese al siguiente vinculo: %{link}"
   reset_password:
     page_title: "Reinicializar Clave"
     window_title: "Reiniciar Clave"
@@ -162,49 +162,49 @@ es_AR:
       contact_name: "Nombre de Contacto"
       email: "Correo"
     events:
-      internal_error: "Error interno: {{message}}"
+      internal_error: "Error interno: %{message}"
       hardware_server:
-        connect: "El servidor real {{host}} fue conectado."
-        disconnect: "El servidor real {{host}} fue desconectado."
-        sync: "El estado del servidor {{host}} fue sincronizado."
-        sync_failed: "Fallo al sincronizar el estado de {{host}}."
-        reboot: "Comenzó el reinicio del servidor {{host}}."
+        connect: "El servidor real %{host} fue conectado."
+        disconnect: "El servidor real %{host} fue desconectado."
+        sync: "El estado del servidor %{host} fue sincronizado."
+        sync_failed: "Fallo al sincronizar el estado de %{host}."
+        reboot: "Comenzó el reinicio del servidor %{host}."
       virtual_server:
-        created: "El servidor virtual {{identity}} fue creado."
-        removed: "El servidor virtual {{identity}} fue borrado."
-        change_state_failed: "Fallo al cambiar el estado del servidor virtual {{identity}}; estado: {{state}}; código: {{code}}."
-        updated: "Las configuraciones del servidor virtual {{identity}} fueron actualizadas."
-        cloned: "El servidor virtual {{identity}} fue clonado."
-        counter_reached: "El límite {{name}} fue alcanzado para el servidor virtual {{identity}} en el servidor real {{host}}."
+        created: "El servidor virtual %{identity} fue creado."
+        removed: "El servidor virtual %{identity} fue borrado."
+        change_state_failed: "Fallo al cambiar el estado del servidor virtual %{identity}; estado: %{state}; código: %{code}."
+        updated: "Las configuraciones del servidor virtual %{identity} fueron actualizadas."
+        cloned: "El servidor virtual %{identity} fue clonado."
+        counter_reached: "El límite %{name} fue alcanzado para el servidor virtual %{identity} en el servidor real %{host}."
       user:
         login:
-          ok: "El usuario {{login}} ingresó."
-          bad_password: "El usuario {{login}} falló el ingreso por clave errónea."
+          ok: "El usuario %{login} ingresó."
+          bad_password: "El usuario %{login} falló el ingreso por clave errónea."
           bad_login: "Intento de ingreso con nombre de usuario desconocido."
-          locked_user: "El usuario bloqueado {{login}} intentó ingresar."
-        logout: "El usuario {{login}} salió."
-        removed: "El usuario {{login}} fue borrado."
-        enabled: "El usuario {{login}} fue habilitado."
-        disabled: "El usuario {{login}} fue inhabilitado."
-        created: "El usuario {{login}} fue creado."
-        updated: "El usuario {{login}} fue actualizado."
-        profile_updated: "El usuario {{login}} actualizó el perfil."
+          locked_user: "El usuario bloqueado %{login} intentó ingresar."
+        logout: "El usuario %{login} salió."
+        removed: "El usuario %{login} fue borrado."
+        enabled: "El usuario %{login} fue habilitado."
+        disabled: "El usuario %{login} fue inhabilitado."
+        created: "El usuario %{login} fue creado."
+        updated: "El usuario %{login} fue actualizado."
+        profile_updated: "El usuario %{login} actualizó el perfil."
       role:
-        removed: "El rol {{name}} fue borrado."
-        created: "El rol {{name}} fue creado."
-        updated: "El rol {{name}} fue actualizado."
+        removed: "El rol %{name} fue borrado."
+        created: "El rol %{name} fue creado."
+        updated: "El rol %{name} fue actualizado."
       request:
-        created: "El pedido #{{id}} fue creado."
-        updated: "El pedido #{{id}} fue actualizado."
-        removed: "El pedido #{{id}} fue borrado."
+        created: "El pedido #%{id} fue creado."
+        updated: "El pedido #%{id} fue actualizado."
+        removed: "El pedido #%{id} fue borrado."
       comment:
-        created: "El comentario en el pedido #{{request_id}} fue creado."
+        created: "El comentario en el pedido #%{request_id} fue creado."
     tasks:
       os_templates:
-        install: "Plantillas de instalación de SO en el servidor {{host}}."
+        install: "Plantillas de instalación de SO en el servidor %{host}."
       backups:
-        create: "Respaldando el servidor virtual #{{identity}} en el servidor real {{host}}."
-        restore: "Restaurando el servidor virtual #{{identity}} en el servidor real {{host}}."
+        create: "Respaldando el servidor virtual #%{identity} en el servidor real %{host}."
+        restore: "Restaurando el servidor virtual #%{identity} en el servidor real %{host}."
     dashboard:
       title: "Pizarrón"
       intro:
@@ -212,10 +212,10 @@ es_AR:
         text: "OpenVZ Web Panel es una interfaz basada en web para controlar servidores con la tecnología OpenVZ."
       profile:
         title: "Perfil"
-        text: "Usted ingresó como {{login}}."
+        text: "Usted ingresó como %{login}."
       updates:
-        text: "Nueva versión disponible: {{product}}."
-        update_command: "Para realizar la actualización debe ejecutar el siguiente comando: {{command}}"
+        text: "Nueva versión disponible: %{product}."
+        update_command: "Para realizar la actualización debe ejecutar el siguiente comando: %{command}"
       stats_grid:
         title: "Estadísticas"
         column:
@@ -268,7 +268,7 @@ es_AR:
           sure_to_reboot: "Los servidores seleccionados no estarán disponibles mientras reinician. ¿Está seguro que los quiere reiniciar?"
           reboot_failed: "Imposible comenzar el reinicio en algunos servidores."
       show:
-        title: "Servidor Real {{name}}"
+        title: "Servidor Real %{name}"
       top_toolbar:
         os_templates: "Plantillas de SO"
         server_templates: "Plantillas de Servidores"
@@ -280,11 +280,11 @@ es_AR:
         field:
           os_version: "Versión de SO"
           cpu_load_average: "Carga promedio de CPU"
-          disk_usage: "Uso de disco, partición {{partition}}"
+          disk_usage: "Uso de disco, partición %{partition}"
           memory_usage: "Uso de memoria"
         value:
-          disk_usage: "{{percent}}%, {{used}} de {{total}} / {{free}} libre"
-          memory_usage: "{{percent}}%, {{used}} de {{total}} / {{free}} libre"
+          disk_usage: "%{percent}%, %{used} de %{total} / %{free} libre"
+          memory_usage: "%{percent}%, %{used} de %{total} / %{free} libre"
     virtual_servers:
       title: "Servidores Virtuales"
       limits:
@@ -403,7 +403,7 @@ es_AR:
           button_migrate: "Migrar"
           note: "Antes de la migración es necesario generar una llave pública SSH para el usuario root en el servidor real de origen y copiarla al servidor real destino. También es necesario verificar/instalar la utilidad rsync en el servidor real destino."
       show:
-        title: "Servidor virtual {{name}}"
+        title: "Servidor virtual %{name}"
         grid:
           title: "Información del servidor virtual"
           column:
@@ -416,12 +416,12 @@ es_AR:
           disk_usage: "Uso de disco"
           memory_usage: "Uso de memoria"
         value:
-          disk_usage: "{{percent}}%, {{used}} de {{total}} / {{free}} libre"
-          memory_usage: "{{percent}}%, {{used}} de {{total}} / {{free}} libre"
+          disk_usage: "%{percent}%, %{used} de %{total} / %{free} libre"
+          memory_usage: "%{percent}%, %{used} de %{total} / %{free} libre"
         button:
           stat_details: "Detalles"
       stat_details:
-        title: "Estadísticas del servidor virtual {{name}}"
+        title: "Estadísticas del servidor virtual %{name}"
         grid:
           title: "Límites del servidor virtual"
           column:
@@ -439,7 +439,7 @@ es_AR:
           disk_usage:
             title: "Uso de Disco"
     os_templates:
-      title: "Plantillas de SO en el servidor real {{name}}"
+      title: "Plantillas de SO en el servidor real %{name}"
       grid:
         title: "Plantillas de SO Instaladas"
         column:
@@ -529,7 +529,7 @@ es_AR:
           id: "ID"
           description: "Descripción"
     server_templates:
-      title: "Plantillas de Servidor en el Servidor Real {{name}}"
+      title: "Plantillas de Servidor en el Servidor Real %{name}"
       grid:
         title: "Plantillas de Servidor Disponibles"
         column:
@@ -572,7 +572,7 @@ es_AR:
               soft_limit: "Barrera"
               hard_limit: "Límite"
     backups:
-      title: "Respaldos del servidor virtual #{{identity}}"
+      title: "Respaldos del servidor virtual #%{identity}"
       grid:
         title: "Respaldos"
         button:
@@ -631,7 +631,7 @@ es_AR:
             subject: "Asunto"
             content: "Mensaje"
       comments:
-        title: "Pedido #{{id}}"
+        title: "Pedido #%{id}"
         grid:
           title: "Comentarios"
           column:
@@ -648,11 +648,11 @@ es_AR:
               content: "Mensaje"
       mail:
         new_request:
-          subject: "Nuevo pedido #{{id}}"
-          body: "El pedido nuevo #{{id}} fue creado por {{login}}."
+          subject: "Nuevo pedido #%{id}"
+          body: "El pedido nuevo #%{id} fue creado por %{login}."
         new_comment:
-          subject: "Nuevo comentario en el pedido #{{request_id}}"
-          body: "El comentario nuevo en el pedido #{{request_id}} fue creado por {{login}}."
+          subject: "Nuevo comentario en el pedido #%{request_id}"
+          body: "El comentario nuevo en el pedido #%{request_id} fue creado por %{login}."
     roles:
       title: "Roles"
       grid:

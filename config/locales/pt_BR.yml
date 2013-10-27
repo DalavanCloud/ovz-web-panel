@@ -22,12 +22,12 @@ pt_BR:
           attributes:
             password:
               confirmation: "As senhas digitadas não são iguais..."
-              too_short: "Senha muito curta (minimum symbols: {{count}})."
+              too_short: "Senha muito curta (minimum symbols: %{count})."
             password_confirmation:
               blank: "É necessário a confirmação da senha."
             login:
               taken: "Nome de usuário já existe."
-              too_short: "Nome de usuário (login) muito curto (minimum symbols: {{count}})."
+              too_short: "Nome de usuário (login) muito curto (minimum symbols: %{count})."
         hardware_server:
           attributes:
             host:
@@ -40,8 +40,8 @@ pt_BR:
               bad_auth: "Não autorizado. Provavelmente a chave de autenticação está incorreta."
             daemon_port:
               not_a_number: "Porta inválida."
-              greater_than: "O número da porta deverá ser superior a {{count}}."
-              less_than: "O número da porta não poderá ser inferior a {{count}}."
+              greater_than: "O número da porta deverá ser superior a %{count}."
+              less_than: "O número da porta não poderá ser inferior a %{count}."
             root_password:
               ssh_bad_auth: "Autorização SSH falhou."
               empty: "Necessário o preenchimento deste campo."
@@ -94,7 +94,7 @@ pt_BR:
     web_site: "Página Web"
   login:
     page_title: "Login"
-    window_title: "Entrar utilizando o {{product}}"
+    window_title: "Entrar utilizando o %{product}"
     username: "Usuário"
     password: "Senha"
     remember_me: "Lembre-me"
@@ -115,7 +115,7 @@ pt_BR:
     mail:
       restore_link:
         subject: "Recuperação de senha"
-        body: "Para recuperar sua senha siga o link: {{link}}"
+        body: "Para recuperar sua senha siga o link: %{link}"
   reset_password:
     page_title: "Resetar Senha"
     window_title: "Resetar Senha"
@@ -162,49 +162,49 @@ pt_BR:
       contact_name: "Nome de contato"
       email: "E-mail"
     events:
-      internal_error: "Erro interno: {{message}}"
+      internal_error: "Erro interno: %{message}"
       hardware_server:
-        connect: "Servidor físico {{host}} foi conectado."
-        disconnect: "Servidor físico {{host}} foi desconectado."
-        sync: "Servidores {{host}} estão sinconizados."
-        sync_failed: "Falha ao sincronizar o estado do host {{host}}."
-        reboot: "Reinicializando o servidor {{host}}."
+        connect: "Servidor físico %{host} foi conectado."
+        disconnect: "Servidor físico %{host} foi desconectado."
+        sync: "Servidores %{host} estão sinconizados."
+        sync_failed: "Falha ao sincronizar o estado do host %{host}."
+        reboot: "Reinicializando o servidor %{host}."
       virtual_server:
-        created: "Servidor virtual {{identity}} foi criado."
-        removed: "Servidor virtual {{identity}} foi removido."
-        change_state_failed: "Falha ao tentar mudar o stado do servidor virtual {{identity}}; stado: {{state}}; code: {{code}}."
-        updated: "Condigurações do servidor virtual {{identity}} foram atualizadas."
-        cloned: "Servidor virtual {{identity}} foi clonado."
-        counter_reached: "Limite {{name}} atingido no servidor virtual {{identity}} no servidor físico {{host}}."
+        created: "Servidor virtual %{identity} foi criado."
+        removed: "Servidor virtual %{identity} foi removido."
+        change_state_failed: "Falha ao tentar mudar o stado do servidor virtual %{identity}; stado: %{state}; code: %{code}."
+        updated: "Condigurações do servidor virtual %{identity} foram atualizadas."
+        cloned: "Servidor virtual %{identity} foi clonado."
+        counter_reached: "Limite %{name} atingido no servidor virtual %{identity} no servidor físico %{host}."
       user:
         login:
-          ok: "Usuário {{login}} está logado."
-          bad_password: "Usuário {{login}} não digitou a senha correta."
+          ok: "Usuário %{login} está logado."
+          bad_password: "Usuário %{login} não digitou a senha correta."
           bad_login: "tentativa de acesso com nome de usuário desconhecido."
-          locked_user: "Usuário bloqueado {{login}} tentou realizar acesso."
-        logout: "Usuário {{login}} desconectado."
-        removed: "Usuário {{login}} removido."
-        enabled: "Usuário {{login}} habilitado."
-        disabled: "Usuário {{login}} desabilitado."
-        created: "Usuário {{login}} criado."
-        updated: "Usuário {{login}} atualizado."
-        profile_updated: "Perfil do usuário {{login}} atualizado."
+          locked_user: "Usuário bloqueado %{login} tentou realizar acesso."
+        logout: "Usuário %{login} desconectado."
+        removed: "Usuário %{login} removido."
+        enabled: "Usuário %{login} habilitado."
+        disabled: "Usuário %{login} desabilitado."
+        created: "Usuário %{login} criado."
+        updated: "Usuário %{login} atualizado."
+        profile_updated: "Perfil do usuário %{login} atualizado."
       role:
-        removed: "Regra {{name}} removida."
-        created: "Regra {{name}} criada."
-        updated: "Regra {{name}} atualizada."
+        removed: "Regra %{name} removida."
+        created: "Regra %{name} criada."
+        updated: "Regra %{name} atualizada."
       request:
-        created: "Request #{{id}} criada."
-        updated: "Request #{{id}} atualizada."
-        removed: "Request #{{id}} removida."
+        created: "Request #%{id} criada."
+        updated: "Request #%{id} atualizada."
+        removed: "Request #%{id} removida."
       comment:
-        created: "Comentário  para requisição #{{request_id}} criado."
+        created: "Comentário  para requisição #%{request_id} criado."
     tasks:
       os_templates:
-        install: "Instalação de template no servidor {{host}}."
+        install: "Instalação de template no servidor %{host}."
       backups:
-        create: "Backup do servidor virtual #{{identity}} no servidor físico {{host}}."
-        restore: "Restaurar servidor virtual #{{identity}} no servidor físico {{host}}."
+        create: "Backup do servidor virtual #%{identity} no servidor físico %{host}."
+        restore: "Restaurar servidor virtual #%{identity} no servidor físico %{host}."
     dashboard:
       title: "Painel"
       intro:
@@ -212,10 +212,10 @@ pt_BR:
         text: "OpenVZ Web Panel é um interface WEB desenvolvida para controlar servidores físicos que utilizam a tecnologia/software de virtualização OpenVZ."
       profile:
         title: "Perfil"
-        text: "Você está logado como {{login}}."
+        text: "Você está logado como %{login}."
       updates:
-        text: "Está disponível uma nova versão: {{product}}."
-        update_command: "Para realizar a atualização, é necessário executar os seguintes comandos: {{command}}"
+        text: "Está disponível uma nova versão: %{product}."
+        update_command: "Para realizar a atualização, é necessário executar os seguintes comandos: %{command}"
       stats_grid:
         title: "Estatísticas"
         column:
@@ -268,7 +268,7 @@ pt_BR:
           sure_to_reboot: "Os servidores selecionados estarão indisponíveis durante a reinicialização. Tem certeza que deseja reiniciar?"
           reboot_failed: "Não foi possível iniciar/reiniciar alguns servidores."
       show:
-        title: "Servidor físico {{name}}"
+        title: "Servidor físico %{name}"
       top_toolbar:
         os_templates: "Template de sistema operacional"
         server_templates: "Template de servidor"
@@ -280,11 +280,11 @@ pt_BR:
         field:
           os_version: "Versão do SO"
           cpu_load_average: "Uso do CPU"
-          disk_usage: "Uso do disco, partição {{partition}}"
+          disk_usage: "Uso do disco, partição %{partition}"
           memory_usage: "Uso da memória"
         value:
-          disk_usage: "{{percent}}%, {{used}} de {{total}} / {{free}} Livre"
-          memory_usage: "{{percent}}%, {{used}} de {{total}} / {{free}} Livre"
+          disk_usage: "%{percent}%, %{used} de %{total} / %{free} Livre"
+          memory_usage: "%{percent}%, %{used} de %{total} / %{free} Livre"
     virtual_servers:
       title: "Servidores virtuais"
       limits:
@@ -403,7 +403,7 @@ pt_BR:
           button_migrate: "Migrar"
           note: "Antes da migração, é necessário a criação de uma chave pública para o usuário root no servidor físico de origem e copiar esta chave para o servidor físico de destino. Também é necessário verificar se o utilitário rsync esta instalado no servidor de destino."
       show:
-        title: "Servidor virtual {{name}}"
+        title: "Servidor virtual %{name}"
         grid:
           title: "Informações do servidor virtual"
           column:
@@ -416,12 +416,12 @@ pt_BR:
           disk_usage: "Uso do disco"
           memory_usage: "Uso da memória"
         value:
-          disk_usage: "{{percent}}%, {{used}} de {{total}} / {{free}} livre"
-          memory_usage: "{{percent}}%, {{used}} de {{total}} / {{free}} livre"
+          disk_usage: "%{percent}%, %{used} de %{total} / %{free} livre"
+          memory_usage: "%{percent}%, %{used} de %{total} / %{free} livre"
         button:
           stat_details: "Detalhes"
       stat_details:
-        title: "Estatísticas do servidor virtual {{name}}"
+        title: "Estatísticas do servidor virtual %{name}"
         grid:
           title: "Limites do servidor virtual"
           column:
@@ -439,7 +439,7 @@ pt_BR:
           disk_usage:
             title: "Uso de disco"
     os_templates:
-      title: "Template de SO disponíveis em{{name}}"
+      title: "Template de SO disponíveis em%{name}"
       grid:
         title: "Templates de SO disponíveis"
         column:
@@ -529,7 +529,7 @@ pt_BR:
           id: "ID"
           description: "Descrição"
     server_templates:
-      title: "Templates no Servidor físico {{name}}"
+      title: "Templates no Servidor físico %{name}"
       grid:
         title: "Templates disponíveis no servidor"
         column:
@@ -572,7 +572,7 @@ pt_BR:
               soft_limit: "Barreira"
               hard_limit: "Limite"
     backups:
-      title: "Backups do servidor virtual {{name}}"
+      title: "Backups do servidor virtual %{name}"
       grid:
         title: "Backups"
         button:
@@ -631,7 +631,7 @@ pt_BR:
             subject: "Assunto"
             content: "Mensagem"
       comments:
-        title: "Requisição número #{{id}}"
+        title: "Requisição número #%{id}"
         grid:
           title: "Comentários"
           column:
@@ -648,11 +648,11 @@ pt_BR:
               content: "Mensagem"
       mail:
         new_request:
-          subject: "Nova requisição #{{id}}"
-          body: "Nova requisição código #{{id}} criada pelo usuário {{login}}."
+          subject: "Nova requisição #%{id}"
+          body: "Nova requisição código #%{id} criada pelo usuário %{login}."
         new_comment:
-          subject: "Novo comentário na requisição de código #{{request_id}}"
-          body: "Novo comentário na requisição de código #{{request_id}} foi adicionada pelo usuário {{login}}."
+          subject: "Novo comentário na requisição de código #%{request_id}"
+          body: "Novo comentário na requisição de código #%{request_id} foi adicionada pelo usuário %{login}."
     roles:
       title: "Regras"
       grid:

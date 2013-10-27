@@ -22,12 +22,12 @@ ja:
           attributes:
             password:
               confirmation: "パスワードとその確認が一致しません。"
-              too_short: "パスワードが短すぎます (最小値: {{count}}) 。"
+              too_short: "パスワードが短すぎます (最小値: %{count}) 。"
             password_confirmation:
               blank: "確認用パスワードは必須です。"
             login:
               taken: "そのログイン名のユーザーがすでに存在します。"
-              too_short: "ログイン名が短すぎます (最小値: {{count}}) 。"
+              too_short: "ログイン名が短すぎます (最小値: %{count}) 。"
         hardware_server:
           attributes:
             host:
@@ -40,8 +40,8 @@ ja:
               bad_auth: "認証できません。おそらく認証キーが無効です。"
             daemon_port:
               not_a_number: "無効なポートナンバー。"
-              greater_than: "ポートナンバーは {{count}} 以上である必要があります。"
-              less_than: "ポートナンバーは {{count}} 以下である必要があります。"
+              greater_than: "ポートナンバーは %{count} 以上である必要があります。"
+              less_than: "ポートナンバーは %{count} 以下である必要があります。"
             root_password:
               ssh_bad_auth: "SSH 認証に失敗しました。"
               empty: "このフィールドは必須です。"
@@ -94,7 +94,7 @@ ja:
     web_site: "Web サイト"
   login:
     page_title: "ログイン"
-    window_title: "{{product}} へログイン"
+    window_title: "%{product} へログイン"
     username: "ユーザー名"
     password: "パスワード"
     remember_me: "記憶させる"
@@ -115,7 +115,7 @@ ja:
     mail:
       restore_link:
         subject: "パスワードリカバリ"
-        body: "パスワードをリストアするには、次のリンクに移動します: {{link}}"
+        body: "パスワードをリストアするには、次のリンクに移動します: %{link}"
   reset_password:
     page_title: "パスワードのリセット"
     window_title: "パスワードのリセット"
@@ -162,49 +162,49 @@ ja:
       contact_name: "コンタクト名"
       email: "メール"
     events:
-      internal_error: "内部エラー: {{message}}"
+      internal_error: "内部エラー: %{message}"
       hardware_server:
-        connect: "物理サーバー {{host}} は接続されました。"
-        disconnect: "物理サーバー {{host}} は切断されました。"
-        sync: "サーバー {{host}} のステータスは同期されました。"
-        sync_failed: "サーバー {{host}} のステータス同期に失敗しました。"
-        reboot: "サーバー {{host}} のリブートの開始。"
+        connect: "物理サーバー %{host} は接続されました。"
+        disconnect: "物理サーバー %{host} は切断されました。"
+        sync: "サーバー %{host} のステータスは同期されました。"
+        sync_failed: "サーバー %{host} のステータス同期に失敗しました。"
+        reboot: "サーバー %{host} のリブートの開始。"
       virtual_server:
-        created: "仮想サーバー {{identity}} は作成されました。"
-        removed: "仮想サーバー {{identity}} は削除されました。"
-        change_state_failed: "仮想サーバー {{identity}} のステータス変更に失敗; ステータス: {{state}}; コード: {{code}}."
-        updated: "仮想サーバー {{identity}} の設定はアップデートされました。"
-        cloned: "仮想サーバー {{identity}} は、複製されました。"
-        counter_reached: "物理サーバー {{host}} 上の仮想サーバー {{identity}} が、リミット {{name}} に到達しました。"
+        created: "仮想サーバー %{identity} は作成されました。"
+        removed: "仮想サーバー %{identity} は削除されました。"
+        change_state_failed: "仮想サーバー %{identity} のステータス変更に失敗; ステータス: %{state}; コード: %{code}."
+        updated: "仮想サーバー %{identity} の設定はアップデートされました。"
+        cloned: "仮想サーバー %{identity} は、複製されました。"
+        counter_reached: "物理サーバー %{host} 上の仮想サーバー %{identity} が、リミット %{name} に到達しました。"
       user:
         login:
-          ok: "ユーザー {{login}} がログインしました。"
-          bad_password: "ユーザー {{login}} が、不正なパスワードによりログインに失敗しました。"
+          ok: "ユーザー %{login} がログインしました。"
+          bad_password: "ユーザー %{login} が、不正なパスワードによりログインに失敗しました。"
           bad_login: "不明なログイン名でログインが試行されました。"
-          locked_user: "ロックされたユーザー {{login}} がログインを試行しました。"
-        logout: "ユーザー {{login}} がログアウトしました。"
-        removed: "ユーザー {{login}} が削除されました。"
-        enabled: "ユーザー {{login}} が有効化されました。"
-        disabled: "ユーザー {{login}} が無効化されました。"
-        created: "ユーザー {{login}} が作成されました。"
-        updated: "ユーザー {{login}} が更新されました。"
-        profile_updated: "ユーザー {{login}} のプロファイルが更新されました。"
+          locked_user: "ロックされたユーザー %{login} がログインを試行しました。"
+        logout: "ユーザー %{login} がログアウトしました。"
+        removed: "ユーザー %{login} が削除されました。"
+        enabled: "ユーザー %{login} が有効化されました。"
+        disabled: "ユーザー %{login} が無効化されました。"
+        created: "ユーザー %{login} が作成されました。"
+        updated: "ユーザー %{login} が更新されました。"
+        profile_updated: "ユーザー %{login} のプロファイルが更新されました。"
       role:
-        removed: "ロール {{name}} が削除されました。"
-        created: "ロール {{name}} が作成されました。"
-        updated: "ロール {{name}} が更新されました。"
+        removed: "ロール %{name} が削除されました。"
+        created: "ロール %{name} が作成されました。"
+        updated: "ロール %{name} が更新されました。"
       request:
-        created: "リクエスト #{{id}} が作成されました。"
-        updated: "リクエスト #{{id}} が更新されました。"
-        removed: "リクエスト #{{id}} が削除されました。"
+        created: "リクエスト #%{id} が作成されました。"
+        updated: "リクエスト #%{id} が更新されました。"
+        removed: "リクエスト #%{id} が削除されました。"
       comment:
-        created: "リクエスト #{{request_id}} のコメントが作成されました。"
+        created: "リクエスト #%{request_id} のコメントが作成されました。"
     tasks:
       os_templates:
-        install: "サーバー {{host}} への OS テンプレートのインストール。"
+        install: "サーバー %{host} への OS テンプレートのインストール。"
       backups:
-        create: "物理サーバー {{host}} 上の仮想サーバー #{{identity}} のバックアップ。"
-        restore: "物理サーバー {{host}} 上の仮想サーバー #{{identity}} のリストア。"
+        create: "物理サーバー %{host} 上の仮想サーバー #%{identity} のバックアップ。"
+        restore: "物理サーバー %{host} 上の仮想サーバー #%{identity} のリストア。"
     dashboard:
       title: "ダッシュボード"
       intro:
@@ -212,10 +212,10 @@ ja:
         text: "OpenVZ Web Panel は OpenVZ 仮想化テクノロジを実装した物理サーバーをコントロールする、web ベース GUI のフロントエンドです。"
       profile:
         title: "プロファイル"
-        text: "{{login}} としてログインしています。"
+        text: "%{login} としてログインしています。"
       updates:
-        text: "新しいバージョンが入手可能です: {{product}} 。"
-        update_command: "アップデートを実行するには、次のコマンドを起動する必要があります: {{command}}"
+        text: "新しいバージョンが入手可能です: %{product} 。"
+        update_command: "アップデートを実行するには、次のコマンドを起動する必要があります: %{command}"
       stats_grid:
         title: "統計情報"
         column:
@@ -268,7 +268,7 @@ ja:
           sure_to_reboot: "選択されたサーバーはリブートのあいだ利用できません。それらをリブートしてよろしいですか?"
           reboot_failed: "いくつかのサーバーのリブートを開始できません。"
       show:
-        title: "物理サーバー {{name}}"
+        title: "物理サーバー %{name}"
       top_toolbar:
         os_templates: "OS テンプレート"
         server_templates: "サーバーテンプレート"
@@ -280,11 +280,11 @@ ja:
         field:
           os_version: "OS バージョン"
           cpu_load_average: "CPU ロードアベレージ"
-          disk_usage: "ディスク使用量、パーティション {{partition}}"
+          disk_usage: "ディスク使用量、パーティション %{partition}"
           memory_usage: "メモリ使用量"
         value:
-          disk_usage: "{{percent}}% 、{{total}} 中 {{used}} 使用 / {{free}} フリー"
-          memory_usage: "{{percent}}% 、{{total}} 中 {{used}} 使用 / {{free}} フリー"
+          disk_usage: "%{percent}% 、%{total} 中 %{used} 使用 / %{free} フリー"
+          memory_usage: "%{percent}% 、%{total} 中 %{used} 使用 / %{free} フリー"
     virtual_servers:
       title: "仮想サーバー"
       limits:
@@ -403,7 +403,7 @@ ja:
           button_migrate: "マイグレーション"
           note: "マイグレーションの前に、ソース物理サーバー上の root ユーザーで SSH 公開鍵を生成して、移行先物理サーバーにこれをコピーする必要があります。また、移行先物理サーバーで rsync ユーティリティのインストールを確認します。"
       show:
-        title: "仮想サーバー {{name}}"
+        title: "仮想サーバー %{name}"
         grid:
           title: "仮想サーバー情報"
           column:
@@ -416,12 +416,12 @@ ja:
           disk_usage: "ディスク使用量"
           memory_usage: "メモリ使用量"
         value:
-          disk_usage: "{{percent}}% 、{{total}} 中 {{used}} 使用 / {{free}} フリー"
-          memory_usage: "{{percent}}% 、{{total}} 中 {{used}} 使用 / {{free}} フリー"
+          disk_usage: "%{percent}% 、%{total} 中 %{used} 使用 / %{free} フリー"
+          memory_usage: "%{percent}% 、%{total} 中 %{used} 使用 / %{free} フリー"
         button:
           stat_details: "詳細"
       stat_details:
-        title: "仮想サーバー {{name}} の統計情報"
+        title: "仮想サーバー %{name} の統計情報"
         grid:
           title: "仮想サーバーリミット"
           column:
@@ -439,7 +439,7 @@ ja:
           disk_usage:
             title: "ディスク使用量"
     os_templates:
-      title: "物理サーバー {{name}} の OS テンプレート"
+      title: "物理サーバー %{name} の OS テンプレート"
       grid:
         title: "インストール済み OS テンプレート"
         column:
@@ -529,7 +529,7 @@ ja:
           id: "ID"
           description: "説明"
     server_templates:
-      title: "物理サーバー {{name}} 上のサーバーテンプレート"
+      title: "物理サーバー %{name} 上のサーバーテンプレート"
       grid:
         title: "利用可能なサーバーテンプレート"
         column:
@@ -572,7 +572,7 @@ ja:
               soft_limit: "境界"
               hard_limit: "制限"
     backups:
-      title: "仮想サーバー {{name}} のバックアップ"
+      title: "仮想サーバー %{name} のバックアップ"
       grid:
         title: "バックアップ"
         button:
@@ -631,7 +631,7 @@ ja:
             subject: "サブジェクト"
             content: "メッセージ"
       comments:
-        title: "リクエスト #{{id}}"
+        title: "リクエスト #%{id}"
         grid:
           title: "コメント"
           column:
@@ -648,11 +648,11 @@ ja:
               content: "メッセージ"
       mail:
         new_request:
-          subject: "新規リクエスト #{{id}}"
-          body: "{{login}} により新規リクエスト #{{id}} が作成されました。"
+          subject: "新規リクエスト #%{id}"
+          body: "%{login} により新規リクエスト #%{id} が作成されました。"
         new_comment:
-          subject: "リクエスト #{{request_id}} の新規コメント"
-          body: "{{login}} によりリクエスト #{{request_id}} の新規コメントが追加されました。"
+          subject: "リクエスト #%{request_id} の新規コメント"
+          body: "%{login} によりリクエスト #%{request_id} の新規コメントが追加されました。"
     roles:
       title: "ロール"
       grid:

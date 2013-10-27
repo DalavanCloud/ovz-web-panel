@@ -22,12 +22,12 @@ pl:
           attributes:
             password:
               confirmation: "Niewłaściwie powtórzone hasło."
-              too_short: "Hasło zbyt krótkie (minimalna liczba znaków: {{count}})."
+              too_short: "Hasło zbyt krótkie (minimalna liczba znaków: %{count})."
             password_confirmation:
               blank: "Wymagane jest powtórzenie hasła."
             login:
               taken: "Użytkownik z takim loginem juz istnieje."
-              too_short: "Login jest zbyt krótki (minimalna liczba znaków: {{count}})."
+              too_short: "Login jest zbyt krótki (minimalna liczba znaków: %{count})."
         hardware_server:
           attributes:
             host:
@@ -40,8 +40,8 @@ pl:
               bad_auth: "Błąd autoryzacji. Prawdopodobnie niewłaściwy klucz."
             daemon_port:
               not_a_number: "Błędny numer portu."
-              greater_than: "Numer portu musi być większy niż {{count}}."
-              less_than: "Numer portu musi być mniejszy niż {{count}}."
+              greater_than: "Numer portu musi być większy niż %{count}."
+              less_than: "Numer portu musi być mniejszy niż %{count}."
             root_password:
               ssh_bad_auth: "Nieudana autoryzacja SSH."
               empty: "To pole jest wymagane."
@@ -94,7 +94,7 @@ pl:
     web_site: "Strona WWW"
   login:
     page_title: "Logowanie"
-    window_title: "Zaloguj się do {{product}}"
+    window_title: "Zaloguj się do %{product}"
     username: "Login"
     password: "Hasło"
     remember_me: "Pamiętaj mnie"
@@ -115,7 +115,7 @@ pl:
     mail:
       restore_link:
         subject: "Odzyskiwanie hasła"
-        body: "Aby odzyskać hasło, kliknij na link: {{link}}"
+        body: "Aby odzyskać hasło, kliknij na link: %{link}"
   reset_password:
     page_title: "Resetowanie hasła"
     window_title: "Resetuj hasło"
@@ -162,49 +162,49 @@ pl:
       contact_name: "Osoba kontaktowa"
       email: "E-mail"
     events:
-      internal_error: "Błąd wewnętrzny: {{message}}"
+      internal_error: "Błąd wewnętrzny: %{message}"
       hardware_server:
-        connect: "Serwer fizyczny {{host}} został podłączony."
-        disconnect: "Serwer fizyczny {{host}} został odłączony."
-        sync: "Stan serwera {{host}} zsynchronizowany."
-        sync_failed: "Nieudana synchronizacja statusu serwera {{host}} "
-        reboot: "Rozpoczynam procedurę restartu serwera {{host}}."
+        connect: "Serwer fizyczny %{host} został podłączony."
+        disconnect: "Serwer fizyczny %{host} został odłączony."
+        sync: "Stan serwera %{host} zsynchronizowany."
+        sync_failed: "Nieudana synchronizacja statusu serwera %{host} "
+        reboot: "Rozpoczynam procedurę restartu serwera %{host}."
       virtual_server:
-        created: "Serwer wirtualny {{identity}} został utworzony."
-        removed: "Serwer wirtualny {{identity}} został usunięty."
-        change_state_failed: "Nieudana zmiana statusu serwera wirtualnego {{identity}}; status: {{state}}; kod: {{code}}."
-        updated: "Uaktualniono ustawienia serwera wirtualnego {{identity}}."
-        cloned: "Sklonowano serwer wirtualny {{identity}}."
-        counter_reached: "Limit {{name}} został osiagnięty dla wirtualnego lerwera {{identity}} na serwerze fizycznym {{host}}."
+        created: "Serwer wirtualny %{identity} został utworzony."
+        removed: "Serwer wirtualny %{identity} został usunięty."
+        change_state_failed: "Nieudana zmiana statusu serwera wirtualnego %{identity}; status: %{state}; kod: %{code}."
+        updated: "Uaktualniono ustawienia serwera wirtualnego %{identity}."
+        cloned: "Sklonowano serwer wirtualny %{identity}."
+        counter_reached: "Limit %{name} został osiagnięty dla wirtualnego lerwera %{identity} na serwerze fizycznym %{host}."
       user:
         login:
-          ok: "Użytkownik {{login}} zalogował się."
-          bad_password: "Użytkownik {{login}} wprowadził nieprawidłowe hasło."
+          ok: "Użytkownik %{login} zalogował się."
+          bad_password: "Użytkownik %{login} wprowadził nieprawidłowe hasło."
           bad_login: "Próba logowania nieznanym loginem."
-          locked_user: "Zablokowany użytkowni {{login}} próbował się zalogować."
-        logout: "Użytkownik {{login}} wylogował się."
-        removed: "Użytkownik {{login}} został usunięty."
-        enabled: "Użytkownik {{login}} został odblokowany."
-        disabled: "Użytkownik {{login}} został zablokowany."
-        created: "Użytkownik {{login}} został utworzony."
-        updated: "Użytkownik {{login}} został uaktualniony."
-        profile_updated: "Profil Użytkownika {{login}} został uaktualniony."
+          locked_user: "Zablokowany użytkowni %{login} próbował się zalogować."
+        logout: "Użytkownik %{login} wylogował się."
+        removed: "Użytkownik %{login} został usunięty."
+        enabled: "Użytkownik %{login} został odblokowany."
+        disabled: "Użytkownik %{login} został zablokowany."
+        created: "Użytkownik %{login} został utworzony."
+        updated: "Użytkownik %{login} został uaktualniony."
+        profile_updated: "Profil Użytkownika %{login} został uaktualniony."
       role:
-        removed: "Rola {{name}} została usunięta."
-        created: "Rola {{name}} została utworzona."
-        updated: "Rola {{name}} została uaktualniona."
+        removed: "Rola %{name} została usunięta."
+        created: "Rola %{name} została utworzona."
+        updated: "Rola %{name} została uaktualniona."
       request:
-        created: "Żądanie #{{id}} zostało utworzone."
-        updated: "Żądanie #{{id}} zostało uaktualnione"
-        removed: "Żądanie #{{id}} zostało usunięte."
+        created: "Żądanie #%{id} zostało utworzone."
+        updated: "Żądanie #%{id} zostało uaktualnione"
+        removed: "Żądanie #%{id} zostało usunięte."
       comment:
-        created: "Komentarz do żądania #{{request_id}} został dodany."
+        created: "Komentarz do żądania #%{request_id} został dodany."
     tasks:
       os_templates:
-        install: "Instalacja szablonów systemów operacyjnych na serwerze {{host}}."
+        install: "Instalacja szablonów systemów operacyjnych na serwerze %{host}."
       backups:
-        create: "Backup serwera wirtualnego #{{identity}} na serwerze fizycznym {{host}}."
-        restore: "Odtworzenie backupu serwera wirtualnego #{{identity}} na serwerze fizycznym {{host}}."
+        create: "Backup serwera wirtualnego #%{identity} na serwerze fizycznym %{host}."
+        restore: "Odtworzenie backupu serwera wirtualnego #%{identity} na serwerze fizycznym %{host}."
     dashboard:
       title: "Panel"
       intro:
@@ -212,10 +212,10 @@ pl:
         text: "OpenVZ Web Panel to GUI służące do zarządzania za pomocą przeglądarki fizycznymi serwerami z technologią wirtualizacji OpenVZ"
       profile:
         title: "Profil"
-        text: "Jesteś zalogowany jako {{login}}."
+        text: "Jesteś zalogowany jako %{login}."
       updates:
-        text: "Dostępna jest nowa wersja: {{product}}."
-        update_command: "Aby dokonać uaktualnienia wykonaj następujące polecenie: {{command}}"
+        text: "Dostępna jest nowa wersja: %{product}."
+        update_command: "Aby dokonać uaktualnienia wykonaj następujące polecenie: %{command}"
       stats_grid:
         title: "Statystyki"
         column:
@@ -268,7 +268,7 @@ pl:
           sure_to_reboot: "Wybrane serwery będą niedostępne podczas restartu. Jesteś pewien że chcesz je zrestartować?"
           reboot_failed: "Brak możliwości restartu niektórych serwerów."
       show:
-        title: "Serwer fizyczny {{name}}"
+        title: "Serwer fizyczny %{name}"
       top_toolbar:
         os_templates: "Szablony systemów"
         server_templates: "Szablony serwerów"
@@ -280,11 +280,11 @@ pl:
         field:
           os_version: "Wersja systemu"
           cpu_load_average: "Średnie obciążenie procesora"
-          disk_usage: "Zapełnienie dysku, partycja {{partition}}"
+          disk_usage: "Zapełnienie dysku, partycja %{partition}"
           memory_usage: "Zużycie pamięci"
         value:
-          disk_usage: "{{percent}}%, {{used}} z {{total}} / {{free}} wolnych"
-          memory_usage: "{{percent}}%, {{used}} z {{total}} / {{free}} wolnych"
+          disk_usage: "%{percent}%, %{used} z %{total} / %{free} wolnych"
+          memory_usage: "%{percent}%, %{used} z %{total} / %{free} wolnych"
     virtual_servers:
       title: "Serwery wirtualne"
       limits:
@@ -403,7 +403,7 @@ pl:
           button_migrate: "Migruj"
           note: "Przed migracją musisz wygenerować klucz publiczny SSH dla uzytkownika root na fizycznym serwerze źródłowym, i przekopiować go na fizyczny serwer docelowy. Dodatkowo musisz mieć zainstalowane rsync na serwerze docelowym."
       show:
-        title: "Serwer wirtualny {{name}}"
+        title: "Serwer wirtualny %{name}"
         grid:
           title: "Informacje o serwerze wirtualnym"
           column:
@@ -416,12 +416,12 @@ pl:
           disk_usage: "Zapełnienie dysku"
           memory_usage: "Zużycie pamięci"
         value:
-          disk_usage: "{{percent}}%, {{used}} z {{total}} / {{free}} wolnych"
-          memory_usage: "{{percent}}%, {{used}} z {{total}} / {{free}} wolnych"
+          disk_usage: "%{percent}%, %{used} z %{total} / %{free} wolnych"
+          memory_usage: "%{percent}%, %{used} z %{total} / %{free} wolnych"
         button:
           stat_details: "Szczegóły"
       stat_details:
-        title: "Statystyki serwera wirtualnego {{name}}"
+        title: "Statystyki serwera wirtualnego %{name}"
         grid:
           title: "Limity serwera wirtualnego"
           column:
@@ -439,7 +439,7 @@ pl:
           disk_usage:
             title: "Zapełnienie dysku"
     os_templates:
-      title: "Szablony systemu na fizycznym serwerze {{name}}"
+      title: "Szablony systemu na fizycznym serwerze %{name}"
       grid:
         title: "Zainstalowane szablony systemu"
         column:
@@ -529,7 +529,7 @@ pl:
           id: "ID"
           description: "Opis"
     server_templates:
-      title: "Szablony serwerów na fizycznym serwerze {{name}}"
+      title: "Szablony serwerów na fizycznym serwerze %{name}"
       grid:
         title: "Dostępne szablony serwerów"
         column:
@@ -572,7 +572,7 @@ pl:
               soft_limit: "Limit miękki"
               hard_limit: "Limit twardy"
     backups:
-      title: "Kopie bezpieczeństwa serwerów wirtualnych {{name}}"
+      title: "Kopie bezpieczeństwa serwerów wirtualnych %{name}"
       grid:
         title: "Backupy"
         button:
@@ -631,7 +631,7 @@ pl:
             subject: "Temat"
             content: "Wiadomość"
       comments:
-        title: "Ticket #{{id}}"
+        title: "Ticket #%{id}"
         grid:
           title: "Komentarz"
           column:
@@ -648,11 +648,11 @@ pl:
               content: "Wiadomość"
       mail:
         new_request:
-          subject: "Nowe żądanie #{{id}}"
-          body: "Nowe żądanie #{{id}} zostało utworzone przez {{login}}."
+          subject: "Nowe żądanie #%{id}"
+          body: "Nowe żądanie #%{id} zostało utworzone przez %{login}."
         new_comment:
-          subject: "Nowy komentarz do żądania #{{request_id}}"
-          body: "Nowy komentarz do żądania #{{request_id}} został dodany przez {{login}}."
+          subject: "Nowy komentarz do żądania #%{request_id}"
+          body: "Nowy komentarz do żądania #%{request_id} został dodany przez %{login}."
     roles:
       title: "Role"
       grid:

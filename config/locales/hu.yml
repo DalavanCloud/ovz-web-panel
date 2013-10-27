@@ -22,12 +22,12 @@ hu:
           attributes:
             password:
               confirmation: "A beírt jelszó és a megerősítés nem egyezik."
-              too_short: "A beírt jelszó túl rövid (minimum {{count}} karakter)."
+              too_short: "A beírt jelszó túl rövid (minimum %{count} karakter)."
             password_confirmation:
               blank: "Jelszó megerősítése szükséges."
             login:
               taken: "A felhasználói név már foglalt."
-              too_short: "A beírt név túl rövid (minimum {{count}} karakter)."
+              too_short: "A beírt név túl rövid (minimum %{count} karakter)."
         hardware_server:
           attributes:
             host:
@@ -40,8 +40,8 @@ hu:
               bad_auth: "Sikertelen hitelesítés. Valószínűleg helytelen a hitelesítő kulcs."
             daemon_port:
               not_a_number: "Érvénytelen port szám."
-              greater_than: "A port számának nagyobbnak kell lenni mint {{count}}."
-              less_than: "A port száma kissebb kell legyen mint {{count}}."
+              greater_than: "A port számának nagyobbnak kell lenni mint %{count}."
+              less_than: "A port száma kissebb kell legyen mint %{count}."
             root_password:
               ssh_bad_auth: "Az SSH hitelesítés sikertelen."
               empty: "Ennek a mezőnek a kitöltése kötelező."
@@ -94,7 +94,7 @@ hu:
     web_site: "OpenVZ Web Panel Weboldala"
   login:
     page_title: "Bejelentkezés"
-    window_title: "Belépés a(z) {{product}}"
+    window_title: "Belépés a(z) %{product}"
     username: "Felhasználónév"
     password: "Jelszó"
     remember_me: "Jegyezz meg"
@@ -115,7 +115,7 @@ hu:
     mail:
       restore_link:
         subject: "Jelszó visszaállító"
-        body: "A jelszó visszaállításához kattintson a következő linkre: {{link}}"
+        body: "A jelszó visszaállításához kattintson a következő linkre: %{link}"
   reset_password:
     page_title: "Jelszó alaphelyzetbe állítása"
     window_title: "Jelszó alaphelyzetbe állítása"
@@ -162,49 +162,49 @@ hu:
       contact_name: "Kapcsolattartó neve"
       email: "E-mail"
     events:
-      internal_error: "Belső hiba: {{message}}"
+      internal_error: "Belső hiba: %{message}"
       hardware_server:
-        connect: "Fizikai szerver {{host}} csatlakoztatva."
-        disconnect: "Fizikai szerver {{host}} szétkapcsolva."
-        sync: "A(z) {{host}} státusza szinkronizált."
-        sync_failed: "Nem sikerült szinkronizálni a(z) {{host}} szerver állapotát."
-        reboot: "A(z) {{host}} fizikai szerver újraindítása."
+        connect: "Fizikai szerver %{host} csatlakoztatva."
+        disconnect: "Fizikai szerver %{host} szétkapcsolva."
+        sync: "A(z) %{host} státusza szinkronizált."
+        sync_failed: "Nem sikerült szinkronizálni a(z) %{host} szerver állapotát."
+        reboot: "A(z) %{host} fizikai szerver újraindítása."
       virtual_server:
-        created: "Virtuális szerver {{identity}} létrehozva."
-        removed: "Virtuális szerver {{identity}} eltávolítva."
-        change_state_failed: "Nem sikerült megváltoztatni a(z) {{identity}} szerver állapotát; állapot: {{state}}; hibakód: {{code}}."
-        updated: "A(z) {{identity}} virtuális szerver beállítása frissült."
-        cloned: "A(z) {{identity}} virtuális szerver le van klónozva."
-        counter_reached: "A {{name}} elérte a limitet a {{identity}} virtuális gépen a {{host}} fizikai szerveren."
+        created: "Virtuális szerver %{identity} létrehozva."
+        removed: "Virtuális szerver %{identity} eltávolítva."
+        change_state_failed: "Nem sikerült megváltoztatni a(z) %{identity} szerver állapotát; állapot: %{state}; hibakód: %{code}."
+        updated: "A(z) %{identity} virtuális szerver beállítása frissült."
+        cloned: "A(z) %{identity} virtuális szerver le van klónozva."
+        counter_reached: "A %{name} elérte a limitet a %{identity} virtuális gépen a %{host} fizikai szerveren."
       user:
         login:
-          ok: "A(z) {{login}} be van jelentkezve."
-          bad_password: "A(z) {{login}} felhasználó sikertelen bejelentkezése hibás jelszó miatt."
+          ok: "A(z) %{login} be van jelentkezve."
+          bad_password: "A(z) %{login} felhasználó sikertelen bejelentkezése hibás jelszó miatt."
           bad_login: "Ismeretlen névvel történt bejelentkezési kísérlet."
-          locked_user: "A következő zárolt felhasználó próbált meg bejelentkezni: {{login}}."
-        logout: "A(z) {{login}} felhasználó kijelentkezett."
-        removed: "A(z) {{login}} felhasználó el lett távolítva."
-        enabled: "A(z) {{login}} felhasználó engedélyezve."
-        disabled: "A(z) {{login}} felhasználó tiltva."
-        created: "A(z) {{login}} felhasználó létrehozva."
-        updated: "A(z) {{login}} felhasználó frissítve."
-        profile_updated: "A(z) {{login}} felhasználó profilja frissítve."
+          locked_user: "A következő zárolt felhasználó próbált meg bejelentkezni: %{login}."
+        logout: "A(z) %{login} felhasználó kijelentkezett."
+        removed: "A(z) %{login} felhasználó el lett távolítva."
+        enabled: "A(z) %{login} felhasználó engedélyezve."
+        disabled: "A(z) %{login} felhasználó tiltva."
+        created: "A(z) %{login} felhasználó létrehozva."
+        updated: "A(z) %{login} felhasználó frissítve."
+        profile_updated: "A(z) %{login} felhasználó profilja frissítve."
       role:
-        removed: "A(z) {{name}} jogkör eltávolítva."
-        created: "A(z) {{name}} jogkör létrehozva."
-        updated: "A(z) {{name}} jogkör frissítve."
+        removed: "A(z) %{name} jogkör eltávolítva."
+        created: "A(z) %{name} jogkör létrehozva."
+        updated: "A(z) %{name} jogkör frissítve."
       request:
-        created: "A(z) #{{id}} számú kérelem létrejött."
-        updated: "A(z) #{{id}} számú kérelem frissítve."
-        removed: "A(z) #{{id}} számú kérelem letörölve."
+        created: "A(z) #%{id} számú kérelem létrejött."
+        updated: "A(z) #%{id} számú kérelem frissítve."
+        removed: "A(z) #%{id} számú kérelem letörölve."
       comment:
-        created: "Hozzászólás a(z) #{{request_id}} kéréshez létrejött."
+        created: "Hozzászólás a(z) #%{request_id} kéréshez létrejött."
     tasks:
       os_templates:
-        install: "Rendszer sablonok telepítése a(z) {{host}} szerverre."
+        install: "Rendszer sablonok telepítése a(z) %{host} szerverre."
       backups:
-        create: "A(z) #{{identity}} virtuális szerver mentése a(z) {{host}} fizikai szerveren."
-        restore: "A(z) #{{identity}} virtuális gép visszaálltása a(z) {{host}} fizikai szerveren."
+        create: "A(z) #%{identity} virtuális szerver mentése a(z) %{host} fizikai szerveren."
+        restore: "A(z) #%{identity} virtuális gép visszaálltása a(z) %{host} fizikai szerveren."
     dashboard:
       title: "Műszerfal"
       intro:
@@ -212,10 +212,10 @@ hu:
         text: "Az OpenVZ Web Panel egy web alapú grafikus felület az OpenVZ virtualizációs technológiát használó fizikai kiszolgáló gépek vezérlésére."
       profile:
         title: "Profil"
-        text: "Bejelentkezve mint {{login}}."
+        text: "Bejelentkezve mint %{login}."
       updates:
-        text: "Új verzió érhető el: {{product}}."
-        update_command: "A frissítés végrehajtásához futtassa a következő parancsot: {{command}}"
+        text: "Új verzió érhető el: %{product}."
+        update_command: "A frissítés végrehajtásához futtassa a következő parancsot: %{command}"
       stats_grid:
         title: "Statisztika"
         column:
@@ -268,7 +268,7 @@ hu:
           sure_to_reboot: "A kiválasztott szerverek nem lesznek elérhetőek az újraindítás alatt. Biztosan újra szeretné indítani azokat?"
           reboot_failed: "Néhány szervert nem sikerült újraindítani."
       show:
-        title: "Fizikai szerver {{name}}"
+        title: "Fizikai szerver %{name}"
       top_toolbar:
         os_templates: "Rendszer sablonok"
         server_templates: "Szerver Sablonok"
@@ -280,11 +280,11 @@ hu:
         field:
           os_version: "Operációs rendszer verzió"
           cpu_load_average: "Átlagos CPU terhelés"
-          disk_usage: "Lemez használat, partíció {{partition}}"
+          disk_usage: "Lemez használat, partíció %{partition}"
           memory_usage: "Memória használat"
         value:
-          disk_usage: "{{percent}}%, {{used}} használt a {{total}} -l / {{free}} szabad"
-          memory_usage: "{{percent}}%, {{used}} használt a {{total}} -l / {{free}} szabad"
+          disk_usage: "%{percent}%, %{used} használt a %{total} -l / %{free} szabad"
+          memory_usage: "%{percent}%, %{used} használt a %{total} -l / %{free} szabad"
     virtual_servers:
       title: "Virtuális Szerverek"
       limits:
@@ -403,7 +403,7 @@ hu:
           button_migrate: "Migrálás"
           note: "A költöztetés előtt létre kell hozni a root felhasználó nyílvános SSH kulcsát a forrás fizikai szerveren, és ezt a kulcsot kell átmásolni a cél fizikai szerverre. Szükséges ellenőrizni / telepíteni az rsync segédprogramot a forrás és a cél fizikai szervereken a költöztetéshez."
       show:
-        title: "Virtuális szerver {{name}}"
+        title: "Virtuális szerver %{name}"
         grid:
           title: "Virtuális szerver információ"
           column:
@@ -416,12 +416,12 @@ hu:
           disk_usage: "Lemez használat"
           memory_usage: "Memória használat"
         value:
-          disk_usage: "{{percent}}%, {{used}} használt a {{total}} -l / {{free}} szabad"
-          memory_usage: "{{percent}}%, {{used}} használt a {{total}} -l / {{free}} szabad"       
+          disk_usage: "%{percent}%, %{used} használt a %{total} -l / %{free} szabad"
+          memory_usage: "%{percent}%, %{used} használt a %{total} -l / %{free} szabad"       
         button:
           stat_details: "Részletek"
       stat_details:
-        title: "A(z) {{name}} virtuális szerver statisztikája"
+        title: "A(z) %{name} virtuális szerver statisztikája"
         grid:
           title: "Virtuális szerver korlátai"
           column:
@@ -439,7 +439,7 @@ hu:
           disk_usage:
             title: "Lemez használat"
     os_templates:
-      title: "Rendszer sablonok a(z) {{name}} szerveren"
+      title: "Rendszer sablonok a(z) %{name} szerveren"
       grid:
         title: "Telepített rendszer sablonok"
         column:
@@ -529,7 +529,7 @@ hu:
           id: "ID"
           description: "Leírás"
     server_templates:
-      title: "Szerver sablonok a(z) {{name}} szerveren"
+      title: "Szerver sablonok a(z) %{name} szerveren"
       grid:
         title: "Elérhető szerver sablonok"
         column:
@@ -572,7 +572,7 @@ hu:
               soft_limit: "Barrier"
               hard_limit: "Limit"
     backups:
-      title: "A {{name}} virtuális szerver mentése"
+      title: "A %{name} virtuális szerver mentése"
       grid:
         title: "Mentések"
         button:
@@ -631,7 +631,7 @@ hu:
             subject: "Tárgy"
             content: "Üzenet"
       comments:
-        title: "Kérés #{{id}}"
+        title: "Kérés #%{id}"
         grid:
           title: "Hozzászólások"
           column:
@@ -648,11 +648,11 @@ hu:
               content: "Üzenet"
       mail:
         new_request:
-          subject: "Új kérelem #{{id}}"
-          body: "Az új kérelmet #{{id}} létrehozta {{login}}."
+          subject: "Új kérelem #%{id}"
+          body: "Az új kérelmet #%{id} létrehozta %{login}."
         new_comment:
-          subject: "Új hozzászólás a #{{request_id}} kérelemhez"
-          body: "Új hozzászólást adott {{login}} a kérelemhez #{{request_id}}."
+          subject: "Új hozzászólás a #%{request_id} kérelemhez"
+          body: "Új hozzászólást adott %{login} a kérelemhez #%{request_id}."
     roles:
       title: "Jogkörök"
       grid:

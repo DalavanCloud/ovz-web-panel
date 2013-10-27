@@ -22,12 +22,12 @@ nl:
           attributes:
             password:
               confirmation: "Wachtwoord en bevestiging zijn niet gelijk."
-              too_short: "Het wachtwoord is te kort (minimum aantal tekens: {{count}})."
+              too_short: "Het wachtwoord is te kort (minimum aantal tekens: %{count})."
             password_confirmation:
               blank: "Wachtwoord bevestiging is verplicht."
             login:
               taken: "Deze gebruikersnaam bestaat al."
-              too_short: "Gebruikersnaam is te kort (minimum aantal tekens: {{count}})."
+              too_short: "Gebruikersnaam is te kort (minimum aantal tekens: %{count})."
         hardware_server:
           attributes:
             host:
@@ -40,8 +40,8 @@ nl:
               bad_auth: "Kan niet authenticeren. Mogelijk onjuiste autorisatie sleutel."
             daemon_port:
               not_a_number: "Onjuist port nummer."
-              greater_than: "Port nummer moet groter zijn dan {{count}}."
-              less_than: "Port nummer moet kleiner zijn dan {{count}}."
+              greater_than: "Port nummer moet groter zijn dan %{count}."
+              less_than: "Port nummer moet kleiner zijn dan %{count}."
             root_password:
               ssh_bad_auth: "SSH autorisatie is mislukt."
               empty: "Dit veld is verplicht."
@@ -94,7 +94,7 @@ nl:
     web_site: "Website"
   login:
     page_title: "Login"
-    window_title: "Inloggen op {{product}}"
+    window_title: "Inloggen op %{product}"
     username: "Gebruikersnaam"
     password: "Wachtwoord"
     remember_me: "Onthoudt mij"
@@ -115,7 +115,7 @@ nl:
     mail:
       restore_link:
         subject: "Wachtwoord herstel"
-        body: "Om het wachtwoord te herstellen klik op de volgende link: {{link}}"
+        body: "Om het wachtwoord te herstellen klik op de volgende link: %{link}"
   reset_password:
     page_title: "Reset wachtwoord"
     window_title: "Reset wachtwoord"
@@ -162,49 +162,49 @@ nl:
       contact_name: "Contact naam"
       email: "E-mail"
     events:
-      internal_error: "Interne fout: {{message}}"
+      internal_error: "Interne fout: %{message}"
       hardware_server:
-        connect: "Fysieke server {{host}} verbonden."
-        disconnect: "Fysieke server {{host}} is niet verbonden."
-        sync: "Servers {{host}} status is gesynchroniseerd."
-        sync_failed: "Status synchronisatie mislukt: {{host}}."
-        reboot: "Herstarten van de server {{host}}."
+        connect: "Fysieke server %{host} verbonden."
+        disconnect: "Fysieke server %{host} is niet verbonden."
+        sync: "Servers %{host} status is gesynchroniseerd."
+        sync_failed: "Status synchronisatie mislukt: %{host}."
+        reboot: "Herstarten van de server %{host}."
       virtual_server:
-        created: "Virtuele server {{identity}} is aangemaakt."
-        removed: "Virtuele server {{identity}} is verwijderd."
-        change_state_failed: "Het veranderen van de status mislukt voor virtuele server {{identity}}; status: {{state}}; code: {{code}}."
-        updated: "Instellingen voor de virtuele server {{identity}} zijn ge-update."
-        cloned: "Virtuele server {{identity}} is gecloned."
-        counter_reached: "Limiet {{name}} is bereikt voor virtuel server {{identity}} op fysieke server {{host}}."
+        created: "Virtuele server %{identity} is aangemaakt."
+        removed: "Virtuele server %{identity} is verwijderd."
+        change_state_failed: "Het veranderen van de status mislukt voor virtuele server %{identity}; status: %{state}; code: %{code}."
+        updated: "Instellingen voor de virtuele server %{identity} zijn ge-update."
+        cloned: "Virtuele server %{identity} is gecloned."
+        counter_reached: "Limiet %{name} is bereikt voor virtuel server %{identity} op fysieke server %{host}."
       user:
         login:
-          ok: "Gebruiker {{login}} is ingelogd."
-          bad_password: "Gebruiker {{login}} is niet ingelogd vanwege een verkeerd wachtwoord."
+          ok: "Gebruiker %{login} is ingelogd."
+          bad_password: "Gebruiker %{login} is niet ingelogd vanwege een verkeerd wachtwoord."
           bad_login: "Login geprobeert met een onbekende gebruikersnaam."
-          locked_user: "Geblokkeerde gebruiker {{login}} heeft geprobeert in te loggen."
-        logout: "Gebruiker {{login}} is uitgelogd."
-        removed: "Gebruiker {{login}} is verwijderd."
-        enabled: "Gebruiker {{login}} is enabled."
-        disabled: "Gebruiker {{login}} is disabled."
-        created: "Gebruiker {{login}} is gecre&euml;erd."
-        updated: "Gebruiker {{login}} is vernieuwd."
-        profile_updated: "Gebruiker {{login}} profile was updated."
+          locked_user: "Geblokkeerde gebruiker %{login} heeft geprobeert in te loggen."
+        logout: "Gebruiker %{login} is uitgelogd."
+        removed: "Gebruiker %{login} is verwijderd."
+        enabled: "Gebruiker %{login} is enabled."
+        disabled: "Gebruiker %{login} is disabled."
+        created: "Gebruiker %{login} is gecre&euml;erd."
+        updated: "Gebruiker %{login} is vernieuwd."
+        profile_updated: "Gebruiker %{login} profile was updated."
       role:
-        removed: "Rol {{name}} is verwijderd."
-        created: "Rol {{name}} is gecre&euml;erd."
-        updated: "Rol {{name}} is veranderd."
+        removed: "Rol %{name} is verwijderd."
+        created: "Rol %{name} is gecre&euml;erd."
+        updated: "Rol %{name} is veranderd."
       request:
-        created: "Verzoek #{{id}} is gecre&euml;erd."
-        updated: "Verzoek #{{id}} is veranderd."
-        removed: "Verzoek #{{id}} is verwijderd."
+        created: "Verzoek #%{id} is gecre&euml;erd."
+        updated: "Verzoek #%{id} is veranderd."
+        removed: "Verzoek #%{id} is verwijderd."
       comment:
-        created: "Commentaar op verzoek #{{request_id}} is gecre&euml;erd."
+        created: "Commentaar op verzoek #%{request_id} is gecre&euml;erd."
     tasks:
       os_templates:
-        install: "OS templates installatie op de server {{host}}."
+        install: "OS templates installatie op de server %{host}."
       backups:
-        create: "Backup van de virtuele server #{{identity}} op fysieke server {{host}}."
-        restore: "Herstel van de virtuele server #{{identity}} op fysieke server {{host}}."
+        create: "Backup van de virtuele server #%{identity} op fysieke server %{host}."
+        restore: "Herstel van de virtuele server #%{identity} op fysieke server %{host}."
     dashboard:
       title: "Dashboard"
       intro:
@@ -212,10 +212,10 @@ nl:
         text: "OpenVZ Web Panel is een GUI web-based frontend voor het controleren van fysieke servers met OpenVZ virtualizatie technologie."
       profile:
         title: "Profiel"
-        text: "Je bent ingelogd als {{login}}."
+        text: "Je bent ingelogd als %{login}."
       updates:
-        text: "Een nieuwe versie is beschikbaar: {{product}}."
-        update_command: "Om de update te draaien moet je het volgende commando uitvoeren: {{command}}"
+        text: "Een nieuwe versie is beschikbaar: %{product}."
+        update_command: "Om de update te draaien moet je het volgende commando uitvoeren: %{command}"
       stats_grid:
         title: "Statistieken"
         column:
@@ -268,7 +268,7 @@ nl:
           sure_to_reboot: "De geselecteerde servers zijn niet bereikbaar tijdens het herstarten. Weet u het zeker ?"
           reboot_failed: "Het was niet mogelijk alle servers te herstarten."
       show:
-        title: "Fysieke server {{name}}"
+        title: "Fysieke server %{name}"
       top_toolbar:
         os_templates: "OS templates"
         server_templates: "Server templates"
@@ -280,11 +280,11 @@ nl:
         field:
           os_version: "OS versie"
           cpu_load_average: "CPU load gemiddelde"
-          disk_usage: "Disk gebruik, partitie {{partition}}"
+          disk_usage: "Disk gebruik, partitie %{partition}"
           memory_usage: "Geheugen gebruik"
         value:
-          disk_usage: "{{percent}}%, {{used}} van {{total}} / {{free}} vrij"
-          memory_usage: "{{percent}}%, {{used}} van {{total}} / {{free}} vrij"
+          disk_usage: "%{percent}%, %{used} van %{total} / %{free} vrij"
+          memory_usage: "%{percent}%, %{used} van %{total} / %{free} vrij"
     virtual_servers:
       title: "Virtuele servers"
       limits:
@@ -403,7 +403,7 @@ nl:
           button_migrate: "Migreer"
           note: "Voor de migratie moet de SSH public key van de root gebruiker van deze server gekopieerd worden naar de doelserver. Ook moet rsync op de doel server geinstalleerd staan."
       show:
-        title: "Virtuele server {{name}}"
+        title: "Virtuele server %{name}"
         grid:
           title: "Virtuele server informatie"
           column:
@@ -416,12 +416,12 @@ nl:
           disk_usage: "Disk gebruik"
           memory_usage: "Geheugen gebruik"
         value:
-          disk_usage: "{{percent}}%, {{used}} van {{total}} / {{free}} vrij"
-          memory_usage: "{{percent}}%, {{used}} van {{total}} / {{free}} vrij"
+          disk_usage: "%{percent}%, %{used} van %{total} / %{free} vrij"
+          memory_usage: "%{percent}%, %{used} van %{total} / %{free} vrij"
         button:
           stat_details: "Details"
       stat_details:
-        title: "Virtuele server {{name}} statistieken"
+        title: "Virtuele server %{name} statistieken"
         grid:
           title: "Virtuele server limieten"
           column:
@@ -439,7 +439,7 @@ nl:
           disk_usage:
             title: "Disk gebruik"
     os_templates:
-      title: "OS Templates op fysieke server {{name}}"
+      title: "OS Templates op fysieke server %{name}"
       grid:
         title: "Geinstalleerde OS templates"
         column:
@@ -529,7 +529,7 @@ nl:
           id: "ID"
           description: "Omschrijving"
     server_templates:
-      title: "Server templates op de fysieke server {{name}}"
+      title: "Server templates op de fysieke server %{name}"
       grid:
         title: "Beschikare server remplates"
         column:
@@ -572,7 +572,7 @@ nl:
               soft_limit: "Barri&euml;re"
               hard_limit: "Limiet"
     backups:
-      title: "Backups voor virtuele server {{name}}"
+      title: "Backups voor virtuele server %{name}"
       grid:
         title: "Backups"
         button:
@@ -631,7 +631,7 @@ nl:
             subject: "Onderwerp"
             content: "Bericht"
       comments:
-        title: "Verzoek #{{id}}"
+        title: "Verzoek #%{id}"
         grid:
           title: "Commentaar"
           column:
@@ -648,11 +648,11 @@ nl:
               content: "Bericht"
       mail:
         new_request:
-          subject: "Nieuw verzoek #{{id}}"
-          body: "Nieuw verzoek #{{id}} is gemaakt door {{login}}."
+          subject: "Nieuw verzoek #%{id}"
+          body: "Nieuw verzoek #%{id} is gemaakt door %{login}."
         new_comment:
-          subject: "Nieuw commentaar op verzoek #{{request_id}}"
-          body: "Nieuw commentaar op verzoek #{{request_id}} is toegevoegd door {{login}}."
+          subject: "Nieuw commentaar op verzoek #%{request_id}"
+          body: "Nieuw commentaar op verzoek #%{request_id} is toegevoegd door %{login}."
     roles:
       title: "Rollen"
       grid:

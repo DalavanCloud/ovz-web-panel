@@ -22,12 +22,12 @@ fr:
           attributes:
             password:
               confirmation: "Le mot de passe et la confirmation ne sont pas identiques."
-              too_short: "Mot de passe trop court (caractères minimum: {{count}})."
+              too_short: "Mot de passe trop court (caractères minimum: %{count})."
             password_confirmation:
               blank: "Confirmation du mot de passe requise."
             login:
               taken: "Un utilisateur existe déjà avec ce nom d'utilisateur."
-              too_short: "Nom d'utilisateur trop court (caractères minimum: {{count}})."
+              too_short: "Nom d'utilisateur trop court (caractères minimum: %{count})."
         hardware_server:
           attributes:
             host:
@@ -40,8 +40,8 @@ fr:
               bad_auth: "Authorisation impossible. Clé probablement incorrecte."
             daemon_port:
               not_a_number: "Numéro de port invalide."
-              greater_than: "Le numéro de port devrait être plus grand que {{count}}."
-              less_than: "Le numéro de port devrait être inférieur à {{count}}."
+              greater_than: "Le numéro de port devrait être plus grand que %{count}."
+              less_than: "Le numéro de port devrait être inférieur à %{count}."
             root_password:
               ssh_bad_auth: "L'authentification SSH a échouée."
               empty: "Ce champ est obligatoire."
@@ -94,7 +94,7 @@ fr:
     web_site: "Site Web"
   login:
     page_title: "Connexion"
-    window_title: "Connectez-vous à {{product}}"
+    window_title: "Connectez-vous à %{product}"
     username: "Nom d'utilisateur"
     password: "Mot de passe"
     remember_me: "Se souvenir de moi"
@@ -115,7 +115,7 @@ fr:
     mail:
       restore_link:
         subject: "Récupération de mot de passe"
-        body: "Pour restaurer le mot de passe, suivez le lien: {{link}}"
+        body: "Pour restaurer le mot de passe, suivez le lien: %{link}"
   reset_password:
     page_title: "Réinitialisation du mot de passe"
     window_title: "Réinitialisation du mot de passe"
@@ -162,49 +162,49 @@ fr:
       contact_name: "Nom de Contact"
       email: "E-mail"
     events:
-      internal_error: "Erreur interne: {{message}}"
+      internal_error: "Erreur interne: %{message}"
       hardware_server:
-        connect: "Le serveur physique {{host}} a été connecté."
-        disconnect: "Le serveur physique {{host}} a été déconnecté."
-        sync: "L'état du serveur {{host}} a été synchronisé."
-        sync_failed: "La synchronisation de l'état du serveur {{host}} a échouée."
-        reboot: "Début du redémarrage du serveur {{host}}."
+        connect: "Le serveur physique %{host} a été connecté."
+        disconnect: "Le serveur physique %{host} a été déconnecté."
+        sync: "L'état du serveur %{host} a été synchronisé."
+        sync_failed: "La synchronisation de l'état du serveur %{host} a échouée."
+        reboot: "Début du redémarrage du serveur %{host}."
       virtual_server:
-        created: "Le serveur virtuel {{identity}} a été créé."
-        removed: "Le serveur virtuel {{identity}} a été effacé."
-        change_state_failed: "Échec du changement d'état du serveur virtuel {{identity}}; état: {{state}}; code: {{code}}."
-        updated: "Les options du serveur virtuel {{identity}} ont été mises à jour."
-        cloned: "Le serveur virtuel {{identity}} a été cloné."
-        counter_reached: "La limite {{name}} a été atteinte pour le serveur virtuel {{identity}} sur le serveur physique {{host}}."
+        created: "Le serveur virtuel %{identity} a été créé."
+        removed: "Le serveur virtuel %{identity} a été effacé."
+        change_state_failed: "Échec du changement d'état du serveur virtuel %{identity}; état: %{state}; code: %{code}."
+        updated: "Les options du serveur virtuel %{identity} ont été mises à jour."
+        cloned: "Le serveur virtuel %{identity} a été cloné."
+        counter_reached: "La limite %{name} a été atteinte pour le serveur virtuel %{identity} sur le serveur physique %{host}."
       user:
         login:
-          ok: "L'utilisateur {{login}} s'est connecté."
-          bad_password: "L'utilisateur {{login}} n'a pas réussi à se connecter à cause d'un mot de passe erroné."
+          ok: "L'utilisateur %{login} s'est connecté."
+          bad_password: "L'utilisateur %{login} n'a pas réussi à se connecter à cause d'un mot de passe erroné."
           bad_login: "Tentative de connection avec un nom d'utilisateur inconnu."
-          locked_user: "L'utilisateur bloqué {{login}} a essayé de se connecter."
-        logout: "L'utilisateur {{login}} est déconnecté."
-        removed: "L'utilisateur {{login}} a été supprimé."
-        enabled: "L'utilisateur {{login}} a été activé."
-        disabled: "L'utilisateur {{login}} a été désactivé."
-        created: "L'utilisateur {{login}} a été créé."
-        updated: "L'utilisateur {{login}} a été mis à jour."
-        profile_updated: "Le profile de l'utilisateur {{login}} a été mis à jour."
+          locked_user: "L'utilisateur bloqué %{login} a essayé de se connecter."
+        logout: "L'utilisateur %{login} est déconnecté."
+        removed: "L'utilisateur %{login} a été supprimé."
+        enabled: "L'utilisateur %{login} a été activé."
+        disabled: "L'utilisateur %{login} a été désactivé."
+        created: "L'utilisateur %{login} a été créé."
+        updated: "L'utilisateur %{login} a été mis à jour."
+        profile_updated: "Le profile de l'utilisateur %{login} a été mis à jour."
       role:
-        removed: "Le rôle {{name}} a été supprimé."
-        created: "Le rôle {{name}} a été créé."
-        updated: "Le rôle {{name}} a été mis à jour."
+        removed: "Le rôle %{name} a été supprimé."
+        created: "Le rôle %{name} a été créé."
+        updated: "Le rôle %{name} a été mis à jour."
       request:
-        created: "La requête #{{id}} a été créée."
-        updated: "La requête #{{id}} a été mise à jour."
-        removed: "La requête #{{id}} a été supprimée."
+        created: "La requête #%{id} a été créée."
+        updated: "La requête #%{id} a été mise à jour."
+        removed: "La requête #%{id} a été supprimée."
       comment:
-        created: "Le commentaire de la requête #{{request_id}} a été créé."
+        created: "Le commentaire de la requête #%{request_id} a été créé."
     tasks:
       os_templates:
-        install: "Installation des gabarits d'OS sur le serveur {{host}}."
+        install: "Installation des gabarits d'OS sur le serveur %{host}."
       backups:
-        create: "Sauvegarde du serveur virtuel #{{identity}} sur le serveur physique {{host}}."
-        restore: "Restauration du serveur virtuel #{{identity}} sur le serveur physique {{host}}."
+        create: "Sauvegarde du serveur virtuel #%{identity} sur le serveur physique %{host}."
+        restore: "Restauration du serveur virtuel #%{identity} sur le serveur physique %{host}."
     dashboard:
       title: "Tableau de bord"
       intro:
@@ -212,10 +212,10 @@ fr:
         text: "OpenVZ Web Panel est une interface graphique basé sur les technologies Web pour contrôler des serveurs physiques grâce à la technologie de virtualisation OpenVZ."
       profile:
         title: "Profil"
-        text: "Vous êtes connecté comme {{login}}."
+        text: "Vous êtes connecté comme %{login}."
       updates:
-        text: "Une nouvelle version est disponible: {{product}}."
-        update_command: "La commande suivante doit être lancée pour la mise à jour: {{command}}"
+        text: "Une nouvelle version est disponible: %{product}."
+        update_command: "La commande suivante doit être lancée pour la mise à jour: %{command}"
       stats_grid:
         title: "Statistiques"
         column:
@@ -268,7 +268,7 @@ fr:
           sure_to_reboot: "Les serveurs sélectionnés seront indisponibles pendant le redémarrage. Êtes-vous sûr de vouloir les redémarrer ?"
           reboot_failed: "Impossible de commencer le redémarrage sur certains serveurs."
       show:
-        title: "Serveur physique {{name}}"
+        title: "Serveur physique %{name}"
       top_toolbar:
         os_templates: "Gabarits d'OS"
         server_templates: "Gabarits de serveurs"
@@ -280,11 +280,11 @@ fr:
         field:
           os_version: "Version de l'OS"
           cpu_load_average: "Charge moyenne du CPU"
-          disk_usage: "Utilisation des disques, partitions {{partition}}"
+          disk_usage: "Utilisation des disques, partitions %{partition}"
           memory_usage: "Utilisation mémoire"
         value:
-          disk_usage: "{{percent}}%, {{used}} de {{total}} / {{free}} libres"
-          memory_usage: "{{percent}}%, {{used}} de {{total}} / {{free}} libres"
+          disk_usage: "%{percent}%, %{used} de %{total} / %{free} libres"
+          memory_usage: "%{percent}%, %{used} de %{total} / %{free} libres"
     virtual_servers:
       title: "Serveurs virtuels"
       limits:
@@ -403,7 +403,7 @@ fr:
           button_migrate: "Migrer"
           note: "Avant la migration, il est nécessaire de générer une clé publique SSH pour l'utilisateur root du serveur physique source et de le copier sur le serveur physique de destination. Vous devez aussi vérifier/installer l'utilitaire rsync sur le serveur physique de destination."
       show:
-        title: "Serveur virtuel {{name}}"
+        title: "Serveur virtuel %{name}"
         grid:
           title: "Information du serveur virtuel"
           column:
@@ -416,12 +416,12 @@ fr:
           disk_usage: "Utilisation des disques"
           memory_usage: "Utilisation mémoire"
         value:
-          disk_usage: "{{percent}}%, {{used}} de {{total}} / {{free}} libres"
-          memory_usage: "{{percent}}%, {{used}} de {{total}} / {{free}} libres"
+          disk_usage: "%{percent}%, %{used} de %{total} / %{free} libres"
+          memory_usage: "%{percent}%, %{used} de %{total} / %{free} libres"
         button:
           stat_details: "Détails"
       stat_details:
-        title: "Statistique du serveur virtuel {{name}}"
+        title: "Statistique du serveur virtuel %{name}"
         grid:
           title: "Limites du serveur virtuel"
           column:
@@ -439,7 +439,7 @@ fr:
           disk_usage:
             title: "Utilisation Disk"
     os_templates:
-      title: "Gabarits d'OS sur le serveur physique {{name}}"
+      title: "Gabarits d'OS sur le serveur physique %{name}"
       grid:
         title: "Gabarits d'OS installés"
         column:
@@ -529,7 +529,7 @@ fr:
           id: "ID"
           description: "Description"
     server_templates:
-      title: "Gabarits de serveur sur le serveur virtuel {{name}}"
+      title: "Gabarits de serveur sur le serveur virtuel %{name}"
       grid:
         title: "Gabarits de serveur disponibles"
         column:
@@ -572,7 +572,7 @@ fr:
               soft_limit: "Barrière"
               hard_limit: "Limite"
     backups:
-      title: "Sauvegardes du serveur virtuel {{name}}"
+      title: "Sauvegardes du serveur virtuel %{name}"
       grid:
         title: "Sauvegardes"
         button:
@@ -631,7 +631,7 @@ fr:
             subject: "Objet"
             content: "Message"
       comments:
-        title: "Requête #{{id}}"
+        title: "Requête #%{id}"
         grid:
           title: "Commentaires"
           column:
@@ -648,11 +648,11 @@ fr:
               content: "Message"
       mail:
         new_request:
-          subject: "Nouvelle requête #{{id}}"
-          body: "La nouvelle requête #{{id}} a été créée par {{login}}."
+          subject: "Nouvelle requête #%{id}"
+          body: "La nouvelle requête #%{id} a été créée par %{login}."
         new_comment:
-          subject: "Nouveau commentaire sur la requête #{{request_id}}"
-          body: "Un nouveau commentaire de la requête #{{request_id}} a été ajouté par {{login}}."
+          subject: "Nouveau commentaire sur la requête #%{request_id}"
+          body: "Un nouveau commentaire de la requête #%{request_id} a été ajouté par %{login}."
     roles:
       title: "Rôles"
       grid:

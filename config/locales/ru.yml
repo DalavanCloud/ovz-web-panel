@@ -22,12 +22,12 @@ ru:
           attributes:
             password:
               confirmation: "Пароль и подтверждение не совпадают."
-              too_short: "Пароль слишком короткий (минимум символов: {{count}})."
+              too_short: "Пароль слишком короткий (минимум символов: %{count})."
             password_confirmation:
               blank: "Необходимо подтверждение пароля."
             login:
               taken: "Пользователь с таким логином уже существует."
-              too_short: "Логин слишком короткий (минимум символов: {{count}})."
+              too_short: "Логин слишком короткий (минимум символов: %{count})."
         hardware_server:
           attributes:
             host:
@@ -40,8 +40,8 @@ ru:
               bad_auth: "Невозможно выполнить авторизацию. Возможно неверный ключ авторизации."
             daemon_port:
               not_a_number: "Неверный номер порта."
-              greater_than: "Номер порта должен быть больше {{count}}."
-              less_than: "Номер порта должен быть меньше {{count}}."
+              greater_than: "Номер порта должен быть больше %{count}."
+              less_than: "Номер порта должен быть меньше %{count}."
             root_password:
               ssh_bad_auth: "Не удалось выполнить SSH авторизацию."
               empty: "Это поле обязательно для заполнения."
@@ -94,7 +94,7 @@ ru:
     web_site: "Веб-сайт"
   login:
     page_title: "Вход"
-    window_title: "Вход в {{product}}"
+    window_title: "Вход в %{product}"
     username: "Логин"
     password: "Пароль"
     remember_me: "Запомнить"
@@ -116,7 +116,7 @@ ru:
     mail:
       restore_link:
         subject: "Восстановление пароля"
-        body: "Для восстановления пароля проследуйте по ссылке: {{link}}"
+        body: "Для восстановления пароля проследуйте по ссылке: %{link}"
   reset_password:
     page_title: "Сброс пароля"
     window_title: "Сброс пароля"
@@ -163,50 +163,50 @@ ru:
       contact_name: "Контактное имя"
       email: "E-mail"
     events:
-      internal_error: "Внутренная ошибка: {{message}}"
+      internal_error: "Внутренная ошибка: %{message}"
       hardware_server:
-        connect: "Физический сервер {{host}} был подключен."
-        disconnect: "Физический сервер {{host}} был отключен."
-        sync: "Состояние сервера {{host}} было синхронизировано."
-        sync_failed: "Не удалось синхронизировать состояние сервера {{host}}."
-        reboot: "Перезагрузка сервера {{host}}."
+        connect: "Физический сервер %{host} был подключен."
+        disconnect: "Физический сервер %{host} был отключен."
+        sync: "Состояние сервера %{host} было синхронизировано."
+        sync_failed: "Не удалось синхронизировать состояние сервера %{host}."
+        reboot: "Перезагрузка сервера %{host}."
       virtual_server:
-        created: "Виртуальный сервер {{identity}} был создан."
-        removed: "Виртуальный сервер {{identity}} был удален."
-        change_state_failed: "Не удалось изменить состояние виртуального сервера {{identity}}; состояние: {{state}}; код: {{code}}."
-        updated: "Настройки для виртуального сервера {{identity}} были обновлены."
-        cloned: "Виртуальный сервер {{identity}} был клонирован."
-        counter_reached: "Достигнут лимит {{name}} для виртуального сервера {{identity}} на физическом сервере {{host}}."
+        created: "Виртуальный сервер %{identity} был создан."
+        removed: "Виртуальный сервер %{identity} был удален."
+        change_state_failed: "Не удалось изменить состояние виртуального сервера %{identity}; состояние: %{state}; код: %{code}."
+        updated: "Настройки для виртуального сервера %{identity} были обновлены."
+        cloned: "Виртуальный сервер %{identity} был клонирован."
+        counter_reached: "Достигнут лимит %{name} для виртуального сервера %{identity} на физическом сервере %{host}."
       user:
         login:
-          ok: "Пользователь {{login}} вошел в панель."
-          bad_password: "Попытка пользователя {{login}} войти с неверным паролем."
+          ok: "Пользователь %{login} вошел в панель."
+          bad_password: "Попытка пользователя %{login} войти с неверным паролем."
           bad_login: "Попытка войти под неизвестным логином."
-          locked_user: "Заблокированный пользователь {{login}} попытался войти в панель."
-          ip_restricted: "Ограничение по IP-адресу для пользователя с логином {{login}}."
-        logout: "Пользователь {{login}} вышел из панели."
-        removed: "Пользователь {{login}} был удален."
-        enabled: "Пользователь {{login}} был разблокирован."
-        disabled: "Пользователь {{login}} был заблокирован."
-        created: "Пользователь {{login}} был создан."
-        updated: "Пользователь {{login}} был обновлен."
-        profile_updated: "Профиль пользователя {{login}} был обновлен."
+          locked_user: "Заблокированный пользователь %{login} попытался войти в панель."
+          ip_restricted: "Ограничение по IP-адресу для пользователя с логином %{login}."
+        logout: "Пользователь %{login} вышел из панели."
+        removed: "Пользователь %{login} был удален."
+        enabled: "Пользователь %{login} был разблокирован."
+        disabled: "Пользователь %{login} был заблокирован."
+        created: "Пользователь %{login} был создан."
+        updated: "Пользователь %{login} был обновлен."
+        profile_updated: "Профиль пользователя %{login} был обновлен."
       role:
-        removed: "Роль {{name}} была удалена."
-        created: "Роль {{name}} была создана."
-        updated: "Роль {{name}} была обновлена."
+        removed: "Роль %{name} была удалена."
+        created: "Роль %{name} была создана."
+        updated: "Роль %{name} была обновлена."
       request:
-        created: "Запрос #{{id}} был создан."
-        updated: "Запрос #{{id}} был обновлен."
-        removed: "Запрос #{{id}} был удален."
+        created: "Запрос #%{id} был создан."
+        updated: "Запрос #%{id} был обновлен."
+        removed: "Запрос #%{id} был удален."
       comment:
-        created: "Комментарий на запрос #{{request_id}} был создан."
+        created: "Комментарий на запрос #%{request_id} был создан."
     tasks:
       os_templates:
-        install: "Установка шаблонов ОС на сервер {{host}}."
+        install: "Установка шаблонов ОС на сервер %{host}."
       backups:
-        create: "Резерное копирование виртуального сервера #{{identity}} на физическом сервере {{host}}."
-        restore: "Восстановление виртуального сервера #{{identity}} на физическом сервере {{host}}."
+        create: "Резерное копирование виртуального сервера #%{identity} на физическом сервере %{host}."
+        restore: "Восстановление виртуального сервера #%{identity} на физическом сервере %{host}."
     dashboard:
       title: "Рабочий стол"
       intro:
@@ -214,10 +214,10 @@ ru:
         text: "OpenVZ Web Panel - это панель для управления серверами на технологии виртуализации OpenVZ."
       profile:
         title: "Профиль"
-        text: "Вы вошли как пользователь {{login}}."
+        text: "Вы вошли как пользователь %{login}."
       updates:
-        text: "Новая версия доступна: {{product}}."
-        update_command: "Для обновления необходимо выполнить команду: {{command}}"
+        text: "Новая версия доступна: %{product}."
+        update_command: "Для обновления необходимо выполнить команду: %{command}"
       stats_grid:
         title: "Статистика"
         column:
@@ -270,7 +270,7 @@ ru:
           sure_to_reboot: "Выбранные серверы будут недоступны во время перезагрузки. Вы действительно хотите их перезагрузить?"
           reboot_failed: "Не удалось начать перезагрузку на некоторых серверах."
       show:
-        title: "Физический сервер {{name}}"
+        title: "Физический сервер %{name}"
       top_toolbar:
         os_templates: "Шаблоны ОС"
         server_templates: "Шаблоны серверов"
@@ -282,11 +282,11 @@ ru:
         field:
           os_version: "Версия ОС"
           cpu_load_average: "Средняя загрузка CPU"
-          disk_usage: "Использование диска, раздел {{partition}}"
+          disk_usage: "Использование диска, раздел %{partition}"
           memory_usage: "Использование памяти"
         value:
-          disk_usage: "{{percent}}%, {{used}} из {{total}} / {{free}} свободно"
-          memory_usage: "{{percent}}%, {{used}} из {{total}} / {{free}} свободно"
+          disk_usage: "%{percent}%, %{used} из %{total} / %{free} свободно"
+          memory_usage: "%{percent}%, %{used} из %{total} / %{free} свободно"
     virtual_servers:
       title: "Виртуальные сервера"
       limits:
@@ -407,7 +407,7 @@ ru:
           button_migrate: "Мигрировать"
           note: "До миграции необходимо сгенерировать публичный ключ SSH для пользователя root на исходном физическом сервере и скопировать его на целевой физический сервер. Также необходимо установить утилиту rsync на целевом физическом сервере."
       show:
-        title: "Виртуальный сервер {{name}}"
+        title: "Виртуальный сервер %{name}"
         grid:
           title: "Информация о виртуальном сервере"
           column:
@@ -420,12 +420,12 @@ ru:
           disk_usage: "Использование диска"
           memory_usage: "Использование памяти"
         value:
-          disk_usage: "{{percent}}%, {{used}} из {{total}} / {{free}} свободно"
-          memory_usage: "{{percent}}%, {{used}} из {{total}} / {{free}} свободно"
+          disk_usage: "%{percent}%, %{used} из %{total} / %{free} свободно"
+          memory_usage: "%{percent}%, %{used} из %{total} / %{free} свободно"
         button:
           stat_details: "Детали"
       stat_details:
-        title: "Статистика виртуального сервера {{name}}"
+        title: "Статистика виртуального сервера %{name}"
         grid:
           title: "Ограничения виртуального сервера"
           column:
@@ -443,7 +443,7 @@ ru:
           disk_usage:
             title: "Использование диска"
     os_templates:
-      title: "Шаблоны ОС на физическом сервере {{name}}"
+      title: "Шаблоны ОС на физическом сервере %{name}"
       grid:
         title: "Установленные шаблоны OС"
         column:
@@ -533,7 +533,7 @@ ru:
           id: "ID"
           description: "Описание"
     server_templates:
-      title: "Шаблоны серверов на физическом сервере {{name}}"
+      title: "Шаблоны серверов на физическом сервере %{name}"
       grid:
         title: "Доступные шаблоны серверов"
         column:
@@ -577,7 +577,7 @@ ru:
               soft_limit: "Барьер"
               hard_limit: "Лимит"
     backups:
-      title: "Резервные копии для виртуального сервера {{name}}"
+      title: "Резервные копии для виртуального сервера %{name}"
       grid:
         title: "Резервные копии"
         button:
@@ -636,7 +636,7 @@ ru:
             subject: "Тема"
             content: "Сообщение"
       comments:
-        title: "Запрос #{{id}}"
+        title: "Запрос #%{id}"
         grid:
           title: "Комментарии"
           column:
@@ -653,11 +653,11 @@ ru:
               content: "Сообщение"
       mail:
         new_request:
-          subject: "Новый запрос #{{id}}"
-          body: "Новый запрос #{{id}} был создан пользователем {{login}}."
+          subject: "Новый запрос #%{id}"
+          body: "Новый запрос #%{id} был создан пользователем %{login}."
         new_comment:
-          subject: "Новый комментарий на запрос #{{request_id}}"
-          body: "Новый комментарий на запрос #{{request_id}} был добавлен пользователем {{login}}."
+          subject: "Новый комментарий на запрос #%{request_id}"
+          body: "Новый комментарий на запрос #%{request_id} был добавлен пользователем %{login}."
     roles:
       title: "Роли"
       grid:

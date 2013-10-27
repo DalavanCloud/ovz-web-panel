@@ -22,12 +22,12 @@ en:
           attributes:
             password:
               confirmation: "Password and confirmation are not equal."
-              too_short: "Password is too short (minimum symbols: {{count}})."
+              too_short: "Password is too short (minimum symbols: %{count})."
             password_confirmation:
               blank: "Password confirmation is required."
             login:
               taken: "User with such login is already exist."
-              too_short: "Login is too short (minimum symbols: {{count}})."
+              too_short: "Login is too short (minimum symbols: %{count})."
         hardware_server:
           attributes:
             host:
@@ -40,8 +40,8 @@ en:
               bad_auth: "Unable to authorize. Probably incorrect auth key."
             daemon_port:
               not_a_number: "Invalid port number."
-              greater_than: "Port number should be greater than {{count}}."
-              less_than: "Port number should be less than {{count}}."
+              greater_than: "Port number should be greater than %{count}."
+              less_than: "Port number should be less than %{count}."
             root_password:
               ssh_bad_auth: "SSH authorization failed."
               empty: "This field is required."
@@ -94,7 +94,7 @@ en:
     web_site: "Web site"
   login:
     page_title: "Login"
-    window_title: "Log in to {{product}}"
+    window_title: "Log in to %{product}"
     username: "User name"
     password: "Password"
     remember_me: "Remember me"
@@ -116,7 +116,7 @@ en:
     mail:
       restore_link:
         subject: "Password Recovery"
-        body: "To restore the password follow the link: {{link}}"
+        body: "To restore the password follow the link: %{link}"
   reset_password:
     page_title: "Reset Password"
     window_title: "Reset Password"
@@ -163,50 +163,50 @@ en:
       contact_name: "Contact Name"
       email: "E-mail"
     events:
-      internal_error: "Internal error: {{message}}"
+      internal_error: "Internal error: %{message}"
       hardware_server:
-        connect: "Physical server {{host}} was connected."
-        disconnect: "Physical server {{host}} was disconnected."
-        sync: "Server's {{host}} state was synchronized."
-        sync_failed: "Failed to synchronize {{host}} server state."
-        reboot: "Start rebooting of the server {{host}}."
+        connect: "Physical server %{host} was connected."
+        disconnect: "Physical server %{host} was disconnected."
+        sync: "Server's %{host} state was synchronized."
+        sync_failed: "Failed to synchronize %{host} server state."
+        reboot: "Start rebooting of the server %{host}."
       virtual_server:
-        created: "Virtual server {{identity}} was created."
-        removed: "Virtual server {{identity}} was removed."
-        change_state_failed: "Failed to change state for virtual server {{identity}}; state: {{state}}; code: {{code}}."
-        updated: "Settings for virtual server {{identity}} were updated."
-        cloned: "Virtual server {{identity}} was cloned."
-        counter_reached: "Limit {{name}} was reached for virtual server {{identity}} on physical server {{host}}."
+        created: "Virtual server %{identity} was created."
+        removed: "Virtual server %{identity} was removed."
+        change_state_failed: "Failed to change state for virtual server %{identity}; state: %{state}; code: %{code}."
+        updated: "Settings for virtual server %{identity} were updated."
+        cloned: "Virtual server %{identity} was cloned."
+        counter_reached: "Limit %{name} was reached for virtual server %{identity} on physical server %{host}."
       user:
         login:
-          ok: "User {{login}} is logged in."
-          bad_password: "User {{login}} failed to login with incorrect password."
+          ok: "User %{login} is logged in."
+          bad_password: "User %{login} failed to login with incorrect password."
           bad_login: "Attempt to login with unknown login name."
-          locked_user: "Locked user {{login}} tried to login."
-          ip_restricted: "IP restriction is in effect for user with login {{login}}."
-        logout: "User {{login}} is logged out."
-        removed: "User {{login}} was removed."
-        enabled: "User {{login}} was enabled."
-        disabled: "User {{login}} was disabled."
-        created: "User {{login}} was created."
-        updated: "User {{login}} was updated."
-        profile_updated: "User {{login}} profile was updated."
+          locked_user: "Locked user %{login} tried to login."
+          ip_restricted: "IP restriction is in effect for user with login %{login}."
+        logout: "User %{login} is logged out."
+        removed: "User %{login} was removed."
+        enabled: "User %{login} was enabled."
+        disabled: "User %{login} was disabled."
+        created: "User %{login} was created."
+        updated: "User %{login} was updated."
+        profile_updated: "User %{login} profile was updated."
       role:
-        removed: "Role {{name}} was removed."
-        created: "Role {{name}} was created."
-        updated: "Role {{name}} was updated."
+        removed: "Role %{name} was removed."
+        created: "Role %{name} was created."
+        updated: "Role %{name} was updated."
       request:
-        created: "Request #{{id}} was created."
-        updated: "Request #{{id}} was updated."
-        removed: "Request #{{id}} was removed."
+        created: "Request #%{id} was created."
+        updated: "Request #%{id} was updated."
+        removed: "Request #%{id} was removed."
       comment:
-        created: "Comment on request #{{request_id}} was created."
+        created: "Comment on request #%{request_id} was created."
     tasks:
       os_templates:
-        install: "OS templates installation on the server {{host}}."
+        install: "OS templates installation on the server %{host}."
       backups:
-        create: "Backing up of virtual server #{{identity}} on physical server {{host}}."
-        restore: "Restoring of virtual server #{{identity}} on physical server {{host}}."
+        create: "Backing up of virtual server #%{identity} on physical server %{host}."
+        restore: "Restoring of virtual server #%{identity} on physical server %{host}."
     dashboard:
       title: "Dashboard"
       intro:
@@ -214,10 +214,10 @@ en:
         text: "OpenVZ Web Panel is a GUI web-based frontend for controlling of physical servers with OpenVZ virtualization technology."
       profile:
         title: "Profile"
-        text: "You logged in as {{login}}."
+        text: "You logged in as %{login}."
       updates:
-        text: "New version is available: {{product}}."
-        update_command: "To perform the update need to run the following command: {{command}}"
+        text: "New version is available: %{product}."
+        update_command: "To perform the update need to run the following command: %{command}"
       stats_grid:
         title: "Statistics"
         column:
@@ -270,7 +270,7 @@ en:
           sure_to_reboot: "Selected servers will be unavailable during reboot. Are you sure you want to reboot them?"
           reboot_failed: "Unable to start reboot on some servers."
       show:
-        title: "Physical Server {{name}}"
+        title: "Physical Server %{name}"
       top_toolbar:
         os_templates: "OS Templates"
         server_templates: "Server Templates"
@@ -282,11 +282,11 @@ en:
         field:
           os_version: "OS version"
           cpu_load_average: "CPU load average"
-          disk_usage: "Disk usage, partition {{partition}}"
+          disk_usage: "Disk usage, partition %{partition}"
           memory_usage: "Memory usage"
         value:
-          disk_usage: "{{percent}}%, {{used}} of {{total}} / {{free}} free"
-          memory_usage: "{{percent}}%, {{used}} of {{total}} / {{free}} free"
+          disk_usage: "%{percent}%, %{used} of %{total} / %{free} free"
+          memory_usage: "%{percent}%, %{used} of %{total} / %{free} free"
     virtual_servers:
       title: "Virtual Servers"
       limits:
@@ -408,7 +408,7 @@ en:
           button_migrate: "Migrate"
           note: "Before migration need to generate SSH public key for root user on source physical server and copy it to destination physical server. Also need to check/install rsync utility to destination physical server."
       show:
-        title: "Virtual server {{name}}"
+        title: "Virtual server %{name}"
         grid:
           title: "Virtual server information"
           column:
@@ -421,12 +421,12 @@ en:
           disk_usage: "Disk usage"
           memory_usage: "Memory usage"
         value:
-          disk_usage: "{{percent}}%, {{used}} of {{total}} / {{free}} free"
-          memory_usage: "{{percent}}%, {{used}} of {{total}} / {{free}} free"
+          disk_usage: "%{percent}%, %{used} of %{total} / %{free} free"
+          memory_usage: "%{percent}%, %{used} of %{total} / %{free} free"
         button:
           stat_details: "Details"
       stat_details:
-        title: "Virtual server {{name}} statistics"
+        title: "Virtual server %{name} statistics"
         grid:
           title: "Virtual server limits"
           column:
@@ -444,7 +444,7 @@ en:
           disk_usage:
             title: "Disk usage"
     os_templates:
-      title: "OS Templates on Physical Server {{name}}"
+      title: "OS Templates on Physical Server %{name}"
       grid:
         title: "Installed OS Templates"
         column:
@@ -534,7 +534,7 @@ en:
           id: "ID"
           description: "Description"
     server_templates:
-      title: "Server Templates on Physical Server {{name}}"
+      title: "Server Templates on Physical Server %{name}"
       grid:
         title: "Available Server Templates"
         column:
@@ -578,7 +578,7 @@ en:
               soft_limit: "Barrier"
               hard_limit: "Limit"
     backups:
-      title: "Backups for virtual server {{name}}"
+      title: "Backups for virtual server %{name}"
       grid:
         title: "Backups"
         button:
@@ -637,7 +637,7 @@ en:
             subject: "Subject"
             content: "Message"
       comments:
-        title: "Request #{{id}}"
+        title: "Request #%{id}"
         grid:
           title: "Comments"
           column:
@@ -654,11 +654,11 @@ en:
               content: "Message"
       mail:
         new_request:
-          subject: "New request #{{id}}"
-          body: "New request #{{id}} was created by {{login}}."
+          subject: "New request #%{id}"
+          body: "New request #%{id} was created by %{login}."
         new_comment:
-          subject: "New comment on request #{{request_id}}"
-          body: "New comment on request #{{request_id}} was added by {{login}}."
+          subject: "New comment on request #%{request_id}"
+          body: "New comment on request #%{request_id} was added by %{login}."
     roles:
       title: "Roles"
       grid:

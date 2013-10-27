@@ -22,12 +22,12 @@ ro:
           attributes:
             password:
               confirmation: "Parolele nu sunt identice."
-              too_short: "Parola este prea scurta (nr. minim de caractere: {{count}})."
+              too_short: "Parola este prea scurta (nr. minim de caractere: %{count})."
             password_confirmation:
               blank: "Este necesara confirmarea parolei."
             login:
               taken: "Exista deja un utilizatoru cu acest nume."
-              too_short: "Nume utilizator prea scurt (nr. minim de caractere: {{count}})."
+              too_short: "Nume utilizator prea scurt (nr. minim de caractere: %{count})."
         hardware_server:
           attributes:
             host:
@@ -40,8 +40,8 @@ ro:
               bad_auth: "Autentificare esuata. Cheia este incorecta."
             daemon_port:
               not_a_number: "Numar port invalid."
-              greater_than: "Portul trebuie sa fie mai mare de {{count}}."
-              less_than: "Portul trebuie sa fie mai mic decat {{count}}."
+              greater_than: "Portul trebuie sa fie mai mare de %{count}."
+              less_than: "Portul trebuie sa fie mai mic decat %{count}."
             root_password: 
               ssh_bad_auth: "Autorizare SSH esuata."
               empty: "Acest camp este obligatoriu."
@@ -94,7 +94,7 @@ ro:
     web_site: "Web site"
   login:
     page_title: "Login"
-    window_title: "Autentificare pe {{product}}"
+    window_title: "Autentificare pe %{product}"
     username: "Utilizator"
     password: "Parola"
     remember_me: "Tine-ma minte"
@@ -115,7 +115,7 @@ ro:
     mail:
       restore_link:
         subject: "Recuperare parola"
-        body: "Pentru a recupera parola urmati urmatorul link: {{link}}"
+        body: "Pentru a recupera parola urmati urmatorul link: %{link}"
   reset_password:
     page_title: "Resetare parola"
     window_title: "Resetare parola"
@@ -162,49 +162,49 @@ ro:
       contact_name: "Nume"
       email: "E-mail"
     events:
-      internal_error: "Eroare interna: {{message}}"
+      internal_error: "Eroare interna: %{message}"
       hardware_server:
-        connect: "Serverul fizic {{host}} a fost conectat."
-        disconnect: "Serverul fizic {{host}} a fost deconectat."
-        sync: "Starea serverului {{host}} a fost sincronizata."
-        sync_failed: "Sincronizarea serverului {{host}} a fost esuata."
-        reboot: "Incepere procedura repornire server {{host}}."
+        connect: "Serverul fizic %{host} a fost conectat."
+        disconnect: "Serverul fizic %{host} a fost deconectat."
+        sync: "Starea serverului %{host} a fost sincronizata."
+        sync_failed: "Sincronizarea serverului %{host} a fost esuata."
+        reboot: "Incepere procedura repornire server %{host}."
       virtual_server:
-        created: "Serverul virtual {{identity}} a fost creat."
-        removed: "Serverul virtual {{identity}} a fost sters."
-        change_state_failed: "Nu s-a putut schimba starea serverului virtual {{identity}}; stare: {{state}}; cod: {{code}}."
-        updated: "Setarile pentru serverul virtual {{identity}} au fost actualizate."
-        cloned: "Serverul virtual {{identity}} a fost clonat."
-        counter_reached: "Limita {{name}} a fost atinsa pentru serverul virtual {{identity}} pe serverul fizic {{host}}."
+        created: "Serverul virtual %{identity} a fost creat."
+        removed: "Serverul virtual %{identity} a fost sters."
+        change_state_failed: "Nu s-a putut schimba starea serverului virtual %{identity}; stare: %{state}; cod: %{code}."
+        updated: "Setarile pentru serverul virtual %{identity} au fost actualizate."
+        cloned: "Serverul virtual %{identity} a fost clonat."
+        counter_reached: "Limita %{name} a fost atinsa pentru serverul virtual %{identity} pe serverul fizic %{host}."
       user:
         login:
-          ok: "Utilizatorul {{login}} a fost autentificat."
-          bad_password: "Utilizatorul {{login}} nu a putut fi autentificat - parola incorecta."
+          ok: "Utilizatorul %{login} a fost autentificat."
+          bad_password: "Utilizatorul %{login} nu a putut fi autentificat - parola incorecta."
           bad_login: "Tentativa de autentificare cu nume de utilizator necunoscut."
-          locked_user: "Utilizatorul blocat {{login}} a incercat sa se autentifice."
-        logout: "Utilizatorul {{login}} a foist deconectat."
-        removed: "Utilizatorul {{login}} a fost sters."
-        enabled: "Utilizatorul {{login}} a fost activat."
-        disabled: "Utilizatorul {{login}} a fost dezactivat."
-        created: "Utilizatorul {{login}} a fost creat."
-        updated: "Utilizatorul {{login}} a fost actualizat."
-        profile_updated: "Profilul utilizatorului {{login}} a fost actualizat."
+          locked_user: "Utilizatorul blocat %{login} a incercat sa se autentifice."
+        logout: "Utilizatorul %{login} a foist deconectat."
+        removed: "Utilizatorul %{login} a fost sters."
+        enabled: "Utilizatorul %{login} a fost activat."
+        disabled: "Utilizatorul %{login} a fost dezactivat."
+        created: "Utilizatorul %{login} a fost creat."
+        updated: "Utilizatorul %{login} a fost actualizat."
+        profile_updated: "Profilul utilizatorului %{login} a fost actualizat."
       role:
-        removed: "Rolul {{name}} a fost sters."
-        created: "Rolul {{name}} a fost creat."
-        updated: "Rolul {{name}} a fost actualizat."
+        removed: "Rolul %{name} a fost sters."
+        created: "Rolul %{name} a fost creat."
+        updated: "Rolul %{name} a fost actualizat."
       request:
-        created: "Cererea #{{id}} a fost creata."
-        updated: "Cererea #{{id}} a fost actualizata."
-        removed: "Cererea #{{id}} a fost stearsa."
+        created: "Cererea #%{id} a fost creata."
+        updated: "Cererea #%{id} a fost actualizata."
+        removed: "Cererea #%{id} a fost stearsa."
       comment:
-        created: "Comentariul in cererea #{{request_id}} a fost creat."
+        created: "Comentariul in cererea #%{request_id} a fost creat."
     tasks:
       os_templates:
-        install: "Sabloane SO pe serverul {{host}}."
+        install: "Sabloane SO pe serverul %{host}."
       backups:
-        create: "Salvare server virtual #{{identity}} pe serverul fizic {{host}}."
-        restore: "Restaurare server virtual #{{identity}} pe serverul fizic {{host}}."
+        create: "Salvare server virtual #%{identity} pe serverul fizic %{host}."
+        restore: "Restaurare server virtual #%{identity} pe serverul fizic %{host}."
     dashboard:
       title: "Vedere generala"
       intro:
@@ -212,10 +212,10 @@ ro:
         text: "OpenVZ Web Panel este o aplicatie web pentru controlul serverelor fizice cu tehnologia de virtualizare OpenVZ."
       profile:
         title: "Profil"
-        text: "Este logat cu {{login}}."
+        text: "Este logat cu %{login}."
       updates:
-        text: "O versiune noua este disponibila: {{product}}."
-        update_command: "Pentru a incepe procedura de actualizare este nevoie de urmatoarea comanda: {{command}}"
+        text: "O versiune noua este disponibila: %{product}."
+        update_command: "Pentru a incepe procedura de actualizare este nevoie de urmatoarea comanda: %{command}"
       stats_grid:
         title: "Statistici"
         column:
@@ -268,7 +268,7 @@ ro:
           sure_to_reboot: "Serverele selecatate nu vor fi disponibile in timpul repornirii. Sunteti sigur ca doriti sa le reporniti?"
           reboot_failed: "Nu s-a putut efecta comanda de repornire pe unele servere."
       show:
-        title: "Server fizic {{name}}"
+        title: "Server fizic %{name}"
       top_toolbar:
         os_templates: "Sabloane SO"
         server_templates: "Sabloane server"
@@ -280,11 +280,11 @@ ro:
         field:
           os_version: "Versiune SO"
           cpu_load_average: "Incarcare medie CPU"
-          disk_usage: "Utilizare disc, partitie {{partition}}"
+          disk_usage: "Utilizare disc, partitie %{partition}"
           memory_usage: "Utilizare memorie"
         value:
-          disk_usage: "{{percent}}%, {{used}} din {{total}} / {{free}} liber"
-          memory_usage: "{{percent}}%, {{used}} din {{total}} / {{free}} liber"
+          disk_usage: "%{percent}%, %{used} din %{total} / %{free} liber"
+          memory_usage: "%{percent}%, %{used} din %{total} / %{free} liber"
     virtual_servers:
       title: "Servere virtuale"
       limits:
@@ -403,7 +403,7 @@ ro:
           button_migrate: "Migrare"
           note: "Inainte de migrare trebuie sa generati o cheie publica SSH pentru utilizatorul root pe server sursa fizic si sa o copiati pe serverul de destinatie. De asemenea verificati ca aplicatia rsync este prezenta pe serverul de destinatie."
       show:
-        title: "Server virtual {{name}}"
+        title: "Server virtual %{name}"
         grid:
           title: "Informatii server virtual"
           column:
@@ -416,12 +416,12 @@ ro:
           disk_usage: "Spatiu disc utilizat"
           memory_usage: "Memorie RAM utilizata"
         value:
-          disk_usage: "{{percent}}%, {{used}} din {{total}} / {{free}} liber"
-          memory_usage: "{{percent}}%, {{used}} din {{total}} / {{free}} liber"
+          disk_usage: "%{percent}%, %{used} din %{total} / %{free} liber"
+          memory_usage: "%{percent}%, %{used} din %{total} / %{free} liber"
         button:
           stat_details: "Detalii"
       stat_details:
-        title: "Statistici pentru serverul virtual {{name}}"
+        title: "Statistici pentru serverul virtual %{name}"
         grid:
           title: "Limite server virtual"
           column:
@@ -439,7 +439,7 @@ ro:
           disk_usage:
             title: "Utilizare HDD"
     os_templates:
-      title: "Sabloane SO pe serverul fizic {{name}}"
+      title: "Sabloane SO pe serverul fizic %{name}"
       grid:
         title: "Sabloane SO instalate"
         column:
@@ -529,7 +529,7 @@ ro:
           id: "ID"
           description: "Descriere"
     server_templates:
-      title: "Sabloane server pe serverul fizic {{name}}"
+      title: "Sabloane server pe serverul fizic %{name}"
       grid:
         title: "Sabloane server disponibile"
         column:
@@ -572,7 +572,7 @@ ro:
               soft_limit: "Bariera"
               hard_limit: "Limita"
     backups:
-      title: "Copii de siguranta pentru serverul virtual {{name}}"
+      title: "Copii de siguranta pentru serverul virtual %{name}"
       grid:
         title: "Copii de siguranta"
         button:
@@ -631,7 +631,7 @@ ro:
             subject: "Subiect"
             content: "Mesaj"
       comments:
-        title: "Cerere #{{id}}"
+        title: "Cerere #%{id}"
         grid:
           title: "Comentarii"
           column:
@@ -648,11 +648,11 @@ ro:
               content: "Mesaj"
       mail:
         new_request:
-          subject: "Cerere noua #{{id}}"
-          body: "Cererea #{{id}} a fost creata de {{login}}."
+          subject: "Cerere noua #%{id}"
+          body: "Cererea #%{id} a fost creata de %{login}."
         new_comment:
-          subject: "Comentariu nou in cererea #{{request_id}}"
-          body: "Comentariul nou in cererea #{{request_id}} a fost adaugat de {{login}}."
+          subject: "Comentariu nou in cererea #%{request_id}"
+          body: "Comentariul nou in cererea #%{request_id} a fost adaugat de %{login}."
     roles:
       title: "Roluri utilizatori"
       grid:
