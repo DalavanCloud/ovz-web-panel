@@ -652,7 +652,7 @@ ro:
           body: "Cererea #{{id}} a fost creata de {{login}}."
         new_comment:
           subject: "Comentariu nou in cererea #{{request_id}}"
-          body: "Comentariul nou in cererea #{{request_id}} a fost adaugat de {login}}."
+          body: "Comentariul nou in cererea #{{request_id}} a fost adaugat de {{login}}."
     roles:
       title: "Roluri utilizatori"
       grid:
