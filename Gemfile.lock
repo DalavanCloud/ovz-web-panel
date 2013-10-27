@@ -36,7 +36,7 @@ PLATFORMS
 DEPENDENCIES
   net-sftp (~> 2.1.2)
   net-ssh (~> 2.7.0)
-  rails (~> 2.3.11)
+  rails (~> 2.3.18)
   rdoc (~> 4.0.1)
   ruby-net-ldap (~> 0.0.4)
   spawnling (~> 2.1.1)
