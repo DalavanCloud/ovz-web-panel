@@ -1,5 +1,4 @@
-# this file is for bundler support
-
+# <bundler>
 begin
   require "rubygems"
   require "bundler"
@@ -20,3 +19,30 @@ rescue Bundler::GemNotFound
   raise RuntimeError, "Bundler couldn't find some gems." +
     "Did you run `bundle install`?"
 end
+# </bundler>
+
+# <fix for "undefined method `source_index' for Gem:Module (NoMethodError)">
+# for ruby 1.9+
+# from http://djellemah.com/blog/2013/02/27/rails-23-with-ruby-20/
+# side effect: Will ignore vendor gems.
+if RUBY_VERSION.to_f >= 1.9
+  module Gem
+    def self.source_index
+      sources
+    end
+
+    def self.cache
+      sources
+    end
+
+    SourceIndex = Specification
+
+    class SourceList
+      # If you want vendor gems, this is where to start writing code.
+      def search( *args ); []; end
+      def each( &block ); end
+      include Enumerable
+    end
+  end
+end
+# </fix>
