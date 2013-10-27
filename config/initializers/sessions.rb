@@ -14,6 +14,6 @@ class CGI::Session::CookieStore
 end
 
 ActionController::Base.session = {
-  :session_key => '_owp_session',
+  :key    => '_owp_session',
   :secret => ENV["SECRET_TOKEN"] ? ENV["SECRET_TOKEN"] : ActiveSupport::SecureRandom.hex(64),
 }

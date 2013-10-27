@@ -1,3 +1,5 @@
+require 'drb'
+
 class WatchdogClient
 
   SERVER_URI = "druby://localhost:7787"
