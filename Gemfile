@@ -13,5 +13,5 @@ gem 'ruby-net-ldap','~> 0.0.4'
 gem 'spawnling',    '~> 2.1.1'
 
 group :development, :test do
-#    gem 'rspec-rails', '~> 1.3.4'
+  gem 'rspec-rails', '~> 1.3.4'
 end
