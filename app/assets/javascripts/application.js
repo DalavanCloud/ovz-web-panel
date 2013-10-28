@@ -103,14 +103,27 @@ Owp.form.errorHandler = function(form, action, params) {
   var errorsHash = new Array();  
   
   Ext.each(action.result.form_errors, function(message) {
-    messageField = message[0];
-    messageContent = message[1];
-    
-    errorsHash[messageField] = (errorsHash[messageField])
+    if( message instanceof Array ){
+      // Rails2
+      messageField = message[0];
+      messageContent = message[1];
+
+      errorsHash[messageField] = (errorsHash[messageField])
       ? errorsHash[messageField] + '<br/>' + messageContent
       : messageContent;
+    } else {
+      // Rails3
+      for( key in message ){
+        messageField = key;
+        Ext.each(message[key], function(messageContent) {
+          errorsHash[messageField] = (errorsHash[messageField])
+          ? errorsHash[messageField] + '<br/>' + messageContent
+          : messageContent;
+        });
+      }
+    }
   });
-    
+
   Ext.each(form.items.items, function(field) {    
     if (('undefined' != field.name) && ('undefined' != typeof errorsHash[field.name])) {
       field.markInvalid(errorsHash[field.name])
