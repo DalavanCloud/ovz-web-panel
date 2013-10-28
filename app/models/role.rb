@@ -4,7 +4,7 @@ class Role < ActiveRecord::Base
 
   validates_uniqueness_of :name
 
-  attr_accessible :name, :limit_backups
+  attr_accessible :name, :limit_backups, :built_in
 
   validates_numericality_of :limit_backups, :only_integer => true
 

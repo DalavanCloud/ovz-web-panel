@@ -1,11 +1,11 @@
 class DefaultAdmin < ActiveRecord::Migration
   def self.up
-    User.after_create.clear
+    User.disable_callbacks!(:create)
     user = User.new
     user.login = 'admin'
     user.password = 'admin'
     user.password_confirmation = 'admin'
-    user.save(false)
+    user.save :validate => false
   end
 
   def self.down
