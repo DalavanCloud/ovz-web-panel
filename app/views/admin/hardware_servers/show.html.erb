@@ -6,19 +6,6 @@ Ext.onReady(function() {
 
   <%= render :partial => 'admin/virtual_servers/edit_form' %>
 
-  var changeStateAction = function(action) {
-    Owp.list.groupAction({
-      gridName: 'virtualServersGrid',
-      url: '<%= url_for :controller => 'admin/virtual-servers' %>' + '/' + action,
-      command: action,
-      waitMsg: '<%= tjs('form.performing_task') %>',
-      failure: {
-        title: '<%= tjs('form.error.title') %>',
-        msg: '<%= tjs('admin.virtual_servers.form.change_state.failed') %>'
-      }
-    });
-  }
-
   var store = new Ext.data.JsonStore({
     url: '<%= url_for :controller => 'admin/virtual-servers', :action => 'list_data', :hardware_server_id => @hardware_server.id %>',
     root: 'data',
@@ -65,7 +52,7 @@ Ext.onReady(function() {
     }
   });
 
-  var virtualServersGrid = <%= render :partial => 'admin/virtual_servers/grid' %>
+  <%= render :partial => 'admin/virtual_servers/grid' %>
 
   var statsStore = new Ext.data.JsonStore({
     url: '<%= url_for :controller => 'admin/hardware-servers', :action => 'get_stats', :id => @hardware_server.id %>',

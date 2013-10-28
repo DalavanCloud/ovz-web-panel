@@ -12,6 +12,8 @@ OWP::Application.routes.draw do
       match '/event-log/:action' => 'event_log#index'
       match '/ip-addresses/:action' => 'ip_addresses#index'
       match '/ip-pools/:action' => 'ip_pools#index'
+
+      resource :virtual_servers
   end
 
   match ':controller/:action' => '#index'
