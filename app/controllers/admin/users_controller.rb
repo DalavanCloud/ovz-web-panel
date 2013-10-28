@@ -11,7 +11,7 @@ class Admin::UsersController < Admin::Base
       params.delete(:password_confirmation)
     end
 
-    params.delete(:role_id)
+    params.slice! :password, :password_confirmation, :contact_name, :email
     @current_user.attributes = params
 
     if @current_user.errors.empty? && @current_user.save
@@ -37,6 +37,7 @@ class Admin::UsersController < Admin::Base
 
   def update
     user = (params[:id].to_i > 0) ? User.find_by_id(params[:id]) : User.new
+    params.slice! :login, :password, :password_confirmation, :contact_name, :email, :role_id
     user.attributes = params
 
     if user.save
