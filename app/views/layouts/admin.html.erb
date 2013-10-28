@@ -111,7 +111,7 @@
           }, <% if @current_user.superadmin? %> {
             cls: 'menu-item',
             text: '<%= tjs('admin.menu.general.hardware_servers') %>',
-            href: '<%= url_for :controller => 'admin/hardware-servers/list' %>',
+            href: '<%= url_for :controller => 'admin/hardware-servers', :action => 'list' %>',
             icon: '<%= image_path 'server.png' %>',
             expandable: true,
             expanded: true,
@@ -119,7 +119,7 @@
           }, {
             cls: 'menu-item',
             text: '<%= tjs('admin.menu.general.ip_addresses') %>',
-            href: '<%= url_for :controller => 'admin/ip-addresses/list' %>',
+            href: '<%= url_for :controller => 'admin/ip-addresses', :action => 'list' %>',
             icon: '<%= image_path 'network_adapter.png' %>',
             leaf: true
           }, <% end -%> {
@@ -135,23 +135,23 @@
           }, <% if @current_user.can_manage_users? %> {
             cls: 'menu-item',
             text: '<%= tjs('admin.menu.general.users') %>',
-            href: '<%= url_for :controller => 'admin/users/list' %>',
+            href: '<%= url_for :controller => 'admin/users', :action => 'list' %>',
             icon: '<%= image_path 'user.png' %>',
             leaf: true
           }, <% end -%> <% if @current_user.can_create_requests? || @current_user.can_handle_requests? %> {
             cls: 'menu-item',
             text: '<%= tjs('admin.menu.general.requests') %>',
-            href: '<%= url_for :controller => 'admin/requests/list' %>',
+            href: '<%= url_for :controller => 'admin/requests', :action => 'list' %>',
             icon: '<%= image_path 'comment_edit.png' %>'
           }, <% end -%> <% if @current_user.can_view_tasks? %> {
             cls: 'menu-item',
             text: '<%= tjs('admin.menu.general.tasks') %>',
-            href: '<%= url_for :controller => 'admin/tasks/list' %>',
+            href: '<%= url_for :controller => 'admin/tasks', :action => 'list' %>',
             icon: '<%= image_path 'cog.png' %>'
           }, <% end -%> <% if @current_user.can_view_logs? || @current_user.can_manage_logs? %> {
             cls: 'menu-item',
             text: '<%= tjs('admin.menu.general.event_log') %>',
-            href: '<%= url_for :controller => 'admin/event-log/list' %>',
+            href: '<%= url_for :controller => 'admin/event-log', :action => 'list' %>',
             icon: '<%= image_path 'book.png' %>'
           }, <% end -%> {
             cls: 'menu-item',

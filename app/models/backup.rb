@@ -1,6 +1,8 @@
 class Backup < ActiveRecord::Base
   belongs_to :virtual_server
 
+  attr_accessible :name, :size, :virtual_server_id
+
   def date
     match = name.match(/^ve-dump\.(\d+)\.(\d+)\.tar$/)
     Time.at(match[2].to_i)

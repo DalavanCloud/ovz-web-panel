@@ -11,6 +11,7 @@ class Admin::IpPoolsController < Admin::Base
 
   def update
     ip_pool = (params[:id].to_i > 0) ? IpPool.find_by_id(params[:id]) : IpPool.new
+    params.slice! :first_ip, :last_ip, :hardware_server_id
     ip_pool.attributes = params
 
     if ip_pool.save

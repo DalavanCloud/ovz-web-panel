@@ -54,11 +54,15 @@ class HardwareServer < ActiveRecord::Base
 
           daemon_dir = '/opt/ovz-web-panel/utils/hw-daemon'
 
-          sftp_mkdir_recursive(sftp, daemon_dir)
           sftp_mkdir_recursive(sftp, "#{daemon_dir}/certs")
-          sftp.upload!(Rails.root + '/utils/hw-daemon/hw-daemon.rb', daemon_dir + '/hw-daemon.rb')
-          sftp.upload!(Rails.root + '/utils/hw-daemon/certs/server.crt', daemon_dir + '/certs/server.crt')
-          sftp.upload!(Rails.root + '/utils/hw-daemon/certs/server.key', daemon_dir + '/certs/server.key')
+
+          ['hw-daemon.rb', 'certs/server.crt', 'certs/server.key'].each do |fname|
+            sftp.upload!(
+              File.join(Rails.root, 'utils', 'hw-daemon', fname), 
+              File.join(daemon_dir, fname)
+            )
+          end
+
           prepare_daemon_config(sftp, daemon_dir + '/hw-daemon.ini')
           ssh.exec!("ruby #{daemon_dir}/hw-daemon.rb restart")
         end
@@ -166,7 +170,7 @@ class HardwareServer < ActiveRecord::Base
         virtual_server.vswap = 0
       end
 
-      virtual_server.save(false)
+      virtual_server.save(:validate => false)
     end
   end
 
