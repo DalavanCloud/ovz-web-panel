@@ -3,7 +3,7 @@
 %>
 <% @page_icon = 'server.png' %>
 
-<% javascript_tag do -%>
+<%= javascript_tag do -%>
 Ext.onReady(function() {
   
   <%= render :partial => 'edit_form' %>
@@ -12,7 +12,7 @@ Ext.onReady(function() {
     url: '<%= url_for :controller => 'admin/virtual-servers', :action => 'get_properties', :id => @virtual_server.id %>',
     root: 'data',
     autoLoad: true,
-    data: <%= { :data => @virtual_server_properties }.to_json %>,
+    data: <%= { :data => @virtual_server_properties }.to_json.html_safe %>,
     fields: [
       { name: 'parameter' },
       { name: 'value' }
@@ -56,7 +56,7 @@ Ext.onReady(function() {
     url: '<%= url_for :controller => 'admin/virtual-servers', :action => 'get_stats', :id => @virtual_server.id %>',
     root: 'data',
     autoLoad: true,
-    data: <%= { :data => @virtual_server_stats }.to_json %>,
+    data: <%= { :data => @virtual_server_stats }.to_json.html_safe %>,
     fields: [
       { name: 'parameter' },
       { name: 'value' }
@@ -268,7 +268,7 @@ Ext.onReady(function() {
           { name: 'id' },
           { name: 'name' }
         ],
-        data: <%= @virtual_server.hardware_server.os_templates.map { |item| { :id => item.id, :name => item.name, }}.to_json %>
+        data: <%= @virtual_server.hardware_server.os_templates.map { |item| { :id => item.id, :name => item.name, }}.to_json.html_safe %>
       });
     <% end -%>
   
@@ -639,7 +639,7 @@ Ext.onReady(function() {
         { name: 'id' },
         { name: 'host' }
       ],
-      data: <%= @migration_targets.to_json %>
+      data: <%= @migration_targets.to_json.html_safe %>
     });
 
     var formMigrate = new Owp.form.BasicForm({

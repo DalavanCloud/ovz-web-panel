@@ -1,7 +1,7 @@
 <% @page_title = t('admin.roles.title') %>
 <% @page_icon = 'user_suit.png' %>
 
-<% javascript_tag do -%>
+<%= javascript_tag do -%>
 Ext.onReady(function() {
 
   function showRoleEditForm(mode) {
@@ -35,7 +35,7 @@ Ext.onReady(function() {
         autoWidth: true,
         defaultType: 'checkbox',
         defaults: { labelStyle: 'width: 300px' },
-        items: <%= @permissions.map { |item| { 'fieldLabel' => t('admin.roles.form.create.permissions.' + item), 'name' => "permissions[#{item}]" } }.to_json %>
+        items: <%= @permissions.map { |item| { 'fieldLabel' => t('admin.roles.form.create.permissions.' + item), 'name' => "permissions[#{item}]" } }.to_json.html_safe %>
       }, {
         xtype: 'fieldset',
         title: '<%= tjs('admin.roles.form.create.fieldset.limits') %>',
@@ -50,7 +50,7 @@ Ext.onReady(function() {
             'value' => value,
             'emptyText' => tjs('admin.roles.form.create.limits.unlimited'),
           }
-        end.to_json %>
+        end.to_json.html_safe %>
       }]
     });
     
@@ -160,7 +160,7 @@ Ext.onReady(function() {
   var store = new Ext.data.JsonStore({
     url: '<%= url_for :controller => 'admin/roles', :action => 'list_data' %>',
     root: 'data',
-    data: <%= { :data => @roles_list }.to_json %>,
+    data: <%= { :data => @roles_list }.to_json.html_safe %>,
     autoLoad: true,
     sortInfo: { field: 'name', direction: 'ASC' },
     fields: [

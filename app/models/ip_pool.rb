@@ -8,6 +8,15 @@ class IpPool < ActiveRecord::Base
   attr_accessible :first_ip, :last_ip, :hardware_server_id
   belongs_to :hardware_server
 
+  validate do
+    msg = I18n.t('activerecord.errors.models.ip_pool.attributes.first_ip.bad_range')
+    begin
+      errors.add(:first_ip, msg) if IPAddr.new(first_ip).to_i > IPAddr.new(last_ip).to_i
+    rescue
+      errors.add(:first_ip, msg)
+    end
+  end
+
   def total_ips
     from_ip = IPAddr.new(first_ip)
     to_ip = IPAddr.new(last_ip)
@@ -42,15 +51,6 @@ class IpPool < ActiveRecord::Base
       list_free << ip_addr.to_s unless list_used.include?(ip_addr.to_s)
     end
     list_free
-  end
-
-  def validate
-    msg = I18n.t('activerecord.errors.models.ip_pool.attributes.first_ip.bad_range')
-    begin
-      errors.add(:first_ip, msg) if IPAddr.new(first_ip).to_i > IPAddr.new(last_ip).to_i
-    rescue
-      errors.add(:first_ip, msg)
-    end
   end
 
 end

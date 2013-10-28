@@ -16,7 +16,7 @@ class Request < ActiveRecord::Base
     def email_notification
       User.all.select(&:can_handle_requests?).each do |admin|
         next if admin.email.blank?
-        UserMailer.deliver_request_email(admin, self)
+        UserMailer.request_email(admin, self).deliver
       end
     end
 

@@ -1,7 +1,7 @@
 <% @page_title = t('admin.users.title') %>
 <% @page_icon = 'user.png' %>
 
-<% javascript_tag do -%>
+<%= javascript_tag do -%>
 Ext.onReady(function() {
 
   function showUserEditForm(mode) {
@@ -60,7 +60,7 @@ Ext.onReady(function() {
         emptyText: '<%= tjs('admin.users.form.create.field.select_role') %>',
         store: new Ext.data.ArrayStore({
           fields: ['role_id', 'role_name'],
-          data: <%= Role.find(:all).map { |role| [role.id, role.display_name] }.to_json %>
+          data: <%= Role.all.map { |role| [role.id, role.display_name] }.to_json.html_safe %>
         })
       }]
     });
@@ -173,7 +173,7 @@ Ext.onReady(function() {
   var store = new Ext.data.JsonStore({
     url: '<%= url_for :controller => 'admin/users', :action => 'list_data' %>',
     root: 'data',
-    data: <%= { :data => @users_list }.to_json %>,
+    data: <%= { :data => @users_list }.to_json.html_safe %>,
     autoLoad: true,
     sortInfo: { field: 'login', direction: 'ASC' },
     fields: [

@@ -1,6 +1,6 @@
 <%= render :partial => 'layouts/header' %>
   
-  <% javascript_tag do -%>
+  <%= javascript_tag do -%>
     Ext.onReady(function() {
       var formMyProfile = new Owp.form.BasicForm({
         labelWidth: 150,
@@ -103,11 +103,11 @@
           }, {
             cls: 'menu-item',
             text: '<%= tjs('admin.menu.general.virtual_servers') %>',
-            href: '<%= url_for :controller => 'admin/virtual-servers/list' %>',
+            href: '<%= url_for :controller => 'admin/virtual-servers', :action => 'list' %>',
             icon: '<%= image_path 'server.png' %>',
             expandable: true,
             expanded: false,
-            children: <%= @servers_list.to_json %>
+            children: <%= @servers_list.to_json.html_safe %>
           }, <% if @current_user.superadmin? %> {
             cls: 'menu-item',
             text: '<%= tjs('admin.menu.general.hardware_servers') %>',
@@ -115,7 +115,7 @@
             icon: '<%= image_path 'server.png' %>',
             expandable: true,
             expanded: true,
-            children: <%= @servers_list.to_json %>
+            children: <%= @servers_list.to_json.html_safe %>
           }, {
             cls: 'menu-item',
             text: '<%= tjs('admin.menu.general.ip_addresses') %>',

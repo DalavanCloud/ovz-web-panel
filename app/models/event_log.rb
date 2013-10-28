@@ -9,6 +9,8 @@ class EventLog < ActiveRecord::Base
 
   @@remote_ip = ''
 
+  attr_accessible :message, :ip_address, :level, :params
+
   def self.info(message, params = {})
     self.log(message, params, INFO)
   end
@@ -24,10 +26,10 @@ class EventLog < ActiveRecord::Base
   def self.log(message, params = {}, level = DEBUG)
     record = self.new(:message => message, :ip_address => @@remote_ip, :level => level, :params => params.blank? ? '' : Marshal.safe_dump(params))
     record.save
-    RAILS_DEFAULT_LOGGER.add(level, record.t_message(:en))
+    Rails.logger.add(level, record.t_message(:en))
 
     if EventLog.count > AppConfig.log.max_records
-      limit_record = EventLog.find(:first, :order => "id DESC", :offset => AppConfig.log.max_records)
+      limit_record = EventLog.first(:order => "id DESC", :offset => AppConfig.log.max_records)
       EventLog.delete_all(["id <= ?", limit_record.id])
     end
     true

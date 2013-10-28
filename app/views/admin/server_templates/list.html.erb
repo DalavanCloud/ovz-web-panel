@@ -1,7 +1,7 @@
 <% @page_title = t('admin.server_templates.title', { :name => @hardware_server.host }) %>
 <% @page_icon = 'package.png' %>
 
-<% javascript_tag do -%>
+<%= javascript_tag do -%>
 Ext.onReady(function() {
 
   function showServerTemplateEditForm(mode) {
@@ -12,7 +12,7 @@ Ext.onReady(function() {
         { name: 'soft_limit' },
         { name: 'hard_limit' }
       ],
-      data: <%= @advanced_limits.to_json %>
+      data: <%= @advanced_limits.to_json.html_safe %>
     });
   
     var formEditServerTemplate = new Owp.form.BasicForm({
@@ -280,7 +280,7 @@ Ext.onReady(function() {
     url: '<%= url_for :controller => 'admin/server-templates', :action => 'list_data', :hardware_server_id => @hardware_server.id %>',
     root: 'data',
     autoLoad: true,
-    data: <%= { :data => @server_templates_list }.to_json %>,
+    data: <%= { :data => @server_templates_list }.to_json.html_safe %>,
     sortInfo: { field: 'name', direction: 'ASC' },
     fields: [
       { name: 'id' },

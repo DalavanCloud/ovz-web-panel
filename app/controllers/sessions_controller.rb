@@ -71,7 +71,7 @@ class SessionsController < ApplicationController
       render(:json => { :success => false, :message => t('restore_password.error.user_not_found') }) and return if !user
       render(:json => { :success => false, :message => t('restore_password.error.no_email') }) and return if user.email.blank?
 
-      UserMailer.deliver_restore_password_email(user, request.url.sub('/restore-password', '/reset-password'))
+      UserMailer.restore_password_email(user, request.url.sub('/restore-password', '/reset-password')).deliver
       render :json => { :success => true, :message => t('restore_password.restore_link_sent') }
     end
   end

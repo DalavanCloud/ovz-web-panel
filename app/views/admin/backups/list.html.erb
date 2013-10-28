@@ -1,7 +1,7 @@
 <% @page_title = t('admin.backups.title', :name => @virtual_server.screen_name) %>
 <% @page_icon = 'disk_multiple.png' %>
 
-<% javascript_tag do -%>
+<%= javascript_tag do -%>
 Ext.onReady(function() {
 
   function createBackup() {
@@ -164,7 +164,7 @@ Ext.onReady(function() {
     url: '<%= url_for :controller => 'admin/backups', :action => 'list_data', :virtual_server_id => @virtual_server.id %>',
     root: 'data',
     autoLoad: true,
-    data: <%= { :data => @backups_list }.to_json %>,
+    data: <%= { :data => @backups_list }.to_json.html_safe %>,
     sortInfo: { field: 'archive_date', direction: 'ASC' },
     fields: [
       { name: 'id' },

@@ -96,7 +96,7 @@ class Admin::VirtualServersController < Admin::Base
 
     @virtual_server_properties = virtual_server_properties(@virtual_server)
     @virtual_server_stats = get_usage_stats(@virtual_server)
-    @migration_targets = HardwareServer.find(:all, :conditions => ["id != ?", @virtual_server.hardware_server.id]).map do |server|
+    @migration_targets = HardwareServer.all( :conditions => ["id != ?", @virtual_server.hardware_server.id]).map do |server|
       { :id => server.id, :host => server.host }
     end
   end

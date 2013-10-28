@@ -1,7 +1,7 @@
 <% @page_title = t('admin.virtual_servers.title') %>
 <% @page_icon = 'server.png' %>
 
-<% javascript_tag do -%>
+<%= javascript_tag do -%>
 Ext.onReady(function() {
 
   var changeStateAction = function(action) {
@@ -21,7 +21,7 @@ Ext.onReady(function() {
     url: '<%= url_for :controller => 'admin/virtual-servers', :action => 'owner_list_data' %>',
     root: 'data',
     autoLoad: true,
-    data: <%= { :data => @virtual_servers_list }.to_json %>,
+    data: <%= { :data => @virtual_servers_list }.to_json.html_safe %>,
     sortInfo: { field: 'identity', direction: 'ASC' },
     fields: [
       { name: 'id' },

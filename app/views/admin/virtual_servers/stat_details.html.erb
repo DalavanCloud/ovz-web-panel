@@ -4,12 +4,12 @@
 %>
 <% @page_icon = 'chart_bar.png' %>
 
-<% javascript_tag do -%>
+<%= javascript_tag do -%>
 Ext.onReady(function() {
 
   var cpuUsageStore = new Ext.data.JsonStore({
     fields: [ 'time', 'usage' ],
-    data: <%= @cpu_usage.to_json %>
+    data: <%= @cpu_usage.to_json.html_safe %>
   });
 
   var cpuChart = new Ext.Panel({
@@ -37,7 +37,7 @@ Ext.onReady(function() {
 
   var diskUsageStore = new Ext.data.JsonStore({
     fields: [ 'time', 'usage' ],
-    data: <%= @disk_usage.to_json %>
+    data: <%= @disk_usage.to_json.html_safe %>
   });
 
   var diskChart = new Ext.Panel({
@@ -65,7 +65,7 @@ Ext.onReady(function() {
   
   var ramUsageStore = new Ext.data.JsonStore({
     fields: [ 'time', 'usage' ],
-    data: <%= @ram_usage.to_json %>
+    data: <%= @ram_usage.to_json.html_safe %>
   });
 
   var ramChart = new Ext.Panel({
@@ -102,7 +102,7 @@ Ext.onReady(function() {
   var store = new Ext.data.JsonStore({
     root: 'data',
     autoLoad: true,
-    data: <%= { :data => @virtual_server_stats }.to_json %>,
+    data: <%= { :data => @virtual_server_stats }.to_json.html_safe %>,
     fields: [
       { name: 'parameter' },
       { name: 'current' },

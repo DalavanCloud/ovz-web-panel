@@ -19,7 +19,9 @@ class VirtualServer < ActiveRecord::Base
   validates_format_of :host_name, :with => /^[a-z0-9\-\.]*$/i
   validates_format_of :description, :with => /^[a-z0-9\-\.\s]*$/i if AppConfig.vzctl.save_descriptions
 
-  named_scope :daily_backed_up, :conditions => { :daily_backup => true }
+  validate :validate_ips
+
+  scope :daily_backed_up, :conditions => { :daily_backup => true }
 
   def self.ip_addresses
     result = []
@@ -315,7 +317,7 @@ class VirtualServer < ActiveRecord::Base
     host_name.blank? ? "#" + identity.to_s : host_name
   end
 
-  def validate
+  def validate_ips
     return if 0 == IpPool.count or ip_address.blank? or !ip_address_changed?
     return if 'auto' == ip_address
 

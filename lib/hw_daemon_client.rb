@@ -43,14 +43,14 @@ class HwDaemonClient
   end
 
   def exec(command, args = '')
-    RAILS_DEFAULT_LOGGER.info "Executing command: #{command} #{args}"
+    Rails.logger.info "Executing command: #{command} #{args}"
     result = rpc_call('hwDaemon.exec', command, args)
     raise HwDaemonExecException.new("Command '#{command} #{args}' execution failed with code #{result['exit_code']}\nOutput: #{result['output']}", result['exit_code'], result['output']) if 0 != result['exit_code']
     result
   end
 
   def job(command, args = '')
-    RAILS_DEFAULT_LOGGER.info "Scheduling job: #{command} #{args}"
+    Rails.logger.info "Scheduling job: #{command} #{args}"
     rpc_call('hwDaemon.job', command, args)
   end
 
@@ -80,7 +80,7 @@ class HwDaemonClient
     begin
       ok, result = @rpc_client.call2(*args)
     rescue RuntimeError => error
-      RAILS_DEFAULT_LOGGER.error "XML-RPC runtime error: #{error}"
+      Rails.logger.error "XML-RPC runtime error: #{error}"
       return false
     end
 
@@ -88,7 +88,7 @@ class HwDaemonClient
       return result
     else
       error = "XML-RPC call error: #{result.faultCode}; #{result.faultString}"
-      RAILS_DEFAULT_LOGGER.error(error)
+      Rails.logger.error(error)
       raise HwDaemonException, error
     end
   end

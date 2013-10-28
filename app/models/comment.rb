@@ -17,7 +17,7 @@ class Comment < ActiveRecord::Base
 
       users.each do |user|
         next if user.email.blank?
-        UserMailer.deliver_request_comment_email(user, self)
+        UserMailer.request_comment_email(user, self).deliver
       end
     end
 

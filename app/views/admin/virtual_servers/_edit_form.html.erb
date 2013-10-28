@@ -11,7 +11,7 @@ var showVirtualServerEditForm = function(mode, grid, statsGrid) {
       { name: 'id' },
       { name: 'name' }
     ],
-    data: <%= @os_templates.to_json %>
+    data: <%= @os_templates.to_json.html_safe %>
   });
 
   var serverTemplatesStore = new Ext.data.JsonStore({
@@ -20,7 +20,7 @@ var showVirtualServerEditForm = function(mode, grid, statsGrid) {
       { name: 'id' },
       { name: 'name' }
     ],
-    data: <%= @server_templates.to_json %>
+    data: <%= @server_templates.to_json.html_safe %>
   });
 
   var ownersStore = new Ext.data.JsonStore({
@@ -29,7 +29,7 @@ var showVirtualServerEditForm = function(mode, grid, statsGrid) {
       { name: 'id' },
       { name: 'login' }
     ],
-    data: <%= @virtual_servers_owners.to_json %>
+    data: <%= @virtual_servers_owners.to_json.html_safe %>
   });
 
   var ipAddressesStore = new Ext.data.JsonStore({

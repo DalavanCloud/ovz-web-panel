@@ -3,7 +3,7 @@ class Admin::SearchController < Admin::Base
 
   def index
     search_fields = [ "identity", "description", "host_name", "ip_address", "orig_os_template", "orig_server_template" ]
-    virtual_servers = VirtualServer.find(:all, :conditions => [
+    virtual_servers = VirtualServer.all( :conditions => [
       search_fields.map{ |item| item + " LIKE :query" }.join(' OR '), { :query => "%" + params[:query] + "%" }
     ])
 

@@ -1,7 +1,7 @@
 <% @page_title = t('admin.hardware_servers.show.title', :name => @hardware_server.host) %>
 <% @page_icon = 'server.png' %>
 
-<% javascript_tag do -%>
+<%= javascript_tag do -%>
 Ext.onReady(function() {
 
   <%= render :partial => 'admin/virtual_servers/edit_form' %>
@@ -23,7 +23,7 @@ Ext.onReady(function() {
     url: '<%= url_for :controller => 'admin/virtual-servers', :action => 'list_data', :hardware_server_id => @hardware_server.id %>',
     root: 'data',
     autoLoad: true,
-    data: <%= { :data => @virtual_servers_list }.to_json %>,
+    data: <%= { :data => @virtual_servers_list }.to_json.html_safe %>,
     sortInfo: { field: 'identity', direction: 'ASC' },
     fields: [
       { name: 'id' },
@@ -70,7 +70,7 @@ Ext.onReady(function() {
   var statsStore = new Ext.data.JsonStore({
     url: '<%= url_for :controller => 'admin/hardware-servers', :action => 'get_stats', :id => @hardware_server.id %>',
     root: 'data',
-    data: <%= { :data => @hardware_server_stats }.to_json %>,
+    data: <%= { :data => @hardware_server_stats }.to_json.html_safe %>,
     autoLoad: true,
     fields: [
       { name: 'parameter' },

@@ -1,6 +1,6 @@
 <% @page_title = t('login.page_title') %>
 
-<% javascript_tag do -%>
+<%= javascript_tag do -%>
 Ext.onReady(function() {     
 
   var loginFormSubmitAction = function() {
@@ -59,7 +59,7 @@ Ext.onReady(function() {
       store: new Ext.data.ArrayStore({
         id: 0,
         fields: ['locale', 'languageTitle'],
-        data: <%= @available_locales.to_json %>
+        data: <%= @available_locales.to_json.html_safe %>
       })
     }, <% end -%> {
       fieldLabel: '<%= tjs('login.remember_me') %>',

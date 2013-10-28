@@ -1,14 +1,14 @@
 <% @page_title = t('admin.ip_addresses.title') %>
 <% @page_icon = 'network_adapter.png' %>
 
-<% javascript_tag do -%>
+<%= javascript_tag do -%>
 Ext.onReady(function() {
 
   var store = new Ext.data.JsonStore({
     url: '<%= url_for :controller => 'admin/ip-addresses', :action => 'list_data' %>',
     root: 'data',
     autoLoad: true,
-    data: <%= { :data => @ip_addresses_list }.to_json %>,
+    data: <%= { :data => @ip_addresses_list }.to_json.html_safe %>,
     sortInfo: { field: 'name', direction: 'ASC' },
     fields: [
       { name: 'name' },
@@ -74,13 +74,13 @@ Ext.onReady(function() {
       { name: 'id' },
       { name: 'host' }
     ],
-    data: <%= @hardware_servers.to_json %>
+    data: <%= @hardware_servers.to_json.html_safe %>
   });
 
   var ipPoolsStore = new Ext.data.JsonStore({
     url: '<%= url_for :controller => 'admin/ip-pools', :action => 'list_data' %>',
     root: 'data',
-    data: <%= { :data => @ip_pools_list }.to_json %>,
+    data: <%= { :data => @ip_pools_list }.to_json.html_safe %>,
     autoLoad: true,
     sortInfo: { field: 'first_ip', direction: 'ASC' },
     fields: [
