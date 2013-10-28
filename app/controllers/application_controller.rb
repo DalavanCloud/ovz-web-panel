@@ -121,7 +121,7 @@ class ApplicationController < ActionController::Base
             :cls => 'menu-item',
             :text => server.host,
             :href => base_url + '/admin/hardware-servers/show?id=' + server.id.to_s,
-            :icon => base_url + '/images/server.png',
+            :icon => base_url + '/assets/server.png',
             :leaf => true,
             :server_id => server.id.to_s,
           }
@@ -133,7 +133,7 @@ class ApplicationController < ActionController::Base
             :cls => 'menu-item',
             :text => ('#' + server.identity.to_s) + (server.host_name.blank? ? '' : (' - ' + server.host_name)),
             :href => base_url + '/admin/virtual-servers/show?id=' + server.id.to_s,
-            :icon => base_url + '/images/server.png',
+            :icon => base_url + '/assets/server.png',
             :leaf => true,
             :server_id => server.id.to_s,
           }
