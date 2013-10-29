@@ -27,7 +27,7 @@ Ext.onReady(function() {
   var store = new Ext.data.JsonStore({
     url: '<%= url_for :controller => 'admin/event-log', :action => 'list_data' %>',
     autoLoad: true,
-    data: <%= @events %>,
+    data: <%= @events.html_safe %>,
     sortInfo: { field: 'id', direction: 'DESC' },
     fields: [
       { name: 'id' },
