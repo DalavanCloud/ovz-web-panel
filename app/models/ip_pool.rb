@@ -17,6 +17,11 @@ class IpPool < ActiveRecord::Base
     end
   end
 
+  before_save do
+    # prevent accidental zeroes from ExtJS UI
+    self.hardware_server_id = nil if self.hardware_server_id == 0
+  end
+
   def total_ips
     from_ip = IPAddr.new(first_ip)
     to_ip = IPAddr.new(last_ip)

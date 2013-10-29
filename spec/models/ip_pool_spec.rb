@@ -21,4 +21,23 @@ describe "IpPool" do
     0.should == ip_pool.used_ips
   end
 
+  it "should set hardware_server_id to NULL if it == 0" do
+    ip_pool = IpPool.new(
+      :first_ip => '10.0.1.1', 
+      :last_ip  => '10.0.1.100',
+      :hardware_server_id => 0
+    )
+    ip_pool.save!
+    ip_pool.hardware_server_id.should be_nil
+  end
+
+  it "should keep hardware_server_id if it != 0" do
+    ip_pool = IpPool.new(
+      :first_ip => '10.0.1.1', 
+      :last_ip  => '10.0.1.100',
+      :hardware_server_id => 11
+    )
+    ip_pool.save!
+    ip_pool.hardware_server_id.should == 11
+  end
 end
