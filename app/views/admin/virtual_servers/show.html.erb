@@ -1,7 +1,7 @@
 <%
   @page_title = t('admin.virtual_servers.show.title', :name => @virtual_server.screen_name)
+  @page_icon  = 'server.png'
 %>
-<% @page_icon = 'server.png' %>
 
 <%= javascript_tag do -%>
 Ext.onReady(function() {
@@ -16,6 +16,15 @@ Ext.onReady(function() {
     fields: [
       { name: 'parameter' },
       { name: 'value' }
+    ]
+  });
+
+  var ipAddressesStore = new Ext.data.JsonStore({
+    url: '<%= url_for :controller => 'admin/hardware-servers', :action => 'free_ips_list_data', :id => @hardware_server.id, :mode => 'add' %>',
+    root: 'data',
+    autoLoad: true,
+    fields: [
+      { name: 'address' }
     ]
   });
   
@@ -584,7 +593,15 @@ Ext.onReady(function() {
         defaultType: 'textfield',
         items: [{
           fieldLabel: '<%= tjs('admin.virtual_servers.form.create_server.field.ip_address') %>',
-          name: 'ip_address'
+          xtype: 'combo',
+          resizable: true,
+          valueField: 'address',
+          displayField: 'address',
+          name: 'ip_address',
+          triggerAction: 'all',
+          mode: 'remote',
+          editable: true,
+          store: ipAddressesStore
         }, {
           fieldLabel: '<%= tjs('admin.virtual_servers.form.create_server.field.host_name') %>',
           name: 'host_name'

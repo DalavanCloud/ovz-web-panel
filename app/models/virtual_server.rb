@@ -40,7 +40,7 @@ class VirtualServer < ActiveRecord::Base
   end
 
   def expiration_date=(date)
-    write_attribute(:expiration_date, date.gsub('.', '-'))
+    write_attribute(:expiration_date, date ? date.gsub('.', '-') : nil)
   end
 
   def get_limits
@@ -272,14 +272,19 @@ class VirtualServer < ActiveRecord::Base
 
     hardware_server.rpc_client.exec("mkdir -p #{shellescape(root_dir)}")
 
-    orig_server.suspend
+    is_running = (orig_server.real_state == 'running')
+    orig_server.suspend if is_running
     hardware_server.rpc_client.exec("cp -a #{shellescape(orig_server.private_dir)} #{shellescape(self.private_dir)}")
-    orig_server.resume
+    orig_server.resume if is_running
 
     begin
       vzctl_set("--userpasswd root:#{shellescape(password)}") if password and !password.blank?
       vzctl_set("--hostname #{shellescape(host_name)} --save") if !host_name.blank? and host_name_changed?
       vzctl_set("--ipdel all --save") if !ip_address_was.blank?
+      if 'auto' == ip_address
+        first_free_ip = hardware_server.free_ips.first
+        self.ip_address = first_free_ip ? first_free_ip : ''
+      end
       vzctl_set(ip_address.split.map { |ip| "--ipadd #{shellescape(ip)} " }.join + "--save") if !ip_address.blank? and ip_address_changed?
     rescue HwDaemonExecException => exception
       raise exception
@@ -288,7 +293,7 @@ class VirtualServer < ActiveRecord::Base
     self.state = 'stopped'
     return false if !save
 
-    start if 'running' == orig_server.state
+    #start if 'running' == orig_server.state
 
     EventLog.info("virtual_server.cloned", { :identity => orig_server.identity })
     true

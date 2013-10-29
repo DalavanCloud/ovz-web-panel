@@ -251,8 +251,11 @@ class Admin::VirtualServersController < Admin::Base
   end
 
   def clone
-    new_server = @virtual_server.clone
-    new_server.attributes = params
+    new_server = VirtualServer.new(
+      @virtual_server.attributes.merge(
+        params.slice(*VirtualServer.accessible_attributes)
+      )
+    )
 
     if new_server.clone_physically(@virtual_server)
       render :json => { :success => true }
