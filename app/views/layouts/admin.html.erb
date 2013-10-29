@@ -168,7 +168,7 @@
               }
             }
           }]
-        }, {
+        } <% if OWP.config.help.enabled %>, {
           expanded: true,
           expandable: false,
           cls: 'menu-title',
@@ -176,17 +176,17 @@
           children: [{
             cls: 'menu-item',
             text: '<%= tjs('admin.menu.help.documentation') %>',
-            href: '<%= escape_javascript(@current_user.superadmin? ? AppConfig.help.admin_doc_url : AppConfig.help.user_doc_url) %>',
+            href: '<%= escape_javascript(@current_user.superadmin? ? OWP.config.help.admin_doc_url : OWP.config.help.user_doc_url) %>',
             icon: '<%= image_path 'help.png' %>',
             leaf: true
           }, {
             cls: 'menu-item',
             text: '<%= tjs('admin.menu.help.support') %>',
-            href: '<%= escape_javascript(AppConfig.help.support_url) %>',
+            href: '<%= escape_javascript(OWP.config.help.support_url) %>',
             icon: '<%= image_path 'bug.png' %>',
             leaf: true
           }]
-        }]
+        } <% end %> ]
       });
       
       <%= render :partial => 'layouts/search' if @current_user.superadmin? %>

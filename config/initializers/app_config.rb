@@ -35,6 +35,7 @@ config_defaults = {
     'save_descriptions' => false,
   },
   'help' => {
+    'enabled' => true, # completely enable/disable Help section in left-side Menu
     'admin_doc_url' => 'http://code.google.com/p/ovz-web-panel/wiki/AdminGuide',
     'user_doc_url' => 'http://code.google.com/p/ovz-web-panel/wiki/UserGuide',
     'support_url' => 'http://code.google.com/p/ovz-web-panel/wiki/Support',
@@ -67,7 +68,7 @@ config_defaults = {
 }
 
 def hashes2ostruct(object)
-  return case object
+  case object
   when Hash
     object = object.clone
     object.each do |key, value|
@@ -79,11 +80,19 @@ def hashes2ostruct(object)
     object.map! { |i| hashes2ostruct(i) }
   else
     object
-  end
+  end.freeze
 end
 
 config_file_name = "#{Rails.root}/config/config.yml"
 config = File.exist?(config_file_name) ? (YAML.load_file(config_file_name) || {}) : {}
-AppConfig = hashes2ostruct(config_defaults.deep_merge(config))
+OWP.const_set 'CONFIG', hashes2ostruct(config_defaults.deep_merge(config))
 
-ActionController::Base.relative_url_root = AppConfig.base_url
+module OWP
+  class << self
+    def config
+      CONFIG
+    end
+  end
+end
+
+ActionController::Base.relative_url_root = OWP.config.base_url

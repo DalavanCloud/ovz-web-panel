@@ -17,7 +17,7 @@ class VirtualServer < ActiveRecord::Base
   validates_format_of :nameserver, :with => /^((\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})|\s|(([\da-fA-F]{1,4}:?)|(::)){1,8})*$/
   validates_format_of :search_domain, :with => /^([a-z0-9\-\.]+\s*)*$/i
   validates_format_of :host_name, :with => /^[a-z0-9\-\.]*$/i
-  validates_format_of :description, :with => /^[a-z0-9\-\.\s]*$/i if AppConfig.vzctl.save_descriptions
+  validates_format_of :description, :with => /^[a-z0-9\-\.\s]*$/i if OWP.config.vzctl.save_descriptions
 
   validate :validate_ips
 

@@ -99,7 +99,7 @@ class Admin::BackupsController < Admin::Base
   private
 
     def is_allowed
-      if !@current_user.superadmin? && !AppConfig.backups.allow_for_users || !@current_user.can_backup_ve?
+      if !@current_user.superadmin? && !OWP.config.backups.allow_for_users || !@current_user.can_backup_ve?
         redirect_to :controller => 'admin/dashboard'
       end
     end

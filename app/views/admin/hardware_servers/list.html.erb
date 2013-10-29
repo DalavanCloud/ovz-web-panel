@@ -110,7 +110,7 @@ Ext.onReady(function() {
         formEditServer.getForm().reset();
         
         var daemonPortField = formEditServer.getForm().findField('daemon_port');
-        daemonPortField.setValue(<%= AppConfig.hw_daemon.port %>);
+        daemonPortField.setValue(<%= OWP.config.hw_daemon.port %>);
         
         windowEditServer.focus();
       } else {

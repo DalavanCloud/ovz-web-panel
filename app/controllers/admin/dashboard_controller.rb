@@ -13,15 +13,15 @@ class Admin::DashboardController < Admin::Base
   private
 
   def get_updates
-    return if AppConfig.updates.disabled
+    return if OWP.config.updates.disabled
 
     check_date = Rails.cache.fetch('updates_date') { Time.now }
 
     begin
-      latest_update = Rails.cache.fetch('updates', :force => (Time.now - check_date > AppConfig.updates.period)) do
+      latest_update = Rails.cache.fetch('updates', :force => (Time.now - check_date > OWP.config.updates.period)) do
         xml = nil
         Timeout::timeout(3) do
-          xml = Hash.from_xml(Net::HTTP.get_response(URI.parse(AppConfig.updates.url)).body)
+          xml = Hash.from_xml(Net::HTTP.get_response(URI.parse(OWP.config.updates.url)).body)
         end
         logger.info "Updates information was obtained."
         Rails.cache.write('updates_date', Time.now)

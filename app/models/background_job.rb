@@ -5,8 +5,8 @@ class BackgroundJob < ActiveRecord::Base
   FAILED = 2
 
   def self.create(description, params = {})
-    if BackgroundJob.count > AppConfig.tasks.max_records
-      limit_record = BackgroundJob.first( :order => "id DESC", :offset => AppConfig.tasks.max_records)
+    if BackgroundJob.count > OWP.config.tasks.max_records
+      limit_record = BackgroundJob.first( :order => "id DESC", :offset => OWP.config.tasks.max_records)
       BackgroundJob.delete_all(["id <= ?", limit_record.id])
     end
 

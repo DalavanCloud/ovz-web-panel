@@ -800,7 +800,7 @@ Ext.onReady(function() {
     });
   <% end -%>
 
-  <% if AppConfig.backups.allow_for_users and @current_user.can_backup_ve? %>
+  <% if OWP.config.backups.allow_for_users and @current_user.can_backup_ve? %>
     toolsButtons.push({
       text: '<%= tjs('admin.virtual_servers.grid.button.backup') %>',
       iconCls: 'icon-button-backup',

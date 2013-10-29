@@ -28,8 +28,8 @@ class EventLog < ActiveRecord::Base
     record.save
     Rails.logger.add(level, record.t_message(:en))
 
-    if EventLog.count > AppConfig.log.max_records
-      limit_record = EventLog.first(:order => "id DESC", :offset => AppConfig.log.max_records)
+    if EventLog.count > OWP.config.log.max_records
+      limit_record = EventLog.first(:order => "id DESC", :offset => OWP.config.log.max_records)
       EventLog.delete_all(["id <= ?", limit_record.id])
     end
     true

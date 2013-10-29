@@ -32,10 +32,10 @@ class User < ActiveRecord::Base
   end
 
   def auth?(password)
-    if AppConfig.ldap.enabled
+    if OWP.config.ldap.enabled
       require 'net/ldap'
-      ldap = Net::LDAP.new :host => AppConfig.ldap.host
-      ldap.auth AppConfig.ldap.login_pattern.sub('<login>', login), password
+      ldap = Net::LDAP.new :host => OWP.config.ldap.host
+      ldap.auth OWP.config.ldap.login_pattern.sub('<login>', login), password
       ldap.bind || authenticated?(password)
     else
       authenticated?(password)
@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
   alias_method_chain :virtual_servers, :superadmin
 
   def password_required?
-    external_auth = AppConfig.ldap.enabled
+    external_auth = OWP.config.ldap.enabled
     !external_auth && (crypted_password.blank? || !password.blank?)
   end
 
@@ -95,7 +95,7 @@ class User < ActiveRecord::Base
   end
 
   def ip_restriction?(remote_ip)
-    allowed_ips = AppConfig.ip_restriction.admin_ips
+    allowed_ips = OWP.config.ip_restriction.admin_ips
     return false if !superadmin? or allowed_ips.blank?
     allowed_ips.split(/[\s,;]+/).each do |ip|
       return false if remote_ip == ip

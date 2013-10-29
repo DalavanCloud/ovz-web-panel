@@ -84,7 +84,7 @@ class HardwareServer < ActiveRecord::Base
   end
 
   def rpc_client
-    HwDaemonClient.new(host, auth_key, daemon_port, AppConfig.hw_daemon.timeout, use_ssl)
+    HwDaemonClient.new(host, auth_key, daemon_port, OWP.config.hw_daemon.timeout, use_ssl)
   end
 
   def sync_os_templates
@@ -240,7 +240,7 @@ class HardwareServer < ActiveRecord::Base
   end
 
   def ve_descriptions_supported?
-    AppConfig.vzctl.save_descriptions and ((vzctl_version.split('.').map(&:to_i) <=> "3.0.23".split('.').map(&:to_i)) >= 0)
+    OWP.config.vzctl.save_descriptions and ((vzctl_version.split('.').map(&:to_i) <=> "3.0.23".split('.').map(&:to_i)) >= 0)
   end
 
   def reboot

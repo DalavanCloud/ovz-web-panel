@@ -44,7 +44,7 @@ Ext.onReady(function() {
       inputType: 'password',
       validationEvent: false,
       allowBlank: false
-    }, <% if !AppConfig.locale.single %> {
+    }, <% if !OWP.config.locale.single %> {
       fieldLabel: '<%= tjs('login.locale') %>',
       name: 'locale',
       width: 210,

@@ -10,7 +10,7 @@
         <span class="name"><%= h(t('login.password')) %></span>
         <input name="password" type="password" />
       </li>
-      <% if !AppConfig.locale.single %>
+      <% if !OWP.config.locale.single %>
         <li class="select">
           <select name="locale">
             <% @available_locales.each do |locale| %>

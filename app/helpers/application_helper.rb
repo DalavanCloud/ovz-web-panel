@@ -17,7 +17,7 @@ module ApplicationHelper
   end
 
   def external_auth?
-    AppConfig.ldap.enabled
+    OWP.config.ldap.enabled
   end
 
   def local_datetime(datetime)

@@ -1,7 +1,7 @@
 require 'digest/sha1'
 
 class UserMailer < ActionMailer::Base
-  default :from => AppConfig.email.from
+  default :from => OWP.config.email.from
 
   # TODO: tests
 

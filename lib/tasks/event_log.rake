@@ -2,7 +2,7 @@ namespace :event_log do
 
   desc "Clear old events records"
   task :clear_old => :environment do
-    limit_records = AppConfig.log.max_records
+    limit_records = OWP.config.log.max_records
     total_records = EventLog.count
 
     if total_records > limit_records

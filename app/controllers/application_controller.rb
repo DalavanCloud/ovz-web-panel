@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   protected
 
     def set_locale
-      if AppConfig.locale.single
+      if OWP.config.locale.single
         I18n.locale = I18n.default_locale
       elsif params[:locale] && I18n.available_locales.include?(params[:locale].to_sym)
         cookies['locale'] = { :value => params[:locale], :expires => 1.year.from_now }
@@ -32,11 +32,11 @@ class ApplicationController < ActionController::Base
 
     def set_product_name
       @product_name = PRODUCT_NAME
-      @product_name += AppConfig.branding.show_version ? (' ' + PRODUCT_VERSION) : ''
+      @product_name += OWP.config.branding.show_version ? (' ' + PRODUCT_VERSION) : ''
     end
 
     def set_extjs_base
-      @extjs_base_url = AppConfig.extjs.cdn.enabled ? AppConfig.extjs.cdn.base_url : '/ext'
+      @extjs_base_url = OWP.config.extjs.cdn.enabled ? OWP.config.extjs.cdn.base_url : '/ext'
     end
 
     def set_remote_ip
@@ -70,7 +70,7 @@ class ApplicationController < ActionController::Base
     end
 
     def iphone?
-      return false unless AppConfig.mobile.special_ui
+      return false unless OWP.config.mobile.special_ui
       agent = request.env["HTTP_USER_AGENT"]
       agent && !agent[/iPad/] && (agent[/(Mobile\/.+Safari)/] || agent[/Android/])
     end
