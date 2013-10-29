@@ -59,4 +59,24 @@ class Admin::Base < ApplicationController
       Spawnling.new(&block)
     end
 
+    def prepare_virtual_server_edit_form_data
+      if @hardware_server ||= @virtual_server.try(:hardware_server)
+        @os_templates = @hardware_server.os_templates.map do |item| 
+          { :id => item.id, :name => item.name }
+        end
+        @server_templates = @hardware_server.server_templates.map do |item| 
+          { :id => item.id, :name => item.name }
+        end
+      else
+        @os_templates = @server_templates = []
+      end
+      @virtual_servers_owners = User.all.map do |user| 
+        { :id => user.id, :login => user.login }
+      end
+      @virtual_servers_owners << { 
+        :id => 0, 
+        :login => t('admin.virtual_servers.form.create_server.field.no_owner') 
+      } 
+    end
+
 end

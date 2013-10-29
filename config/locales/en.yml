@@ -289,6 +289,8 @@ en:
           memory_usage: "%{percent}%, %{used} of %{total} / %{free} free"
     virtual_servers:
       title: "Virtual Servers"
+      error:
+        no_hardware_servers: "No hardware server(s) configured"
       limits:
         unlimited: "unlimited"
       grid:

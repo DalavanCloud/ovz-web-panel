@@ -11,6 +11,8 @@ class Admin::VirtualServersController < Admin::Base
 
     # ZZZ: HACK! will not work properly with multiple hardware servers
     @hardware_server = virtual_servers.first.try(:hardware_server) || HardwareServer.first
+
+    prepare_virtual_server_edit_form_data
   end
 
   def owner_list_data
@@ -99,6 +101,7 @@ class Admin::VirtualServersController < Admin::Base
     @migration_targets = HardwareServer.all( :conditions => ["id != ?", @virtual_server.hardware_server.id]).map do |server|
       { :id => server.id, :host => server.host }
     end
+    prepare_virtual_server_edit_form_data
   end
 
   def stat_details

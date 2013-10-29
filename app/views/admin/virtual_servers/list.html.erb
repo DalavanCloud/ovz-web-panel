@@ -4,6 +4,7 @@
 <%= javascript_tag do -%>
 Ext.onReady(function() {
 
+  <% if @hardware_server %>
   var store = new Ext.data.JsonStore({
     url: '<%= url_for :controller => 'admin/virtual-servers', :action => 'owner_list_data' %>',
     root: 'data',
@@ -48,6 +49,22 @@ Ext.onReady(function() {
   <%= render :partial => 'grid' %>
   
   Owp.layout.addToCenter(virtualServersGrid);
+
+  <% else # no hardware server(s) configured %>
+    var container = new Ext.Container({
+      layout: 'anchor'
+    });
+  
+    var msgPanel = new Ext.Panel({
+      header: false,
+      cls: 'panel-dashboard',
+      html: '<p><img src="' + BASE_URL + '/assets/exclamation.png" class="icon-inline"/>' +
+        '<%= tjs('admin.virtual_servers.error.no_hardware_servers') %>' + '</p>'
+    });
+    
+    container.add(msgPanel);
+    Owp.layout.addToCenter(container);
+  <% end %>
 
 });
 <% end -%>

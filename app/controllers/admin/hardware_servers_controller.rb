@@ -37,6 +37,8 @@ class Admin::HardwareServersController < Admin::Base
     @up_level = '/admin/hardware-servers/list'
     @virtual_servers_list = get_virtual_servers_map(@hardware_server.virtual_servers)
     @hardware_server_stats = get_usage_stats(@hardware_server)
+
+    prepare_virtual_server_edit_form_data
   end
 
   def sync
