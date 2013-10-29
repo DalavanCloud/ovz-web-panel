@@ -132,13 +132,24 @@
                 windowMyProfile.show();
               }
             }
-          }, <% if @current_user.can_manage_users? %> {
+          }, 
+          <% if @current_user.can_manage_users? %> {
             cls: 'menu-item',
             text: '<%= tjs('admin.menu.general.users') %>',
             href: '<%= url_for :controller => 'admin/users', :action => 'list' %>',
             icon: '<%= image_path 'user.png' %>',
             leaf: true
-          }, <% end -%> <% if OWP.config.requests.enabled && (@current_user.can_create_requests? || @current_user.can_handle_requests?) %> {
+          }, 
+          <% end -%> 
+          <% if @current_user.can_manage_roles? %> {
+            cls: 'menu-item',
+            text: '<%= tjs('admin.menu.general.roles') %>',
+            href: '<%= url_for :controller => 'admin/roles', :action => 'list' %>',
+            icon: '<%= image_path 'group.png' %>',
+            leaf: true
+          }, 
+          <% end -%> 
+          <% if OWP.config.requests.enabled && (@current_user.can_create_requests? || @current_user.can_handle_requests?) %> {
             cls: 'menu-item',
             text: '<%= tjs('admin.menu.general.requests') %>',
             href: '<%= url_for :controller => 'admin/requests', :action => 'list' %>',

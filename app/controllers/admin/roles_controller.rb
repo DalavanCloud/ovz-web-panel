@@ -5,6 +5,7 @@ class Admin::RolesController < Admin::Base
     @up_level = '/admin/users/list'
     @roles_list = roles_list
     @permissions = Permission.all.map(&:name)
+    @permissions.delete_if{ |p| p =~ /_requests$/ } unless OWP.config.requests.enabled
     @limits = { 'limit_backups' => '' }
   end
 

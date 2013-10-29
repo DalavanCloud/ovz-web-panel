@@ -134,6 +134,7 @@ en:
         virtual_servers: "Virtual Servers"
         my_profile: "My Profile"
         users: "Users"
+        roles: "Roles"
         requests: "Requests"
         tasks: "Tasks"
         event_log: "Events Log"
@@ -696,6 +697,7 @@ en:
             view_logs: "Event logs listing"
             manage_logs: "Event logs management"
             manage_users: "Users management"
+            manage_roles: "Roles management"
             select_os_on_reinstall: "OS selection on reinstall"
           limits:
             unlimited: "unlimited"

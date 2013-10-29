@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130223060327) do
+ActiveRecord::Schema.define(:version => 20131029105627) do
 
   create_table "background_jobs", :force => true do |t|
     t.string  "description"
