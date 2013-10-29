@@ -45,7 +45,7 @@ class Admin::RequestsController < Admin::Base
     redirect_to :controller => 'dashboard' and return if !@request or (!@current_user.can_handle_requests? and (@request.user.id != @current_user.id))
 
     comment = Comment.new
-    comment.attributes = params
+    comment.attributes = params.slice *Comment.accessible_attributes
     comment.user = @current_user
     comment.request = @request
 
