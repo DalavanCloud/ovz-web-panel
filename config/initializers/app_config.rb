@@ -40,6 +40,9 @@ config_defaults = {
     'user_doc_url' => 'http://code.google.com/p/ovz-web-panel/wiki/UserGuide',
     'support_url' => 'http://code.google.com/p/ovz-web-panel/wiki/Support',
   },
+  'requests' => {
+    'enabled' => true, # completely enable/disable Requests section in left-side Menu
+  },
   'extjs' => {
     'cdn' => {
       'enabled' => false,
