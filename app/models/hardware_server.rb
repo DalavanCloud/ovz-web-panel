@@ -266,7 +266,7 @@ class HardwareServer < ActiveRecord::Base
 
   def free_ips
     list = []
-    IpPool.all( :conditions => ["hardware_server_id is null OR hardware_server_id = ?", id]).each do |ip_pool|
+    IpPool.where( :hardware_server_id => [nil, id] ).each do |ip_pool|
       list |= ip_pool.free_list
     end
     list
