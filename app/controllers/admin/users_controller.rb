@@ -37,8 +37,7 @@ class Admin::UsersController < Admin::Base
 
   def update
     user = (params[:id].to_i > 0) ? User.find_by_id(params[:id]) : User.new
-    params.slice! :login, :password, :password_confirmation, :contact_name, :email, :role_id
-    user.attributes = params
+    user.attributes = params.slice *User.accessible_attributes
 
     if user.save
       render :json => { :success => true }

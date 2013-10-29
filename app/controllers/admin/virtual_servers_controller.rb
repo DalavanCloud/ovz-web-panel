@@ -47,8 +47,7 @@ class Admin::VirtualServersController < Admin::Base
       params.delete(:identity)
       params.delete(:start_after_creation)
     end
-    params.slice! *VirtualServer.accessible_attributes
-    virtual_server.attributes = params
+    virtual_server.attributes = params.slice *VirtualServer.accessible_attributes
     virtual_server.start_on_boot = params.key?(:start_on_boot)
     virtual_server.daily_backup = params.key?(:daily_backup)
 

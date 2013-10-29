@@ -19,7 +19,7 @@ class Admin::RolesController < Admin::Base
   def update
     role = (params[:id].to_i > 0) ? Role.find_by_id(params[:id]) : Role.new
     is_new = role.new_record?
-    role.attributes = params
+    role.attributes = params.slice *Role.accessible_attributes
 
     role.permissions = []
     params[:permissions] = params[:permissions] || []

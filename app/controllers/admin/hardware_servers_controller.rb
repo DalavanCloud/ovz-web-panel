@@ -16,8 +16,7 @@ class Admin::HardwareServersController < Admin::Base
     @hardware_server = (params[:id].to_i > 0) ? HardwareServer.find_by_id(params[:id]) : HardwareServer.new
     params.delete(:auth_key) if !@hardware_server.new_record? && params[:auth_key].blank?
     pw = params.delete :root_password
-    params.slice! :host, :auth_key, :description, :daemon_port, :use_ssl
-    @hardware_server.attributes = params
+    @hardware_server.attributes = params.slice *HardwareServer.accessible_attributes
     @hardware_server.use_ssl = params.key?(:use_ssl)
 
     if @hardware_server.connect(pw)

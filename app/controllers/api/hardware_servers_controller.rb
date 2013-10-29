@@ -58,7 +58,7 @@ class Api::HardwareServersController < Api::Base
 
     def create_or_update_server
       @hardware_server = HardwareServer.new unless @hardware_server
-      @hardware_server.attributes = params
+      @hardware_server.attributes = params.slice *HardwareServer.accessible_attributes
       render_object_save_result(@hardware_server.connect(params[:root_password]), @hardware_server)
     end
 

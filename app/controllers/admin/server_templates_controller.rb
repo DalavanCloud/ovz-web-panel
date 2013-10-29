@@ -27,7 +27,7 @@ class Admin::ServerTemplatesController < Admin::Base
 
     server_template = (params[:id].to_i > 0) ? ServerTemplate.find_by_id(params[:id]) : ServerTemplate.new
     params[:raw_limits] = ActiveSupport::JSON.decode(params[:raw_limits])
-    server_template.attributes = params
+    server_template.attributes = params.slice *ServerTemplate.accessible_attributes
     server_template.hardware_server = hardware_server
 
     if server_template.save_physically

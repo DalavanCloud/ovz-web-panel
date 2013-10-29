@@ -74,7 +74,7 @@ class Api::VirtualServersController < Api::Base
         @virtual_server = VirtualServer.new(template_params)
       end
 
-      @virtual_server.attributes = params
+      @virtual_server.attributes = params.slice *VirtualServer.accessible_attributes
       render_object_save_result(@virtual_server.save_physically, @virtual_server)
     end
 

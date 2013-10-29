@@ -30,7 +30,7 @@ class Admin::RequestsController < Admin::Base
 
   def create
     request = Request.new
-    request.attributes = params
+    request.attributes = params.slice *Request.accessible_attributes
     request.user = @current_user
 
     if request.save

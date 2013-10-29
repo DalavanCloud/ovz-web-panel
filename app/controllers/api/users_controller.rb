@@ -57,7 +57,7 @@ class Api::UsersController < Api::Base
     def create_or_update_user
       @user = User.new unless @user
       params[:password_confirmation] = params[:password]
-      @user.attributes = params
+      @user.attributes = params.slice *User.accessible_attributes
       render_object_save_result(@user.save, @user)
     end
 

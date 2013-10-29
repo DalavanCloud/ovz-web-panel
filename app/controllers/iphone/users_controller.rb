@@ -14,7 +14,7 @@ class Iphone::UsersController < Iphone::Base
         params.delete(:password_confirmation)
       end
 
-      @current_user.attributes = params
+      @current_user.attributes = params.slice *User.accessible_attributes
 
       if @current_user.errors.empty? && @current_user.save
         redirect_to :controller => 'iphone/dashboard'

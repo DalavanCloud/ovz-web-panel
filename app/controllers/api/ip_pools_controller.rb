@@ -33,7 +33,7 @@ class Api::IpPoolsController < Api::Base
 
     def create_or_update_ip_pool
       @ip_pool = IpPool.new unless @ip_pool
-      @ip_pool.attributes = params
+      @ip_pool.attributes = params.slice *IpPool.accessible_attributes
       render_object_save_result(@ip_pool.save, @ip_pool)
     end
 
