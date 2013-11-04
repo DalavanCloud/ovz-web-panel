@@ -33,11 +33,6 @@ class HardwareServer < ActiveRecord::Base
   end
 
   def install_daemon(root_password, port = 22)
-    if root_password.blank?
-      self.errors.add :root_password, :empty
-      return false
-    end
-
     require 'net/ssh'
     require 'net/sftp'
 

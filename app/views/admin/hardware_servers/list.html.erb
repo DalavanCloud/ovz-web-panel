@@ -30,6 +30,9 @@ Ext.onReady(function() {
         fieldLabel: '<%= tjs('admin.hardware_servers.form.connect_server.field.root_password') %>',
         name: 'root_password',
         inputType: 'password'
+      }, {
+        xtype: 'displayfield',
+        value: '<%=image_tag("information.png") %> <%= tjs('admin.hardware_servers.form.connect_server.password_comment') %>'
       });
     }
     

@@ -253,6 +253,7 @@ en:
           title: "Connect new physical server"
           edit_title: "Change settings of physical server"
           button_connect: "Connect"
+          password_comment: "(password can be blank for publickey-only authentication)"
           field:
             host_name: "Hostname"
             port: "SSH port"
