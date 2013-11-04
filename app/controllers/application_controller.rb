@@ -80,7 +80,7 @@ class ApplicationController < ActionController::Base
     end
 
     def get_stats
-      [
+      r = [
         [
           'user.png',
           t('admin.dashboard.stats_grid.parameter.panel_users'),
@@ -105,12 +105,16 @@ class ApplicationController < ActionController::Base
           'clock_red.png',
           t('admin.dashboard.stats_grid.parameter.virtual_servers_expired'),
           VirtualServer.where("expiration_date < ?", Date.today).count
-        ], [
+        ]
+      ]
+      if OWP.config.requests.enabled
+        r << [
           'help.png',
           t('admin.dashboard.stats_grid.parameter.opened_requests'),
           Request.where(:opened => true).count
         ]
-      ]
+      end
+      r
     end
 
     def servers_list
