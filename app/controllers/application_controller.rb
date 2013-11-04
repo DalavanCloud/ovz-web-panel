@@ -80,6 +80,7 @@ class ApplicationController < ActionController::Base
     end
 
     def get_stats
+      counts = VirtualServer.group(:state).count
       r = [
         [
           'user.png',
@@ -92,15 +93,15 @@ class ApplicationController < ActionController::Base
         ], [
           'server.png',
           t('admin.dashboard.stats_grid.parameter.virtual_servers'),
-          VirtualServer.count
+          counts.values.sum
         ], [
           'run.png',
           t('admin.dashboard.stats_grid.parameter.virtual_servers_running'),
-          VirtualServer.where(:state => 'running').count
+          counts['running'].to_i
         ], [
           'stop.png',
           t('admin.dashboard.stats_grid.parameter.virtual_servers_stopped'),
-          VirtualServer.where(:state => 'stopped').count
+          counts['stopped'].to_i
         ], [
           'clock_red.png',
           t('admin.dashboard.stats_grid.parameter.virtual_servers_expired'),
