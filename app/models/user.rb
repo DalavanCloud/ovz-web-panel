@@ -68,12 +68,17 @@ class User < ActiveRecord::Base
     contact_name.blank? ? login : "#{contact_name} (#{login})"
   end
 
-  def method_missing(method_id, *args)
-    if match = matches_dynamic_perm_check?(method_id)
-      return true if permissions.find_by_name(match.captures.first)
+  def method_missing(method_name, *args)
+    if method_name.to_s =~  /^can_([a-zA-Z]\w*)\?$/
+      has_permission?($1)
     else
       super
     end
+  end
+
+  def has_permission? permission_name
+    @permissions_hash ||= Hash[ *permissions.all.map{ |p| [p.name, true] }.flatten ]
+    @permissions_hash[permission_name]
   end
 
   def enable
@@ -102,11 +107,5 @@ class User < ActiveRecord::Base
     end
     true
   end
-
-  private
-
-    def matches_dynamic_perm_check?(method_id)
-      /^can_([a-zA-Z]\w*)\?$/.match(method_id.to_s)
-    end
 
 end
