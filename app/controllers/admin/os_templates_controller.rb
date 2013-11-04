@@ -67,18 +67,4 @@ class Admin::OsTemplatesController < Admin::Base
     objects_group_operation(OsTemplate, :delete_physically)
   end
 
-  private
-
-    def os_templates_list(hardware_server)
-      os_templates = hardware_server.os_templates
-      os_templates.map! do |item|
-        {
-          :id => item.id,
-          :name => item.name,
-          :size => item.size,
-          :virtual_servers => VirtualServer.count(:conditions => ["hardware_server_id = ? AND orig_os_template = ?", hardware_server.id, item.name]),
-        }
-      end
-    end
-
 end

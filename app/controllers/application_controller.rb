@@ -157,4 +157,28 @@ class ApplicationController < ActionController::Base
       ActionController::Base.relative_url_root.to_s
     end
 
-end
+    def os_templates_list(hardware_server)
+      counts = hardware_server.virtual_servers.group(:orig_os_template).count
+      hardware_server.os_templates.map do |tpl|
+        {
+          :id              => tpl.id,
+          :name            => tpl.name,
+          :size            => tpl.size,
+          :virtual_servers => counts[tpl.name]
+        }
+      end
+    end
+
+    def server_templates_list(hardware_server)
+      counts = hardware_server.virtual_servers.group(:orig_server_template).count
+      hardware_server.server_templates.map do |tpl|
+        {
+          :id              => tpl.id,
+          :name            => tpl.name,
+          :is_default      => tpl.name == hardware_server.default_server_template,
+          :virtual_servers => counts[tpl.name]
+        }
+      end
+    end
+
+end # class ApplicationController
