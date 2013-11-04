@@ -2,10 +2,12 @@ class Admin::SearchController < Admin::Base
   before_filter :superadmin_required
 
   def index
-    search_fields = [ "identity", "description", "host_name", "ip_address", "orig_os_template", "orig_server_template" ]
-    virtual_servers = VirtualServer.all( :conditions => [
-      search_fields.map{ |item| item + " LIKE :query" }.join(' OR '), { :query => "%" + params[:query] + "%" }
-    ])
+    search_fields = %w"identity description host_name ip_address orig_os_template orig_server_template"
+
+    virtual_servers = VirtualServer.where(
+      search_fields.map{ |item| item + " LIKE :query" }.join(' OR '), 
+      { :query => "%" + params[:query] + "%" }
+    )
 
     result = []
 
