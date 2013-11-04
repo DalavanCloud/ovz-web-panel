@@ -25,11 +25,7 @@ class BackgroundJob < ActiveRecord::Base
   end
 
   def self.stop_running
-    # TODO: refactor
-    all( :conditions => ['status = ?', RUNNING]).each do |job|
-      job.status = FAILED
-      job.save
-    end
+    BackgroundJob.where(:status => RUNNING).update_all(:status => FAILED)
   end
 
 end

@@ -96,19 +96,19 @@ class ApplicationController < ActionController::Base
         ], [
           'run.png',
           t('admin.dashboard.stats_grid.parameter.virtual_servers_running'),
-          VirtualServer.count(:conditions => "state = 'running'")
+          VirtualServer.where(:state => 'running').count
         ], [
           'stop.png',
           t('admin.dashboard.stats_grid.parameter.virtual_servers_stopped'),
-          VirtualServer.count(:conditions => "state = 'stopped'")
+          VirtualServer.where(:state => 'stopped').count
         ], [
           'clock_red.png',
           t('admin.dashboard.stats_grid.parameter.virtual_servers_expired'),
-          VirtualServer.count(:conditions => ["expiration_date < ?", Date.today])
+          VirtualServer.where("expiration_date < ?", Date.today).count
         ], [
           'help.png',
           t('admin.dashboard.stats_grid.parameter.opened_requests'),
-          Request.count(:conditions => ["opened = ?", true])
+          Request.where(:opened => true).count
         ]
       ]
     end
