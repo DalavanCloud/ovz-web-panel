@@ -16,10 +16,11 @@ class Admin::HardwareServersController < Admin::Base
     @hardware_server = (params[:id].to_i > 0) ? HardwareServer.find_by_id(params[:id]) : HardwareServer.new
     params.delete(:auth_key) if !@hardware_server.new_record? && params[:auth_key].blank?
     pw = params.delete :root_password
+    port = params.delete :port
     @hardware_server.attributes = params.slice *HardwareServer.accessible_attributes
     @hardware_server.use_ssl = params.key?(:use_ssl)
 
-    if @hardware_server.connect(pw)
+    if @hardware_server.connect(pw, port)
       render :json => { :success => true }
     else
       render :json => { :success => false, :form_errors => @hardware_server.errors }

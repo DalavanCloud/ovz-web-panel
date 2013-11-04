@@ -254,7 +254,8 @@ en:
           edit_title: "Change settings of physical server"
           button_connect: "Connect"
           field:
-            host_name: "Host name"
+            host_name: "Hostname"
+            port: "SSH port"
             auth_key: "Auth key"
             description: "Description"
             daemon_port: "Service port"

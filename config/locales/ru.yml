@@ -255,6 +255,7 @@ ru:
           button_connect: "Подключить"
           field:
             host_name: "Имя хоста"
+            port: "SSH порт"
             auth_key: "Ключ авторизации"
             description: "Описание"
             daemon_port: "Порт сервиса"

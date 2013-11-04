@@ -18,6 +18,15 @@ Ext.onReady(function() {
     
     if ('add' == mode) {
       fields.push({
+        fieldLabel: '<%= tjs('admin.hardware_servers.form.connect_server.field.port') %>',
+        name: 'port',
+        maskRe:/[0-9]/i,
+        minLength: 1,
+        maxLength: 5,
+        allowBlank: false,
+        value: '22',
+        width: '4em'
+      }, {
         fieldLabel: '<%= tjs('admin.hardware_servers.form.connect_server.field.root_password') %>',
         name: 'root_password',
         inputType: 'password'

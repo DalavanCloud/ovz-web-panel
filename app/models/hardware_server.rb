@@ -8,7 +8,9 @@ class HardwareServer < ActiveRecord::Base
   has_many :server_templates, :dependent => :destroy
   has_many :virtual_servers, :dependent => :destroy
 
-  def connect(root_password = '')
+  attr_accessor :root_password # for error messages from self.errors.add()
+
+  def connect(root_password = '', port = 22)
     if !auth_key.blank?
       begin
         if !rpc_client.ping
@@ -21,7 +23,7 @@ class HardwareServer < ActiveRecord::Base
       end
     else
       self.auth_key = generate_id
-      return false if !install_daemon(root_password)
+      return false if !install_daemon(root_password, port)
     end
 
     result = save
@@ -30,7 +32,7 @@ class HardwareServer < ActiveRecord::Base
     result
   end
 
-  def install_daemon(root_password)
+  def install_daemon(root_password, port = 22)
     if root_password.blank?
       self.errors.add :root_password, :empty
       return false
@@ -40,7 +42,15 @@ class HardwareServer < ActiveRecord::Base
     require 'net/sftp'
 
     begin
-      Net::SSH.start(host, 'root', :password => root_password, :config => false, :user_known_hosts_file => [], :keys => []) do |ssh|
+      port = port.to_i
+      port = 22 unless (1..65535).include?(port)
+      Net::SSH.start(host, 'root', 
+        :password => root_password, 
+        :config   => false, 
+        :keys     => [],
+        :port     => port,
+        :user_known_hosts_file => []
+      ) do |ssh|
         ssh.sftp.connect do |sftp|
           if !sftp_file_readable(sftp, '/proc/vz/version')
             self.errors.add :host, :openvz_not_found
