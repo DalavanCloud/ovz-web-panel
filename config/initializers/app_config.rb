@@ -67,11 +67,16 @@ config_defaults = {
   },
   'mobile' => {
     'special_ui' => true,
+  },
+  'virtual_servers' => {
+    # any IP addresses are allowed if this option is set to FALSE
+    # or if there's no IP pools defined
+    'allow_ips_only_from_pools' => true,
   }
 }
 
 def hashes2ostruct(object)
-  case object
+  r = case object
   when Hash
     object = object.clone
     object.each do |key, value|
@@ -79,11 +84,12 @@ def hashes2ostruct(object)
     end
     OpenStruct.new(object)
   when Array
-    object = object.clone
-    object.map! { |i| hashes2ostruct(i) }
+    object.map{ |x| hashes2ostruct(x) }
   else
     object
-  end.freeze
+  end
+  r.freeze unless Rails.env.test?
+  r
 end
 
 config_file_name = "#{Rails.root}/config/config.yml"

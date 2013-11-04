@@ -23,6 +23,10 @@ class VirtualServer < ActiveRecord::Base
 
   scope :daily_backed_up, :conditions => { :daily_backup => true }
 
+  # some syntax sugar
+  def ip; ip_address; end
+  def ip= x; self.ip_address=x; end
+
   def self.ip_addresses
     result = []
     VirtualServer.all.each do |virtual_server|
@@ -338,7 +342,10 @@ class VirtualServer < ActiveRecord::Base
         return
       end
 
-      if !old_ips.include?(ip) and !hardware_server.free_ips.include?(ip)
+      if( OWP.config.virtual_servers.allow_ips_only_from_pools &&
+        !old_ips.include?(ip) && 
+        !hardware_server.free_ips.include?(ip)
+      )
         msg = I18n.t('activerecord.errors.models.virtual_server.attributes.ip_address.not_found_in_pool')
         errors.add(:ip_address, msg)
         return
