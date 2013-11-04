@@ -26,3 +26,5 @@ gem 'thin'
 group :development, :test do
   gem 'rspec-rails', '~> 2.14'
 end
+
+gem 'quiet_assets', :group => :development
