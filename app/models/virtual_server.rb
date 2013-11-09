@@ -4,7 +4,9 @@ class VirtualServer < ActiveRecord::Base
     :nameserver, :search_domain, :diskspace, :memory, :password_confirmation,
     :user_id, :orig_server_template, :description, :cpu_units, :cpus, :cpu_limit,
     :expiration_date, :vswap, :daily_backup
+
   attr_accessor :password, :password_confirmation, :start_after_creation
+
   belongs_to :hardware_server
   belongs_to :user
   has_many :backups, :dependent => :destroy
@@ -13,6 +15,16 @@ class VirtualServer < ActiveRecord::Base
   validates_format_of :ip_address, :with => /^(((\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(\/\d+)?|\s|(([\da-fA-F]{1,4}:?)|(::)){1,8})*|auto)$/
   validates_uniqueness_of :ip_address, :allow_blank => true
   validates_uniqueness_of :identity, :scope => :hardware_server_id
+
+  # not very DRY, but works & makes tests simpler
+  validates :identity, :numericality => {
+     :greater_than => 100, :only_integer => true
+  }, :if => Proc.new{ OWP.config.virtual_servers.respect_reserved_ctid }
+
+  validates :identity, :numericality => {
+     :greater_than => 0, :only_integer => true
+  }, :if => Proc.new{ !OWP.config.virtual_servers.respect_reserved_ctid }
+
   validates_confirmation_of :password
   validates_format_of :nameserver, :with => /^((\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})|\s|(([\da-fA-F]{1,4}:?)|(::)){1,8})*$/
   validates_format_of :search_domain, :with => /^([a-z0-9\-\.]+\s*)*$/i

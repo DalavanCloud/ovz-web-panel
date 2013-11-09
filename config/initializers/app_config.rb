@@ -72,6 +72,9 @@ config_defaults = {
     # any IP addresses are allowed if this option is set to FALSE
     # or if there's no IP pools defined
     'allow_ips_only_from_pools' => true,
+
+    # forbids usage of CTID <= 100 which are "reserved for OpenVZ internal purposes"
+    'respect_reserved_ctid' => true,
   }
 }
 
