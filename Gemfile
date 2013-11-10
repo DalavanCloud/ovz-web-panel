@@ -21,7 +21,7 @@ gem 'spawnling',    '~> 2.1.1'
 #  end
 #end
 
-gem 'thin'
+gem 'thin', '~> 1.6.1'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14'
