@@ -28,3 +28,7 @@ group :development, :test do
 end
 
 gem 'quiet_assets', :group => :development
+
+gem 'uglifier'
+gem 'execjs'
+gem 'therubyracer'
