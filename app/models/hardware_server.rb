@@ -93,20 +93,24 @@ class HardwareServer < ActiveRecord::Base
   end
 
   def sync_os_templates
-    os_templates_on_server = rpc_client.exec('ls', "--block-size=M -s #{self.templates_dir}/cache")['output'].split("\n")
-    # remove totals line
-    os_templates_on_server.shift
+    h = {}
+    rpc_client.exec('ls', "--block-size=M -s #{self.templates_dir}/cache")['output'].
+      strip.split("\n")[1..-1]. # skip totals line
+      each do |line|
+        size, template_name = line.split
+        template_name.sub!(/\.tar\.(gz|bz2|xz)/, '')
+        h[template_name] = size
+      end
 
-    os_templates_list = os_templates_on_server.collect { |item| item.split[1] }
+    # now 'h' contains map of template_name -> template_size
 
+    # destroy local records for templates that are not exists anymore
     os_templates.each do |template|
-      template.destroy unless os_templates_list.include?(template.name + '.tar.gz')
+      template.destroy unless h[template.name]
     end
 
-    os_templates_on_server.each do |template_record|
-      size, template_name = template_record.split
-      template_name.sub!(/\.tar\.gz/, '')
-
+    # create new templates, if any
+    h.each do |template_name, size|
       os_template = OsTemplate.find_or_create_by_name_and_hardware_server_id(template_name, self.id)
       os_template.size = size.to_i
       os_template.save
