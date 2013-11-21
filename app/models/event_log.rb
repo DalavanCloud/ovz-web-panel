@@ -24,7 +24,7 @@ class EventLog < ActiveRecord::Base
   end
 
   def self.log(message, params = {}, level = DEBUG)
-    record = self.new(:message => message, :ip_address => @@remote_ip, :level => level, :params => params.blank? ? '' : Marshal.safe_dump(params))
+    record = self.new(:message => message, :ip_address => @@remote_ip, :level => level, :params => params.nil_or_empty? ? '' : Marshal.safe_dump(params))
     record.save
     Rails.logger.add(level, record.t_message(:en))
 
@@ -40,13 +40,13 @@ class EventLog < ActiveRecord::Base
   end
 
   def t_message(locale = I18n.locale)
-    params = self.params.blank? ? {} : Marshal.safe_load(self.params)
+    params = self.params.nil_or_empty? ? {} : Marshal.safe_load(self.params)
     params[:locale] = locale
     I18n.t("admin.events." + self.message, params)
   end
 
   def html_message
-    params = self.params.blank? ? {} : Marshal.safe_load(self.params)
+    params = self.params.nil_or_empty? ? {} : Marshal.safe_load(self.params)
     params.each do |key, item|
       item = CGI.escapeHTML(item.to_s)
       item = "<b>#{item}</b>" if item !~ /\s/
